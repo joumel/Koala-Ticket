@@ -65,5 +65,43 @@
             </div>
         </div>
     </header>
+    <section class="ticket">
+
+        <!-- boite blanche avec la liste des tickets -->
+        <div class="opened">
+            <h1>Tickets ouverts</h1>
+
+            <table class="test">
+                <thead>
+                    <tr class="opened_title">
+                        <td class="start_ticket">Dernière réponse</td>
+                        <td>Sujet</td>
+                        <td>Création</td>
+                        <td>Numéro</td>
+                        <td class="end_ticket">Etat du ticket</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="start_ticket"><img src="images/user.jpg" alt="" class="ticket_img"><p>Lucas <br> Le 10/10/2020</p></td>
+                        <td>Impossible d'accéder à mon espace client</td>
+                        <td>Le 10/10/2020</td>
+                        <td>#234423</td>
+                        <td class="end_ticket"><a href="" class="primary_btn_success">Répondu</a></td>
+                        <tr style="height: 10px; background-color: transparent;"></tr>
+                    </tr>
+                    <tr>
+                        <td class="start_ticket"><img src="images/user.jpg" alt="" class="ticket_img"><p>Lucas <br> Le 10/10/2020</p></td>
+                        <td>Impossible d'accéder à mon espace client</td>
+                        <td>Le 10/10/2020</td>
+                        <td>#234423</td>
+                        <td class="end_ticket"><a href="" class="primary_btn_success">Répondu</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- boite blanche avec la liste des tickets -->
+        
+    </section>
 </body>
 </html>
