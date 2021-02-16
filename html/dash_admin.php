@@ -1,120 +1,121 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
-    <title>Page type</title>
+    <link rel="stylesheet" href="css/dashboardadmin.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet"> 
+    <title>Koala Ticket</title>
 </head>
 <body>
-
-    <header>
-        <!--Barre navigation quand connecté-->
-        <nav>
-            <img src="imgs/koala-1400413-1185985.png" alt="">
-            <a href="#" src="" alt="pic_koala"></a>
-            <p>Questions fréquente</p>
-            <P>Nom utilisateur</P>
-            <a href="#">Compte Client</a>
-            <a href="#" src="" alt="pic_profil"></a>
-        </nav>
-
-        <!--Partie bloc info-->
-        <div class="blocheader">
-            <div class="allblock">
-                <h3>Title</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis dolores laudantium natus excepturi placeat sed dolorem vel cumque facilis. Illum!</p>
-                <div class="dateandarticle">
-                    <p>La date</p>
-                    <a href="#">Voir l'article</a>
-                </div>
-
-                <h3>Title</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis dolores laudantium natus excepturi placeat sed dolorem vel cumque facilis. Illum!</p>
-                <div class="dateandarticle">
-                    <p>La date</p>
-                    <a href="#">Voir l'article</a>
-                </div>
-
-                <h3>Title</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis dolores laudantium natus excepturi placeat sed dolorem vel cumque facilis. Illum!</p>
-                <div class="dateandarticle">
-                    <p>La date</p>
-                    <a href="#">Voir l'article</a>
-                </div>
-
-                <h3>Title</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis dolores laudantium natus excepturi placeat sed dolorem vel cumque facilis. Illum!</p>
-                <div class="dateandarticle">
-                    <p>La date</p>
-                    <a href="#">Voir l'article</a>
+    <!-- Affichage  de la navigation est des articles -->
+    <header class="header">
+        <div class="menu">
+            <div class="logo">
+                <img src="images/koala.png" alt="Logo du site">
+                <div class="line_vertical"></div>
+                <a href="">Questions fréquentes</a>
+            </div>
+            <div class="user">
+                <div class="user_box">
+                    <div class="user_info">
+                        <p class="user_name">Sébastien</p>
+                        <p class="user_account">Compte client</p>
+                    </div>
+                    <div class="user_picture">
+                        <img src="images/user.jpg" alt="">
+                    </div>
                 </div>
             </div>
         </div>
-
-
-        
+        <!-- Affichage des articles -->
+        <div class="line_horizontal"></div>
     </header>
-    
-    <section>
-
-        <div class="currently">
-            <h2>Actuellement</h2>
-            <p>X tickets ouverts</p>
-            <p>Ouvrir une demande</p>
-        </div>
-
-        <div class="openticket">
-            <h2>Tickets ouverts</h2>
-            <div class="ticketinfo">
-                <ul>
-                    <li>Dernière réponse</li>
-                    <li>Sujet</li>
-                    <li>Création</li>
-                    <li>Numéro</li>
-                    <li>Etat du ticket</li>
-                </ul>
+    <section class="statut_top">
+        <div class="statut">
+            <div class="statut_text">
+                <p>Vous avez actuellement</p>
+                <p>7 tickets ouverts</p>
             </div>
-            <div class="ticketgrey">
-                <div class="answeranddate" >
-                    <p>Réponse de XXXX</p>
-                    <p>Le telle date</p>
-                </div>
-                <p>impossible d'accéder a mon compte client</p>
-                <p>Telle date</p>
-                <p>#212251</p>
-                <div class="answered">
-                    <p>Répondu</p>
-                </div>
+            <div class="statut_btn">
+                <a href="" class="primary_btn_success grey">Ouvrir une demande</a>
             </div>
         </div>
+    </section>
+    <section class="ticket">
 
-        <div class="closeticket">
-            <h2>Tickets ouverts</h2>
-            <div class="ticketinfo">
-                <ul>
-                    <li>Dernière réponse</li>
-                    <li>Sujet</li>
-                    <li>Création</li>
-                    <li>Numéro</li>
-                    <li>Etat du ticket</li>
-                </ul>
-            </div>
-            <div class="ticketgrey">
-                <div class="answeranddate" >
-                    <p>Réponse de XXXX</p>
-                    <p>Le telle date</p>
-                </div>
-                <p>impossible d'accéder a mon compte client</p>
-                <p>Telle date</p>
-                <p>#212251</p>
-                <div class="answered">
-                    <p>Répondu</p>
-                </div>
-            </div>
+        <!-- boite blanche avec la liste des tickets -->
+        <div class="opened">
+            <h1>Tickets ouverts</h1>
+
+            <table class="test">
+                <thead>
+                    <tr class="opened_title">
+                        <td class="start_ticket">Dernière réponse</td>
+                        <td>Sujet</td>
+                        <td>Création</td>
+                        <td>Numéro</td>
+                        <td class="end_ticket">Etat du ticket</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="start_ticket"><img src="images/user.jpg" alt="" class="ticket_img"><p>Lucas <br> Le 10/10/2020</p></td>
+                        <td>Impossible d'accéder à mon espace client</td>
+                        <td>Le 10/10/2020</td>
+                        <td>#234423</td>
+                        <td class="end_ticket"><a href="" class="primary_btn_success">Répondu</a></td>
+                        <tr style="height: 10px; background-color: transparent;"></tr>
+                    </tr>
+                    <tr>
+                        <td class="start_ticket"><img src="images/user.jpg" alt="" class="ticket_img"><p>Lucas <br> Le 10/10/2020</p></td>
+                        <td>Impossible d'accéder à mon espace client</td>
+                        <td>Le 10/10/2020</td>
+                        <td>#234423</td>
+                        <td class="end_ticket"><a href="" class="primary_btn_success">Répondu</a></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
+        <!-- boite blanche avec la liste des tickets -->
 
+        <!-- boite blanche avec la liste des tickets -->
+        <div class="opened">
+            <h1>Tickets fermé</h1>
+
+            <table class="test">
+                <thead>
+                    <tr class="opened_title">
+                        <td class="start_ticket">Dernière réponse</td>
+                        <td>Sujet</td>
+                        <td>Création</td>
+                        <td>Numéro</td>
+                        <td class="end_ticket">Etat du ticket</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="start_ticket"><img src="images/user.jpg" alt="" class="ticket_img"><p>Lucas <br> Le 10/10/2020</p></td>
+                        <td>Impossible d'accéder à mon espace client</td>
+                        <td>Le 10/10/2020</td>
+                        <td>#234423</td>
+                        <td class="end_ticket"><a href="" class="primary_btn_close">Fermé</a></td>
+                        <tr style="height: 10px; background-color: transparent;"></tr>
+                    </tr>
+                    <tr>
+                        <td class="start_ticket"><img src="images/user.jpg" alt="" class="ticket_img"><p>Lucas <br> Le 10/10/2020</p></td>
+                        <td>Impossible d'accéder à mon espace client</td>
+                        <td>Le 10/10/2020</td>
+                        <td>#234423</td>
+                        <td class="end_ticket"><a href="" class="primary_btn_close">Fermé</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- boite blanche avec la liste des tickets -->
+        
     </section>
 </body>
 </html>
