@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/dashboardadmin.css">
+    <link rel="stylesheet" href="css/master.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet"> 
     <title>Koala Ticket</title>
@@ -31,11 +31,11 @@
             </div>
         </div>
         <!-- Affichage des articles -->
-        <div class="line_horizontal"></div>
+        <div class="line_horizontal margin_line "></div>
     </header>
     <section class="statut_top">
         <div class="statut">
-            <div class="statut_text">
+            <div class="statut_text margin_text">
                 <p>Vous avez actuellement</p>
                 <p>7 tickets ouverts</p>
             </div>
@@ -77,6 +77,16 @@
             </table>
         </div>
         <!-- boite blanche avec la liste des tickets -->
+
+        
+        <!-- boite blanche avec la liste des tickets (version mobile)-->
+        <div class="opened_mobile">
+            <h1>Tickets ouverts</h1>
+
+            <div class="ticket_box"></div>
+        </div>
+        <!-- boite blanche avec la liste des tickets -->
+
 
         <!-- boite blanche avec la liste des tickets -->
         <div class="opened">

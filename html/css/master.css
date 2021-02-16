@@ -63,6 +63,10 @@ body {
     background-color: #00000011;
 }
 
+.margin_line {
+    margin-bottom: 70px;
+}
+
 .user_picture>img {
     width: 50px;
     height: 50px;
@@ -378,5 +382,9 @@ table
 
     .user_account {
         display: none;
+    }
+
+    .margin_text{
+        margin-bottom: 0;
     }
 }
