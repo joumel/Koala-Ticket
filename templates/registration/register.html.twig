@@ -1,21 +1,46 @@
-{% extends 'base.html.twig' %}
+{% set currentRoute = app.request.attributes.get('_route') %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Koala Ticket - Connexion</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('css/master.css') }}">
 
-{% block title %}Register{% endblock %}
+    {# Inclusion des fichiers CSS individuel de la page #}
+    {% block css %}{% endblock %}
+</head>
 
-{% block body %}
+<body class="login">
     {% for flashError in app.flashes('verify_email_error') %}
-        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+        <div class="login_errors" role="alert">{{ flashError }}</div>
     {% endfor %}
 
-    <h1>Register</h1>
+    <form class="login_form" name="registration_form" method="POST">
+        <img src="{{ asset('images/koala.png')}}" class="login_logo">
+        <div class="login_input_full">
+            <i class="fas fa-user"></i>
+            <input type="text" id="registration_form_firstname" name="registration_form[firstname]" required="required" class="login_input" placeholder="Votre prénom">
+        </div>
+        <div class="login_input_full">
+            <i class="fas fa-user"></i>
+            <input type="text" id="registration_form_lastname" name="registration_form[lastname]" required="required" class="login_input" placeholder="Votre nom">
+        </div>
+        <div class="login_input_full">
+            <i class="fas fa-envelope-open"></i>
+            <input type="text" id="registration_form_email" name="registration_form[email]" placeholder="Votre email" class="login_input" maxlength="180">
+        </div>
+        <div class="login_input_full">
+            <i class="fas fa-unlock-alt"></i>
+            <input type="password" id="registration_form_plainPassword" name="registration_form[plainPassword]" class="login_input" placeholder="Votre mot de passe">
+        </div>
+        <div class="checkbox_agree"><label for="registration_form_agreeTerms" class="required">J'accepte les conditions générales </label><input type="checkbox" id="registration_form_agreeTerms" name="registration_form[agreeTerms]" required="required" value="1"></div>
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
-
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
-{% endblock %}
+        <button type="submit" class="login_button">Je m'inscrit</button>
+    <input type="hidden" id="registration_form__token" name="registration_form[_token]" value="yDyQ8G3dcEvFQvXK90XS5nB4n0KdCcwI7x1jq5pvxNU">
+    </form>
+    
+</body>
