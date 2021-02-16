@@ -411,6 +411,10 @@ LOGIN PAGE
     margin-top: 10px;
 }
 
+.m_margin_top {
+    margin-top: 150px;
+}
+
 .login_errors {
     background-color: #ff5252;
     border-radius: 7px;
