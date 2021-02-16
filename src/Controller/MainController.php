@@ -9,12 +9,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class MainController extends AbstractController
 {
     /**
-     * @Route("/home", name="home")
+     * @Route("/", name="main_home")
      */
     public function index(): Response
     {
         return $this->render('main/index.html.twig', [
-            'controller_home' => 'Page d\'accueil',
+            'controller_home' => 'Page d\'acceuil',
         ]);
     }
 
@@ -29,7 +29,7 @@ class MainController extends AbstractController
     }
 
     /**
-     * @Route("/administrateur", name="dash_admin")
+     * @Route("/dashboard/admin", name="dash_admin")
      */
     public function dash_admin(): Response
     {
@@ -39,7 +39,7 @@ class MainController extends AbstractController
     }
 
     /**
-     * @Route("/client", name="dash_client")
+     * @Route("/dashboard", name="dash_client")
      */
     public function dash_client(): Response
     {
@@ -55,26 +55,6 @@ class MainController extends AbstractController
     {
         return $this->render('main/faq.html.twig', [
             'controller_faq' => 'Page faq',
-        ]);
-    }
-
-    /**
-     * @Route("/connexion", name="login")
-     */
-    public function login(): Response
-    {
-        return $this->render('main/login.html.twig', [
-            'controller_login' => 'Page connexion',
-        ]);
-    }
-
-    /**
-     * @Route("/inscription", name="register")
-     */
-    public function register(): Response
-    {
-        return $this->render('main/register.html.twig', [
-            'controller_register' => 'Page inscription',
         ]);
     }
 }
