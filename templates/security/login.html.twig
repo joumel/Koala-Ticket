@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{% block title %}Nouvelle page{% endblock %}</title>
+    <title>Koala Ticket - Connexion</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/master.css') }}">
@@ -14,23 +14,21 @@
     {% block css %}{% endblock %}
 </head>
 
-{% block body %}
-<form method="post">
+<body class="login">
+<form method="post" class="login_form">
+    <img src="{{ asset('images/koala.png')}}" class="login_logo">
     {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        <div class="login_errors">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% endif %}
-
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" required>
+    <div class="login_input_full">
+        <i class="fas fa-user"></i>
+        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="login_input" placeholder="Adresse email" autofocus>
+    </div>
+    <div class="login_input_full">
+        <i class="fas fa-unlock-alt"></i>
+        <input type="password" name="password" id="inputPassword" class="login_input" placeholder="Mot de passe">
+    </div>
 
     <input type="hidden" name="_csrf_token"
            value="{{ csrf_token('authenticate') }}"
@@ -47,8 +45,8 @@
         </div>
     #}
 
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
+    <button class="login_button" type="submit">
+        Connexion
     </button>
 </form>
-{% endblock %}
+</body>
