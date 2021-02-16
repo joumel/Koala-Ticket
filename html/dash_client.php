@@ -78,7 +78,7 @@
     </section>
     <section class="ticket">
 
-        <!-- boite blanche avec la liste des tickets -->
+        <!-- boite blanche avec la liste des tickets (version pc)-->
         <div class="opened">
             <h1>Tickets ouverts</h1>
 
@@ -113,7 +113,28 @@
         </div>
         <!-- boite blanche avec la liste des tickets -->
 
+        <!-- boite blanche avec la liste des tickets (version mobile)-->
+        <div class="opened_mobile">
+            <h1>Tickets ouverts</h1>
+            <div class="ticket_box">
+                <p>Je n'arrive pas à me connecter à mon compte client</p>
+                <p>Dernière réponse le 07/10/2020</p>
+                <a href="" class="primary_btn_success">Répondu</a>
+            </div>
+            <div class="ticket_box">
+                <p>Je n'arrive pas à me connecter à mon compte client</p>
+                <p>Dernière réponse le 07/10/2020</p>
+                <a href="" class="primary_btn_success">Répondu</a>
+            </div>
+            <div class="ticket_box">
+                <p>Je n'arrive pas à me connecter à mon compte client</p>
+                <p>Dernière réponse le 07/10/2020</p>
+                <a href="" class="primary_btn_success">Répondu</a>
+            </div>
+        </div>
         <!-- boite blanche avec la liste des tickets -->
+
+        <!-- boite blanche avec la liste des tickets (Version pc)-->
         <div class="opened">
             <h1>Tickets fermé</h1>
 

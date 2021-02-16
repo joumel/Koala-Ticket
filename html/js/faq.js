@@ -2,7 +2,6 @@ $ (function (){
     $(".visible-pannel img").click(function() {
 
         //Affichage du + ou -
-        console.log(this.src);
         if(this.src.includes('plus')){
             this.src = "images/minus.png";
             $(this).parent().next().slideDown("slow");
