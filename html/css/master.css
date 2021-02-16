@@ -387,4 +387,14 @@ table
     .margin_text{
         margin-bottom: 0;
     }
+
+    .ticket_box {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .ticket_box>p {
+        margin-bottom: 10px;
+    }
 }
