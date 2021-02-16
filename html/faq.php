@@ -6,11 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="css/faq.css">
+    <link rel="stylesheet" href="css/master.css">
 </head>
 <body>
-    <h1 id="title-faq">Foire aux questions</h1>
+    <!-- Affichage  de la navigation est des articles -->
+    <header class="header">
+        <div class="menu">
+            <div class="logo">
+                <img src="images/koala.png" alt="Logo du site">
+                <div class="line_vertical"></div>
+                <a href="">Questions fréquentes</a>
+            </div>
+            <div class="user">
+                <div class="user_box">
+                    <div class="user_info">
+                        <p class="user_name">Sébastien</p>
+                        <p class="user_account">Compte client</p>
+                    </div>
+                    <div class="user_picture">
+                        <img src="images/user.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Affichage des articles -->
+        <div class="line_horizontal"></div>
+    </header>
 
+    <!-- Partie FAQ -->
+    <h1 id="title-faq">Frequently Asked Questions</h1>
+
+    <!-- Container des questions -->
     <div class="container-faq">
         <div class="questions">
             <div class="visible-pannel">

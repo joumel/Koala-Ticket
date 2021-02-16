@@ -341,9 +341,93 @@ table
     background-color: rgba(0, 0, 0, 0.404);
 }
 
+<<<<<<< Updated upstream
 .opened_mobile {
     display: none;
 }
+=======
+/*========================================
+Page FAQ
+========================================*/
+#title-faq{
+    text-align: center;
+    margin: 50px 0 75px 0;
+}
+.container-faq{
+    width: 70%;
+    max-width: 900px;
+    min-width: 700px;
+    height: auto;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.questions{
+    width: 100%;
+    margin: 5px;
+}
+.visible-pannel{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #D3D3D3;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+.toggle-pannel{
+    margin-left: 10px;
+    display: none;
+}
+.visible-pannel h2{
+    margin-left: 10px;
+}
+.toggle-pannel p{
+    line-height: 1.5;
+}
+.img-cross{
+    height: 40px;
+    margin-right: 10px;
+}
+
+/*========================================
+Page Article
+========================================*/
+
+.title-page-article,.link-all-articles,.title-h2-article{
+    text-align: center;
+    display: block;
+    margin-top: 50px;
+}
+.article-page, .comments-article{
+    width: 75%;
+    margin: auto;
+    border: 2px solid #F1F1F1;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.header-page-article{
+    background-color: #D8D8D8;
+    padding: 10px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    margin: 0;
+}
+.body-card-article{
+    margin-left: 10px;
+}
+
+>>>>>>> Stashed changes
 
 @media screen and (max-width: 1200px) {
     
