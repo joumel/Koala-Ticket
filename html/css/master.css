@@ -320,3 +320,24 @@ table
     background-color: rgba(0, 0, 0, 0.404);
 }
 
+
+
+
+/*=================================
+        SECTION LOGIN REGISTER
+==================================*/
+.backgroundForm{
+    background-color: #1ABC9C;
+}
+
+.FormsLogReg{
+    background-color: #ececec;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 30%;
+    left: 42%;
+    border: black solid 1px;
+    border-radius: 7px;
+    padding: 50px;
+}
