@@ -160,8 +160,24 @@ TICKET SECTION (DASHBOARD CLIENT)
     margin: 45px auto;
 }
 
+.opened_mobile {
+    width: 100%;
+    max-width: 1200px;
+    padding: 25px;
+    background-color: white;
+    border-radius: 7px;
+    box-sizing: border-box;
+    margin: 45px auto;
+}
+
 .opened_title {
     border: solid 1px rgba(0, 0, 0, 0.178);
+}
+
+.opened_mobile>h1 {
+    font-weight: 400;
+    font-size: 20px;
+    margin-bottom: 15px;
 }
 
 .opened>h1 {
@@ -179,6 +195,7 @@ TICKET SECTION (DASHBOARD CLIENT)
     display: flex;
     align-items: center;
     justify-content: space-between;
+    box-sizing: border-box;
 }
 
 .ticket_img {
@@ -320,3 +337,46 @@ table
     background-color: rgba(0, 0, 0, 0.404);
 }
 
+@media screen and (max-width: 1200px) {
+    
+    .statut {
+        margin: -40px 15px 0 15px;
+    }
+
+    .header {
+        padding-left: 15px;
+        padding-right: 15px;
+        box-sizing: border-box;
+    }
+
+    .ticket {
+        padding-left: 15px;
+        padding-right: 15px;
+        box-sizing: border-box;
+    }
+
+    .opened {
+        display: none;
+    }
+
+} 
+
+@media screen and (max-width: 900px) {
+
+    .all_articles {
+        flex-wrap: wrap;
+    }
+
+    .statut {
+        text-align: center;
+        flex-direction: column;
+    }
+
+    .statut_text {
+        margin-bottom: 15px;
+    }
+
+    .user_account {
+        display: none;
+    }
+}
