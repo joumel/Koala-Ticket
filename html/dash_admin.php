@@ -39,9 +39,6 @@
                 <p>Vous avez actuellement</p>
                 <p>7 tickets ouverts</p>
             </div>
-            <div class="statut_btn">
-                <a href="" class="primary_btn_success grey">Ouvrir une demande</a>
-            </div>
         </div>
     </section>
     <section class="ticket">
