@@ -1,19 +1,49 @@
+{% set currentRoute = app.request.attributes.get('_route') %}
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
-        {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
-        {% endblock %}
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}Nouvelle page{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('css/master.css') }}">
 
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+    {# Inclusion des fichiers CSS individuel de la page #}
+    {% block css %}{% endblock %}
+</head>
+<body>
+    <header class="header">
+        <div class="menu">
+            <div class="logo">
+                <img src="images/koala.png" alt="Logo du site">
+                <div class="line_vertical"></div>
+                <a href="">Questions fréquentes</a>
+            </div>
+            <div class="user">
+                <div class="user_box">
+                    <div class="user_info">
+                        <p class="user_name">Sébastien</p>
+                        <p class="user_account">Compte client</p>
+                    </div>
+                    <div class="user_picture">
+                        <img src="images/user.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Affichage des articles -->
+        <div class="line_horizontal margin_line "></div>
+    </header>
+
+
+
+    {# Affichage du contenu principal de la page #}
+    {% block body %}{% endblock %}
+    
+    <script src="{{ asset('js/jquery-3.5.1.slim.min.js') }}"></script>
+    {# Inclusion des fichiers JS individuel de la page #}
+    {% block js %}{% endblock %}
+</body>
 </html>
