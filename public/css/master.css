@@ -494,7 +494,7 @@ Page FAQ
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #D3D3D3;
+    background: white;
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -512,8 +512,9 @@ Page FAQ
     line-height: 1.5;
 }
 .img-cross{
-    height: 40px;
+    height: 30px;
     margin-right: 10px;
+    padding: 20px;
 }
 
 /*========================================
