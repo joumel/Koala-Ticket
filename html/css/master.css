@@ -341,18 +341,15 @@ table
     background-color: rgba(0, 0, 0, 0.404);
 }
 
-<<<<<<< HEAD
-
-
-
 /*=================================
         SECTION LOGIN REGISTER
 ==================================*/
-.backgroundForm{
+
+.backgroundForm {
     background-color: #1ABC9C;
 }
 
-.FormsLogReg{
+.FormsLogReg {
     background-color: #ececec;
     display: flex;
     flex-direction: column;
@@ -363,15 +360,16 @@ table
     border-radius: 7px;
     padding: 50px;
 }
-=======
-<<<<<<< Updated upstream
+
+
 .opened_mobile {
     display: none;
 }
-=======
+
 /*========================================
 Page FAQ
 ========================================*/
+
 #title-faq{
     text-align: center;
     margin: 50px 0 75px 0;
@@ -450,7 +448,6 @@ Page Article
     margin-left: 10px;
 }
 
->>>>>>> Stashed changes
 
 @media screen and (max-width: 1200px) {
     
@@ -519,4 +516,3 @@ Page Article
         flex-direction: column;
     }
 }
->>>>>>> origin/master
