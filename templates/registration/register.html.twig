@@ -16,7 +16,7 @@
 
 <body class="login">
     {% for flashError in app.flashes('verify_email_error') %}
-        <div class="login_errors" role="alert">{{ flashError }}</div>
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
 
     <form class="login_form m_margin_top" name="registration_form" method="POST">
@@ -40,7 +40,6 @@
         <div class="checkbox_agree"><label for="registration_form_agreeTerms" class="required">J'accepte les conditions générales </label><input type="checkbox" id="registration_form_agreeTerms" name="registration_form[agreeTerms]" required="required" value="1"></div>
 
         <button type="submit" class="login_button">Je m'inscrit</button>
-    <input type="hidden" id="registration_form__token" name="registration_form[_token]" value="yDyQ8G3dcEvFQvXK90XS5nB4n0KdCcwI7x1jq5pvxNU">
+        {{ form_row(registrationForm._token) }}
     </form>
-    
 </body>
