@@ -37,8 +37,26 @@ class MainController extends AbstractController
      */
     public function dash_admin(): Response
     {
+
+        $ticketRepo = $this->getDoctrine()->getRepository(Ticket::class);
+
+        // Récupération des tickets
+        // $tickets = $ticketRepo->findBy([], [
+        // 'statement' => 'en attente',
+        // 'statement' => 'DESC',
+        // 'creationDate' => 'ASC',
+        // ]);
+
+        $ticketsAnswered = $ticketRepo->findBy(['statement' => 'répondu'], ['updateTime' => 'ASC' ]);
+        $ticketsPending = $ticketRepo->findBy(['statement' => 'en attente'], ['updateTime' => 'ASC' ]);
+
+         dump($ticketsPending);
+
+
         return $this->render('main/dash_admin.html.twig', [
             'controller_dash_admin' => 'Page administrateur',
+            'ticketsAnswered' =>$ticketsAnswered,
+            'ticketsPending' => $ticketsPending
         ]);
     }
 
