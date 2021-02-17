@@ -511,6 +511,12 @@ textarea:focus, input:focus{
     display: none;
 }
 
+.cgu_link {
+    color: #1ABC9C;
+    text-decoration: underline;
+    margin-right: 10px;
+}
+
 /*========================================
 Page FAQ
 ========================================*/

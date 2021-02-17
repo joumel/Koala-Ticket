@@ -43,6 +43,11 @@ class Ticket
      */
     private $updateTime;
 
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $statement;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -104,6 +109,18 @@ class Ticket
     public function setUpdateTime(\DateTimeInterface $updateTime): self
     {
         $this->updateTime = $updateTime;
+
+        return $this;
+    }
+
+    public function getStatement(): ?string
+    {
+        return $this->statement;
+    }
+
+    public function setStatement(string $statement): self
+    {
+        $this->statement = $statement;
 
         return $this;
     }
