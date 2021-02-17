@@ -24,7 +24,7 @@ class RegistrationFormType extends AbstractType
                 // this is read and encoded in the controller
                 'mapped' => false,
                 'attr' => [
-                    'class' => 'login_input_full',
+                    'class' => 'login_input',
                     'placeholder' => 'Votre mot de passe',
                 ],
                 'label' => false,
@@ -43,7 +43,7 @@ class RegistrationFormType extends AbstractType
 
             ->add('firstname', TextType::class, [
                 'attr' => [
-                    'class' => 'login_input_full',
+                    'class' => 'login_input',
                     'placeholder' => 'Votre prénom',
                 ],
                 'label' => false,
@@ -62,7 +62,7 @@ class RegistrationFormType extends AbstractType
 
             ->add('lastname', TextType::class, [
                 'attr' => [
-                    'class' => 'login_input_full',
+                    'class' => 'login_input',
                     'placeholder' => 'Votre nom',
                 ],
                 'label' => false,
@@ -79,7 +79,19 @@ class RegistrationFormType extends AbstractType
                 ],
             ])
 
-            ->add('email')
+            ->add('email', TextType::class, [
+                'attr' => [
+                    'class' => 'login_input',
+                    'placeholder' => 'Votre nom',
+                ],
+                'label' => false,
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Merci de renseigner votre email',
+                    ]),
+                    ],
+            ])
+
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [

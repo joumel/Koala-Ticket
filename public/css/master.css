@@ -349,6 +349,7 @@ LOGIN PAGE
     background-color: #1ABC9C;
     display: flex;
     justify-content: center;
+    flex-direction: column;
 }
 
 .login_form {
@@ -415,6 +416,15 @@ LOGIN PAGE
     margin-top: 150px;
 }
 
+.m_margin_none {
+    margin-top: 20px;
+    padding: 15px 30px;
+}
+
+.login_input_full>div {
+    width: 100%;
+}
+
 .login_errors {
     background-color: #ff5252;
     border-radius: 7px;
@@ -440,6 +450,40 @@ LOGIN PAGE
     border-radius: 7px;
     border: none;
     width: 100%;
+    box-sizing: border-box;
+}
+
+.error_msg>ul {
+    list-style: none;
+}
+
+.error_msg {
+    width: 100%;
+    text-align: center;
+}
+
+.already_account_link {
+    display: flex;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.788);
+    width: 100%;
+    justify-content: center;
+    font-size: 14px;
+    align-items: center;
+}
+
+.already_account_link>i {
+    margin-left: 10px;
+    font-size: 12px;
+}
+
+.error_msg>ul>li {
+    list-style: none;
+    color: white;
+    background-color: #ff5252;
+    border-radius: 7px;
+    padding: 4px 12px;
+    margin-bottom: 10px;
 }
 
 textarea:focus, input:focus{

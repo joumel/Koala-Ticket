@@ -16,30 +16,45 @@
 
 <body class="login">
     {% for flashError in app.flashes('verify_email_error') %}
-        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+        <div class="login_errors" role="alert">{{ flashError }}</div>
     {% endfor %}
 
-    <form class="login_form m_margin_top" name="registration_form" method="POST">
+    <form class="login_form m_margin_top" name="registration_form" method="POST" novalidate="novalidate">
         <img src="{{ asset('images/koala.png')}}" class="login_logo">
-        <div class="login_input_full">
-            <i class="fas fa-user"></i>
-            <input type="text" id="registration_form_firstname" name="registration_form[firstname]" required="required" class="login_input" placeholder="Votre prénom">
+        <div class="error_msg">
+            {{ form_errors(registrationForm.firstname) }}
         </div>
         <div class="login_input_full">
             <i class="fas fa-user"></i>
-            <input type="text" id="registration_form_lastname" name="registration_form[lastname]" required="required" class="login_input" placeholder="Votre nom">
+            {{ form_widget(registrationForm.firstname) }}
+        </div>
+        <div class="error_msg">
+            {{ form_errors(registrationForm.lastname) }}
+        </div>
+        <div class="login_input_full">
+            <i class="fas fa-user"></i>
+            {{ form_widget(registrationForm.lastname) }}
+        </div>
+        <div class="error_msg">
+            {{ form_errors(registrationForm.email) }}
         </div>
         <div class="login_input_full">
             <i class="fas fa-envelope-open"></i>
-            <input type="text" id="registration_form_email" name="registration_form[email]" placeholder="Votre email" class="login_input" maxlength="180">
+            {{ form_widget(registrationForm.email) }}
+        </div>
+        <div class="error_msg">
+            {{ form_errors(registrationForm.plainPassword) }}
         </div>
         <div class="login_input_full">
             <i class="fas fa-unlock-alt"></i>
-            <input type="password" id="registration_form_plainPassword" name="registration_form[plainPassword]" class="login_input" placeholder="Votre mot de passe">
+            {{ form_widget(registrationForm.plainPassword) }}
         </div>
         <div class="checkbox_agree"><label for="registration_form_agreeTerms" class="required">J'accepte les conditions générales </label><input type="checkbox" id="registration_form_agreeTerms" name="registration_form[agreeTerms]" required="required" value="1"></div>
 
-        <button type="submit" class="login_button">Je m'inscrit</button>
+        <button type="submit" class="login_button">Inscription</button>
         {{ form_row(registrationForm._token) }}
     </form>
+    <div class="login_form m_margin_none">
+        <a href="{{ asset('login') }}" class="already_account_link">J'ai déjà un compte <i class="fas fa-arrow-right"></i></a>
+    </div>
 </body>
