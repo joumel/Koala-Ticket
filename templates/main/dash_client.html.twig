@@ -1,37 +1,7 @@
-{% set currentRoute = app.request.attributes.get('_route') %}
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/master.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet"> 
-    <title>Koala Ticket - Client</title>
-</head>
-<body>
-    <!-- Affichage  de la navigation est des articles -->
-    <header class="header">
-        <div class="menu">
-            <div class="logo">
-                <img src="images/koala.png" alt="Logo du site">
-                <div class="line_vertical"></div>
-                <a href="">Questions fréquentes</a>
-            </div>
-            <div class="user">
-                <div class="user_box">
-                    <div class="user_info">
-                        <p class="user_name">Sébastien</p>
-                        <p class="user_account">Compte client</p>
-                    </div>
-                    <div class="user_picture">
-                        <img src="images/user.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Affichage des articles -->
+{% extends 'base.html.twig' %}
+
+{% block articles %}
+<!-- Affichage des articles -->
         <div class="line_horizontal"></div>
         <div class="all_articles">
             <div class="article">
@@ -66,6 +36,12 @@
             </div>
         </div>
     </header>
+{% endblock %}
+
+{% block title %}Administration{% endblock %}
+
+{% block body %}
+
     <section class="statut_top">
         <div class="statut">
             <div class="statut_text">
@@ -252,4 +228,4 @@
         <!-- boite blanche avec la liste des tickets -->
         
     </section>
-</body>
+{% endblock %}
