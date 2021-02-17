@@ -82,7 +82,7 @@ class RegistrationFormType extends AbstractType
             ->add('email', TextType::class, [
                 'attr' => [
                     'class' => 'login_input',
-                    'placeholder' => 'Votre nom',
+                    'placeholder' => 'Votre email',
                 ],
                 'label' => false,
                 'constraints' => [

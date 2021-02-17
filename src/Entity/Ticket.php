@@ -48,6 +48,16 @@ class Ticket
      */
     private $statement;
 
+    /**
+     * @ORM\Column(type="string", length=10)
+     */
+    private $level;
+
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $department;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -121,6 +131,30 @@ class Ticket
     public function setStatement(string $statement): self
     {
         $this->statement = $statement;
+
+        return $this;
+    }
+
+    public function getLevel(): ?string
+    {
+        return $this->level;
+    }
+
+    public function setLevel(string $level): self
+    {
+        $this->level = $level;
+
+        return $this;
+    }
+
+    public function getDepartment(): ?string
+    {
+        return $this->department;
+    }
+
+    public function setDepartment(string $department): self
+    {
+        $this->department = $department;
 
         return $this;
     }
