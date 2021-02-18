@@ -37,7 +37,7 @@ class TicketRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Ticket
+    public function findOneBySomeField(): ?Ticket
     {
         return $this->createQueryBuilder('t')
             ->andWhere('t.exampleField = :val')
@@ -47,4 +47,8 @@ class TicketRepository extends ServiceEntityRepository
         ;
     }
     */
+
+
+
+
 }

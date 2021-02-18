@@ -33,44 +33,43 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="start_ticket"><img src="images/user.jpg" alt="" class="ticket_img"><p>Lucas <br> Le 10/10/2020</p></td>
-                        <td>Impossible d'accéder à mon espace client</td>
-                        <td>Le 10/10/2020</td>
-                        <td>#234423</td>
-                        <td class="end_ticket"><a href="" class="primary_btn_success">Répondu</a></td>
-                        <tr style="height: 10px; background-color: transparent;"></tr>
-                    </tr>
-                    <tr>
-                        <td class="start_ticket"><img src="images/user.jpg" alt="" class="ticket_img"><p>Lucas <br> Le 10/10/2020</p></td>
-                        <td>Impossible d'accéder à mon espace client</td>
-                        <td>Le 10/10/2020</td>
-                        <td>#234423</td>
-                        <td class="end_ticket"><a href="" class="primary_btn_success">Répondu</a></td>
-                        <tr style="height: 10px; background-color: transparent;"></tr>
-                    </tr>
-                    <tr>
-                        <td class="start_ticket"><img src="images/user.jpg" alt="" class="ticket_img"><p>Lucas <br> Le 10/10/2020</p></td>
-                        <td>Impossible d'accéder à mon espace client</td>
-                        <td>Le 10/10/2020</td>
-                        <td>#234423</td>
-                        <td class="end_ticket"><a href="" class="primary_btn_success">Répondu</a></td>
-                        <tr style="height: 10px; background-color: transparent;"></tr>
-                    </tr>
-                    <tr>
-                        <td class="start_ticket"><img src="images/user.jpg" alt="" class="ticket_img"><p>Lucas <br> Le 10/10/2020</p></td>
-                        <td>Impossible d'accéder à mon espace client</td>
-                        <td>Le 10/10/2020</td>
-                        <td>#234423</td>
-                        <td class="end_ticket"><a href="" class="primary_btn_success">Répondu</a></td>
-                        <tr style="height: 10px; background-color: transparent;"></tr>
-                    </tr>
+                    {# Affichage des tickets répondus #}
+                    {% if ticketsAnswered is empty %}
+                        <p>Aucun ticket à afficher</p>
+                    {% else %}
+                        {% for ticketA in ticketsAnswered %}
+                        <tr>
+                            <td class="start_ticket"><img src="{{ asset('images/user.jpg') }}" alt="" class="ticket_img"><p>{{ ticketA.owner.lastname }} {{ ticketA.owner.firstname }}<br>{{ ticketA.updateTime|date('d/m/Y à H\\hi') }}</p></td>
+                            <td>{{ticketA.title}}</td>
+                            <td>{{ ticketA.creationDate|date('d/m/Y à H\\hi') }}</td>
+                            <td>{{ ticketA.id }}</td>
+                            <td class="end_ticket"><a href="" class="primary_btn_success">{{ ticketA.statement }}</a></td>
+                            <tr style="height: 10px; background-color: transparent;"></tr>
+                        </tr>
+                        {% endfor %}
+                    {% endif %}
+
+                    {# Affichage des tickets en attente #}
+                    {% if ticketsPending is empty %}
+                        <p>Aucun ticket à afficher</p>
+                    {% else %}
+                        {% for ticketP in ticketsPending %}
+                        <tr>
+                            <td class="start_ticket"><img src="{{ asset('images/user.jpg') }}" alt="" class="ticket_img"><p>{{ ticketP.owner.lastname }} {{ ticketP.owner.firstname }}<br>{{ ticketP.updateTime|date('d/m/Y à H\\hi') }}</p></td>
+                            <td>{{ticketP.title}}</td>
+                            <td>{{ ticketP.creationDate|date('d/m/Y à H\\hi') }}</td>
+                            <td>{{ ticketP.id }}</td>
+                            <td class="end_ticket"><a href="" class="primary_btn_success">{{ ticketP.statement }}</a></td>
+                            <tr style="height: 10px; background-color: transparent;"></tr>
+                        </tr>
+                        {% endfor %}
+                    {% endif %}
                 </tbody>
             </table>
         </div>
         <!-- boite blanche avec la liste des tickets -->
 
-        
+
         <!-- boite blanche avec la liste des tickets (version mobile)-->
         <div class="opened_mobile">
             <h1>Tickets ouverts</h1>
@@ -134,7 +133,6 @@
             </table>
         </div>
         <!-- boite blanche avec la liste des tickets -->
-        
     </section>
 
 {% endblock %}
