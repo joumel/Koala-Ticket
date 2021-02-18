@@ -40,23 +40,23 @@ class MainController extends AbstractController
 
         $ticketRepo = $this->getDoctrine()->getRepository(Ticket::class);
 
-        // Récupération des tickets
-        // $tickets = $ticketRepo->findBy([], [
-        // 'statement' => 'en attente',
-        // 'statement' => 'DESC',
-        // 'creationDate' => 'ASC',
-        // ]);
 
+        //Récupération des tickets répondus
         $ticketsAnswered = $ticketRepo->findBy(['statement' => 'répondu'], ['updateTime' => 'ASC' ]);
+
+        //Récupération des tickets en attente
         $ticketsPending = $ticketRepo->findBy(['statement' => 'en attente'], ['updateTime' => 'ASC' ]);
 
-         dump($ticketsPending);
+        //Récupération des tickets fermés
+        $ticketsClosed = $ticketRepo->findBy(['statement' => 'fermé'], ['updateTime' => 'ASC' ]);
+
 
 
         return $this->render('main/dash_admin.html.twig', [
             'controller_dash_admin' => 'Page administrateur',
-            'ticketsAnswered' =>$ticketsAnswered,
-            'ticketsPending' => $ticketsPending
+            'ticketsAnswered' => $ticketsAnswered,
+            'ticketsPending' => $ticketsPending,
+            'ticketsClosed' => $ticketsClosed,
         ]);
     }
 
@@ -116,9 +116,6 @@ class MainController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($newTicket);
             $em->flush();
-
-            // Si le formulaire a été envoyé, on dump notre ticket, qui est pré-rempli automatiquement avec les données provenant du formulaire !
-            dump($newTicket);
         }
 
 

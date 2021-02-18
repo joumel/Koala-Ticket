@@ -417,6 +417,6 @@ class __TwigTemplate_3f90486008d53ad565ba7ccaa17b9e285c263f1b45e0a0d40f5e40ea13d
     });
 })();
 </script>
-", "@WebProfiler/Profiler/settings.html.twig", "C:\\laragon\\www\\project\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\settings.html.twig");
+", "@WebProfiler/Profiler/settings.html.twig", "C:\\Users\\Nivas\\Documents\\GitHub\\project\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\settings.html.twig");
     }
 }

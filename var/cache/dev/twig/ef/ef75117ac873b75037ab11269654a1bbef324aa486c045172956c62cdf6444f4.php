@@ -479,6 +479,6 @@ class __TwigTemplate_9c7703b8ed8eba70980dcbe470e92b845d7e2bacbb7f84a91d114ff8434
         </div>
     {% endfor %}
 {% endblock %}
-", "@WebProfiler/Collector/validator.html.twig", "C:\\laragon\\www\\project\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\validator.html.twig");
+", "@WebProfiler/Collector/validator.html.twig", "C:\\Users\\Nivas\\Documents\\GitHub\\project\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\validator.html.twig");
     }
 }

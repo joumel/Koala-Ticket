@@ -203,6 +203,6 @@ class __TwigTemplate_fa0b6ac61ed8c465aa7207aac354715a7fee990e1536f83746d005bde65
 </main>
 
 {% endblock %}
-", "main/article.html.twig", "C:\\laragon\\www\\project\\templates\\main\\article.html.twig");
+", "main/article.html.twig", "C:\\Users\\Nivas\\Documents\\GitHub\\project\\templates\\main\\article.html.twig");
     }
 }

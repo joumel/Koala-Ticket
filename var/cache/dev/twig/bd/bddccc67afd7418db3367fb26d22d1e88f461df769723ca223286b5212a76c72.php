@@ -237,6 +237,6 @@ class __TwigTemplate_11e47964becac5104909d79c9b3d277854a56438c52599ab4d400d0de0e
     </div>
 
 {% endblock %}
-", "main/ticket.html.twig", "C:\\laragon\\www\\project\\templates\\main\\ticket.html.twig");
+", "main/ticket.html.twig", "C:\\Users\\Nivas\\Documents\\GitHub\\project\\templates\\main\\ticket.html.twig");
     }
 }

@@ -119,6 +119,6 @@ class __TwigTemplate_94827024d483475dfa3c25e4eaf30e6bd68939053a48f9c0f0804c48fe2
 {% block body %}
     <h1>Erreur 500: Problème interne au serveur</h1>
 {% endblock %}
-", "@Twig/Exception/error500.html.twig", "C:\\laragon\\www\\project\\templates\\bundles\\TwigBundle\\Exception\\error500.html.twig");
+", "@Twig/Exception/error500.html.twig", "C:\\Users\\Nivas\\Documents\\GitHub\\project\\templates\\bundles\\TwigBundle\\Exception\\error500.html.twig");
     }
 }

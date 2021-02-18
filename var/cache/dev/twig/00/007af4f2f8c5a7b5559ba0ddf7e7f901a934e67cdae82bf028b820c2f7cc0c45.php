@@ -213,6 +213,6 @@ class __TwigTemplate_6de5c41b397ccfca8a3d3eaa8a888ed7362f60cf48d648cb9cc8a0f3147
     <a href=\"{{ asset('register') }}\" class=\"already_account_link\">Je n'ai pas encore de compte <i class=\"fas fa-arrow-right\"></i></a>
 </div>
 </body>
-", "security/login.html.twig", "C:\\laragon\\www\\project\\templates\\security\\login.html.twig");
+", "security/login.html.twig", "C:\\Users\\Nivas\\Documents\\GitHub\\project\\templates\\security\\login.html.twig");
     }
 }

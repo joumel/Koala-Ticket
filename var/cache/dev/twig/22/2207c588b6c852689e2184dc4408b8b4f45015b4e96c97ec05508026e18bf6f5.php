@@ -119,6 +119,6 @@ class __TwigTemplate_e9287115fa844c41a2b17731da628c48dc816eb342d3fb01a78f603606d
 {% block body %}
     <h1>Erreur 504: portail expiré</h1>
 {% endblock %}
-", "@Twig/Exception/error504.html.twig", "C:\\laragon\\www\\project\\templates\\bundles\\TwigBundle\\Exception\\error504.html.twig");
+", "@Twig/Exception/error504.html.twig", "C:\\Users\\Nivas\\Documents\\GitHub\\project\\templates\\bundles\\TwigBundle\\Exception\\error504.html.twig");
     }
 }

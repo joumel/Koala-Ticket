@@ -119,6 +119,6 @@ class __TwigTemplate_3a2df73d0f7587fb326828b83aebb5db2b967fed4b2f635c990b72f19e6
 {% block body %}
     <h1>Erreur 429: Le serveur reçoit trop de requêtes</h1>
 {% endblock %}
-", "@Twig/Exception/error429.html.twig", "C:\\laragon\\www\\project\\templates\\bundles\\TwigBundle\\Exception\\error429.html.twig");
+", "@Twig/Exception/error429.html.twig", "C:\\Users\\Nivas\\Documents\\GitHub\\project\\templates\\bundles\\TwigBundle\\Exception\\error429.html.twig");
     }
 }

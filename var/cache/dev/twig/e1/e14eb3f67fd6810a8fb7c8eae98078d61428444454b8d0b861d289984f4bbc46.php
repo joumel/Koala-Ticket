@@ -119,6 +119,6 @@ class __TwigTemplate_9d7075fa5059ec2c8a62a3b91e27d834729fa2753f1b29c949b84881e90
 {% block body %}
     <h1>Erreur 502: Mauvaise passerelle</h1>
 {% endblock %}
-", "@Twig/Exception/error502.html.twig", "C:\\laragon\\www\\project\\templates\\bundles\\TwigBundle\\Exception\\error502.html.twig");
+", "@Twig/Exception/error502.html.twig", "C:\\Users\\Nivas\\Documents\\GitHub\\project\\templates\\bundles\\TwigBundle\\Exception\\error502.html.twig");
     }
 }

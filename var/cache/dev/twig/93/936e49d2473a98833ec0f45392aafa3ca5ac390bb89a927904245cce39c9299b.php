@@ -131,6 +131,6 @@ class __TwigTemplate_f990a4a773ed8a278acebfe87d215252abaa04bb3ca49466392f5a8c675
 </div>
 
 {% endblock %}
-", "main/index.html.twig", "C:\\laragon\\www\\project\\templates\\main\\index.html.twig");
+", "main/index.html.twig", "C:\\Users\\Nivas\\Documents\\GitHub\\project\\templates\\main\\index.html.twig");
     }
 }

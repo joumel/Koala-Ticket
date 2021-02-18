@@ -587,6 +587,6 @@ class __TwigTemplate_0fedc8a9202f624273f54554745ce75c4b8484f9915ff1db75848ad6bd1
         <!-- boite blanche avec la liste des tickets -->
         
     </section>
-{% endblock %}", "main/dash_client.html.twig", "C:\\laragon\\www\\project\\templates\\main\\dash_client.html.twig");
+{% endblock %}", "main/dash_client.html.twig", "C:\\Users\\Nivas\\Documents\\GitHub\\project\\templates\\main\\dash_client.html.twig");
     }
 }

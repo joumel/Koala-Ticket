@@ -119,6 +119,6 @@ class __TwigTemplate_6d8519399b63b94a2bf61eb150a01f16cc96985e750428fbec5af0bc0ea
 {% block body %}
     <h1>Erreur 404, page introuvable</h1>
 {% endblock %}
-", "@Twig/Exception/error404.html.twig", "C:\\laragon\\www\\project\\templates\\bundles\\TwigBundle\\Exception\\error404.html.twig");
+", "@Twig/Exception/error404.html.twig", "C:\\Users\\Nivas\\Documents\\GitHub\\project\\templates\\bundles\\TwigBundle\\Exception\\error404.html.twig");
     }
 }

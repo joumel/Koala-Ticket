@@ -309,6 +309,6 @@ class __TwigTemplate_a8259683ba749f7eda7303efb476eac46baf1d6d22576573d2b9b1fb461
 
 
 
-", "main/faq.html.twig", "C:\\laragon\\www\\project\\templates\\main\\faq.html.twig");
+", "main/faq.html.twig", "C:\\Users\\Nivas\\Documents\\GitHub\\project\\templates\\main\\faq.html.twig");
     }
 }

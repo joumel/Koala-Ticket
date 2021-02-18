@@ -336,6 +336,6 @@ class __TwigTemplate_143f7bf0387c6ca1929eb569a00d85cbf62512a3cd9c8295239d87f2997
     {# Inclusion des fichiers JS individuel de la page #}
     {% block js %}{% endblock %}
 </body>
-</html>", "base.html.twig", "C:\\laragon\\www\\project\\templates\\base.html.twig");
+</html>", "base.html.twig", "C:\\Users\\Nivas\\Documents\\GitHub\\project\\templates\\base.html.twig");
     }
 }

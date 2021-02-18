@@ -119,6 +119,6 @@ class __TwigTemplate_acd6c9756c57d54e59729807ac2fb7f7e2519581e24fe857b9dc695fa8d
 {% block body %}
     <h1>Erreur 403 : Accès interdit</h1>
 {% endblock %}
-", "@Twig/Exception/error403.html.twig", "C:\\laragon\\www\\project\\templates\\bundles\\TwigBundle\\Exception\\error403.html.twig");
+", "@Twig/Exception/error403.html.twig", "C:\\Users\\Nivas\\Documents\\GitHub\\project\\templates\\bundles\\TwigBundle\\Exception\\error403.html.twig");
     }
 }

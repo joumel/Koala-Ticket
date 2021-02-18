@@ -119,6 +119,6 @@ class __TwigTemplate_cd2f6d21b0d6487a25f318f790e22c60016f05b675266204a45ca66b0bb
 {% block body %}
     <h1>Erreur 401: Autorisation requise</h1>
 {% endblock %}
-", "@Twig/Exception/error401.html.twig", "C:\\laragon\\www\\project\\templates\\bundles\\TwigBundle\\Exception\\error401.html.twig");
+", "@Twig/Exception/error401.html.twig", "C:\\Users\\Nivas\\Documents\\GitHub\\project\\templates\\bundles\\TwigBundle\\Exception\\error401.html.twig");
     }
 }

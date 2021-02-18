@@ -119,6 +119,6 @@ class __TwigTemplate_7e315766c1aa24176d1b45fade5b94d8569f192d29373f67383c6252b77
 {% block body %}
     <h1>Erreur 400: Mauvaise requête</h1>
 {% endblock %}
-", "@Twig/Exception/error400.html.twig", "C:\\laragon\\www\\project\\templates\\bundles\\TwigBundle\\Exception\\error400.html.twig");
+", "@Twig/Exception/error400.html.twig", "C:\\Users\\Nivas\\Documents\\GitHub\\project\\templates\\bundles\\TwigBundle\\Exception\\error400.html.twig");
     }
 }

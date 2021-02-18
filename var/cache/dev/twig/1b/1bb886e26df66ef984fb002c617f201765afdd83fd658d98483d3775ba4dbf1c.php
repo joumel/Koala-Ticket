@@ -59,6 +59,6 @@ class __TwigTemplate_a2d73ce32296e6f8f0405b7d245c88fb5cb065c31a312099071620e2d6f
 
     public function getSourceContext()
     {
-        return new Source("", "php/nightmode.php", "C:\\laragon\\www\\project\\templates\\php\\nightmode.php");
+        return new Source("", "php/nightmode.php", "C:\\Users\\Nivas\\Documents\\GitHub\\project\\templates\\php\\nightmode.php");
     }
 }

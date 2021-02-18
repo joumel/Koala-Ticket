@@ -119,6 +119,6 @@ class __TwigTemplate_e9a90c28be1ba9873dc2332ea7b097478d4521818a37a71169ceb480004
 {% block body %}
     <h1>Erreur 503: Service indisponible</h1>
 {% endblock %}
-", "@Twig/Exception/error503.html.twig", "C:\\laragon\\www\\project\\templates\\bundles\\TwigBundle\\Exception\\error503.html.twig");
+", "@Twig/Exception/error503.html.twig", "C:\\Users\\Nivas\\Documents\\GitHub\\project\\templates\\bundles\\TwigBundle\\Exception\\error503.html.twig");
     }
 }
