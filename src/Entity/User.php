@@ -64,9 +64,21 @@ class User implements UserInterface
      */
     private $tickets;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Conversation::class, mappedBy="staff")
+     */
+    private $chat;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Conversation::class, mappedBy="owner")
+     */
+    private $conv;
+
     public function __construct()
     {
         $this->tickets = new ArrayCollection();
+        $this->chat = new ArrayCollection();
+        $this->conv = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -222,6 +234,66 @@ class User implements UserInterface
             // set the owning side to null (unless already changed)
             if ($ticket->getOwner() === $this) {
                 $ticket->setOwner(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Conversation[]
+     */
+    public function getChat(): Collection
+    {
+        return $this->chat;
+    }
+
+    public function addChat(Conversation $chat): self
+    {
+        if (!$this->chat->contains($chat)) {
+            $this->chat[] = $chat;
+            $chat->setStaff($this);
+        }
+
+        return $this;
+    }
+
+    public function removeChat(Conversation $chat): self
+    {
+        if ($this->chat->removeElement($chat)) {
+            // set the owning side to null (unless already changed)
+            if ($chat->getStaff() === $this) {
+                $chat->setStaff(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Conversation[]
+     */
+    public function getConv(): Collection
+    {
+        return $this->conv;
+    }
+
+    public function addConv(Conversation $conv): self
+    {
+        if (!$this->conv->contains($conv)) {
+            $this->conv[] = $conv;
+            $conv->setOwner($this);
+        }
+
+        return $this;
+    }
+
+    public function removeConv(Conversation $conv): self
+    {
+        if ($this->conv->removeElement($conv)) {
+            // set the owning side to null (unless already changed)
+            if ($conv->getOwner() === $this) {
+                $conv->setOwner(null);
             }
         }
 
