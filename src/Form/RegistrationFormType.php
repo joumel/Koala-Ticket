@@ -12,6 +12,8 @@ use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 
 class RegistrationFormType extends AbstractType
 {
@@ -19,13 +21,19 @@ class RegistrationFormType extends AbstractType
     {
         $builder
 
-            ->add('plainPassword', PasswordType::class, [
-                // instead of being set onto the object directly,
-                // this is read and encoded in the controller
+            ->add('plainPassword', RepeatedType::class, [
+                'type' => PasswordType::class,
                 'mapped' => false,
                 'attr' => [
                     'class' => 'login_input',
                     'placeholder' => 'Votre mot de passe',
+                ],
+                'first_options' => [
+                    'label' => 'Mot de passe',
+                ],
+                'second_options' => [
+                    'label' => 'Confirmation du mot de passe',
+
                 ],
                 'label' => false,
                 'constraints' => [
@@ -91,6 +99,7 @@ class RegistrationFormType extends AbstractType
                     ]),
                     ],
             ])
+
 
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
