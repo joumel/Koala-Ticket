@@ -125,7 +125,7 @@ class __TwigTemplate_11e47964becac5104909d79c9b3d277854a56438c52599ab4d400d0de0e
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 23, $this->source); })()), "level", [], "any", false, false, false, 23), 'widget');
         echo "
                     </div>
-                    <div class=\"login_input_full input_size_ticket\">
+                    <div class=\"login_input_full input_size_ticket margin_left_input\">
                         ";
         // line 26
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 26, $this->source); })()), "department", [], "any", false, false, false, 26), 'widget');
@@ -210,7 +210,7 @@ class __TwigTemplate_11e47964becac5104909d79c9b3d277854a56438c52599ab4d400d0de0e
                     <div class=\"login_input_full input_size_ticket\">
                         {{ form_widget(form.level) }}
                     </div>
-                    <div class=\"login_input_full input_size_ticket\">
+                    <div class=\"login_input_full input_size_ticket margin_left_input\">
                         {{ form_widget(form.department) }}
                         {{ form_widget(form.statement) }}
                     </div>

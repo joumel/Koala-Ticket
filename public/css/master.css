@@ -721,6 +721,10 @@ Ticket page
 .no_top_margin {
     margin-top: 0;
 }
+
+.margin_left_input {
+    margin-left: 10px;
+}
   
 select {
     -webkit-appearance: none;
@@ -887,5 +891,9 @@ Responsive
 
     #ticket_content {
         font-size: 14px;
+    }
+
+    .margin_left_input {
+        margin-left: 0px;
     }
 }
