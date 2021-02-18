@@ -42,13 +42,13 @@ class MainController extends AbstractController
 
 
         //Récupération des tickets répondus
-        $ticketsAnswered = $ticketRepo->findBy(['statement' => 'répondu'], ['updateTime' => 'ASC' ]);
+        $ticketsAnswered = $ticketRepo->findBy(['statement' => 'répondu'], ['level' => 'DESC','updateTime' => 'DESC']);
 
         //Récupération des tickets en attente
-        $ticketsPending = $ticketRepo->findBy(['statement' => 'en attente'], ['updateTime' => 'ASC' ]);
+        $ticketsPending = $ticketRepo->findBy(['statement' => 'en attente'], ['level' => 'DESC','updateTime' => 'DESC']);
 
         //Récupération des tickets fermés
-        $ticketsClosed = $ticketRepo->findBy(['statement' => 'fermé'], ['updateTime' => 'ASC' ]);
+        $ticketsClosed = $ticketRepo->findBy(['statement' => 'fermé'], ['level' => 'DESC','updateTime' => 'DESC']);
 
 
         return $this->render('main/dash_admin.html.twig', [
@@ -73,13 +73,16 @@ class MainController extends AbstractController
         $ticketRepo = $this->getDoctrine()->getRepository(Ticket::class);
 
         //Récupération des tickets répondus du client connecté
-        $ticketsAnsweredClient = $ticketRepo->findby(['owner' => $userId , 'statement' => 'répondu'],['updateTime' => 'ASC' ]);
+        $ticketsAnsweredClient = $ticketRepo->findby(['owner' => $userId , 'statement' => 'répondu'],['level' => 'DESC','updateTime' => 'DESC']);
 
         //Récupération des tickets en attente du client connecté
-        $ticketsPendingClient = $ticketRepo->findby(['owner' => $userId , 'statement' => 'en attente'],['updateTime' => 'ASC' ]);
+        $ticketsPendingClient = $ticketRepo->findby(['owner' => $userId , 'statement' => 'en attente'],['level' => 'DESC','updateTime' => 'DESC']);
 
         //Récupération des tickets fermés du client connecté
-        $ticketsClosedClient = $ticketRepo->findby(['owner' => $userId , 'statement' => 'fermé'],['updateTime' => 'ASC' ]);
+        $ticketsClosedClient = $ticketRepo->findby(['owner' => $userId , 'statement' => 'fermé'],['level' => 'DESC','updateTime' => 'DESC']);
+
+
+        dump($ticketsPendingClient);
 
 
 

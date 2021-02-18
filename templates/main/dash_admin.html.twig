@@ -35,7 +35,6 @@
                 <tbody>
                     {# Affichage des tickets répondus #}
                     {% if ticketsAnswered is empty %}
-                        <p>Aucun ticket à afficher</p>
                     {% else %}
                         {% for ticketA in ticketsAnswered %}
                             <tr class="ticket_night">
@@ -51,7 +50,6 @@
 
                     {# Affichage des tickets en attente #}
                     {% if ticketsPending is empty %}
-                        <p>Aucun ticket à afficher</p>
                     {% else %}
                         {% for ticketP in ticketsPending %}
                             <tr class="ticket_night">
@@ -59,7 +57,7 @@
                                 <td>{{ticketP.title}}</td>
                                 <td>{{ ticketP.creationDate|date('d/m/Y à H\\hi') }}</td>
                                 <td>{{ ticketP.id }}</td>
-                                <td class="end_ticket"><a href="" class="primary_btn_success">{{ ticketP.statement|capitalize }}</a></td>
+                                <td class="end_ticket"><a href="" class="primary_btn_wait">{{ ticketP.statement|capitalize }}</a></td>
                                 <tr style="height: 10px; background-color: transparent;"></tr>
                             </tr>
                         {% endfor %}
@@ -73,7 +71,6 @@
             <h1>Tickets ouverts</h1>
             {# Affichage des tickets répondus #}
             {% if ticketsAnswered is empty %}
-                <p>Aucun ticket à afficher</p>
             {% else %}
                     {% for ticketA in ticketsAnswered %}
                         <div class="ticket_box">
@@ -86,7 +83,6 @@
 
             {# Affichage des tickets en attente #}
             {% if ticketsPending is empty %}
-                <p>Aucun ticket à afficher</p>
             {% else %}
                     {% for ticketP in ticketsPending %}
                         <div class="ticket_box">
@@ -104,7 +100,6 @@
                 <h1>Tickets fermés</h1>
                 {# Affichage des tickets fermés #}
                 {% if ticketsClosed is empty %}
-                <p>Aucun ticket à afficher</p>
             {% else %}
                     {% for ticketC in ticketsClosed %}
                         <div class="ticket_box">
@@ -133,7 +128,6 @@
                 <tbody>
                     {# Affichage des tickets fermés #}
                     {% if ticketsClosed is empty %}
-                        <p>Aucun ticket à afficher</p>
                     {% else %}
                         {% for ticketC in ticketsClosed %}
                             <tr class="ticket_night">

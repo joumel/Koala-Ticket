@@ -348,6 +348,18 @@ tbody:before {
     justify-content: center;
 }
 
+.primary_btn_wait {
+    padding: 12px 25px;
+    border-radius: 7px;
+    background-color: yellow;
+    transition: ease 0.2s;
+    color: white;
+    width: 120px;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+}
+
 .primary_btn_success:hover {
     background-color: #108b73;
 }
