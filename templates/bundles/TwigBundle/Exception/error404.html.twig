@@ -3,5 +3,11 @@
 {% block title %}Erreur 404 : Page Introuvable{% endblock %}
 
 {% block body %}
-    <h1>Erreur 404, page introuvable</h1>
+    <div class="error_400">
+        <div class="error_box">
+            <img src="{{ asset('images/koala.png') }}" alt="Logo du site">
+            <h1>Error 404</h1>
+            <a class="primary_btn_return" href="{{ path('dash_client') }}">Retourner sur le site</a>
+        </div>
+    </div>
 {% endblock %}

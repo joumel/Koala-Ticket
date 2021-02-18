@@ -1,7 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Erreur 500: Provlème interne au serveur{% endblock %}
+{% block title %}Erreur 500{% endblock %}
 
 {% block body %}
-    <h1>Erreur 500: Problème interne au serveur</h1>
+    <div class="error_400">
+        <div class="error_box">
+            <img src="{{ asset('images/koala.png') }}" alt="Logo du site">
+            <h1>Error 500</h1>
+            <a class="primary_btn_return" href="{{ path('dash_client') }}">Retourner sur le site</a>
+        </div>
+    </div>
 {% endblock %}

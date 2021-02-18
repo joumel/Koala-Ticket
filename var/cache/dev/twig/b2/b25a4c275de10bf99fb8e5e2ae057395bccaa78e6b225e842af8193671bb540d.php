@@ -85,7 +85,19 @@ class __TwigTemplate_6d8519399b63b94a2bf61eb150a01f16cc96985e750428fbec5af0bc0ea
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "    <h1>Erreur 404, page introuvable</h1>
+        echo "    <div class=\"error_400\">
+        <div class=\"error_box\">
+            <img src=\"";
+        // line 8
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/koala.png"), "html", null, true);
+        echo "\" alt=\"Logo du site\">
+            <h1>Error 404</h1>
+            <a class=\"primary_btn_return\" href=\"";
+        // line 10
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("dash_client");
+        echo "\">Retourner sur le site</a>
+        </div>
+    </div>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -107,7 +119,7 @@ class __TwigTemplate_6d8519399b63b94a2bf61eb150a01f16cc96985e750428fbec5af0bc0ea
 
     public function getDebugInfo()
     {
-        return array (  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  97 => 10,  92 => 8,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -117,8 +129,19 @@ class __TwigTemplate_6d8519399b63b94a2bf61eb150a01f16cc96985e750428fbec5af0bc0ea
 {% block title %}Erreur 404 : Page Introuvable{% endblock %}
 
 {% block body %}
+<<<<<<< HEAD
+    <div class=\"error_400\">
+        <div class=\"error_box\">
+            <img src=\"{{ asset('images/koala.png') }}\" alt=\"Logo du site\">
+            <h1>Error 404</h1>
+            <a class=\"primary_btn_return\" href=\"{{ path('dash_client') }}\">Retourner sur le site</a>
+        </div>
+    </div>
+{% endblock %}", "@Twig/Exception/error404.html.twig", "C:\\laragon\\www\\project\\templates\\bundles\\TwigBundle\\Exception\\error404.html.twig");
+=======
     <h1>Erreur 404, page introuvable</h1>
 {% endblock %}
 ", "@Twig/Exception/error404.html.twig", "C:\\Users\\Nivas\\Documents\\GitHub\\project\\templates\\bundles\\TwigBundle\\Exception\\error404.html.twig");
+>>>>>>> b18978eb55effecfdadd5bf45b2b1536796f5f19
     }
 }

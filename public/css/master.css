@@ -798,6 +798,54 @@ Night Mode
 }
 
 /*========================================
+ERROR PAGE
+========================================*/
+
+.error_400 {
+    background-color: #3AB397;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.error_box {
+    background-color: #fff;
+    border-radius: 7px;
+    padding: 25px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    height: 300px;
+}
+
+.error_box>img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-bottom: 30px;
+}
+
+.primary_btn_return {
+    padding: 12px 25px;
+    border-radius: 7px;
+    background-color: var(--background-color);
+    transition: ease 0.2s;
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+/*========================================
 Responsive
 ========================================*/
 

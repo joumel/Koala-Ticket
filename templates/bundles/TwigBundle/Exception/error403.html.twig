@@ -1,7 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Erreur 403 : Accès interdit{% endblock %}
+{% block title %}Erreur 403{% endblock %}
 
 {% block body %}
-    <h1>Erreur 403 : Accès interdit</h1>
+    <div class="error_400">
+        <div class="error_box">
+            <img src="{{ asset('images/koala.png') }}" alt="Logo du site">
+            <h1>Error 403</h1>
+            <a class="primary_btn_return" href="{{ path('dash_client') }}">Retourner sur le site</a>
+        </div>
+    </div>
 {% endblock %}
