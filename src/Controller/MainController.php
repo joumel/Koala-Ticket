@@ -118,7 +118,8 @@ class MainController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
-
+             // defatu time zone
+             date_default_timezone_set('Europe/Paris');
              // Set creation_date
              $newTicket->setCreationDate(
                 new DateTime()
