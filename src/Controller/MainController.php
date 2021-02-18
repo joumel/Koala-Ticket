@@ -51,7 +51,6 @@ class MainController extends AbstractController
         $ticketsClosed = $ticketRepo->findBy(['statement' => 'fermé'], ['updateTime' => 'ASC' ]);
 
 
-
         return $this->render('main/dash_admin.html.twig', [
             'controller_dash_admin' => 'Page administrateur',
             'ticketsAnswered' => $ticketsAnswered,
@@ -65,8 +64,31 @@ class MainController extends AbstractController
      */
     public function dash_client(): Response
     {
+
+
+        //Récupération de l'id de l'utilisateur connecté
+        $userId = $this->getUser()->getId();
+
+        //Doctrine repository
+        $ticketRepo = $this->getDoctrine()->getRepository(Ticket::class);
+
+        //Récupération des tickets répondus du client connecté
+        $ticketsAnsweredClient = $ticketRepo->findby(['owner' => $userId , 'statement' => 'répondu'],['updateTime' => 'ASC' ]);
+
+        //Récupération des tickets en attente du client connecté
+        $ticketsPendingClient = $ticketRepo->findby(['owner' => $userId , 'statement' => 'en attente'],['updateTime' => 'ASC' ]);
+
+        //Récupération des tickets fermés du client connecté
+        $ticketsClosedClient = $ticketRepo->findby(['owner' => $userId , 'statement' => 'fermé'],['updateTime' => 'ASC' ]);
+
+
+
+
         return $this->render('main/dash_client.html.twig', [
             'controller_dash_client' => 'Page client',
+            'ticketsAnsweredClient' => $ticketsAnsweredClient,
+            'ticketsPendingClient' => $ticketsPendingClient,
+            'ticketsClosedClient' => $ticketsClosedClient,
         ]);
     }
 

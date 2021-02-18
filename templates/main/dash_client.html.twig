@@ -46,7 +46,7 @@
         <div class="statut" id="statut">
             <div class="statut_text">
                 <p>Vous avez actuellement</p>
-                <p>7 tickets ouverts</p>
+                <p>{{ ticketsAnsweredClient|length }} ticket(s) répondu, {{ ticketsPendingClient|length }} ticket(s) en attente et {{ ticketsClosedClient|length }} fermé(s)</p>
             </div>
             <div class="statut_btn">
                 <a href="{{ path('create_ticket') }}" class="primary_btn_success grey">Ouvrir une demande</a>
@@ -70,96 +70,91 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="ticket_night">
-                        <td class="start_ticket"><img src="images/user.jpg" alt="" class="ticket_img"><p>Lucas <br> Le 10/10/2020</p></td>
-                        <td>Impossible d'accéder à mon espace client</td>
-                        <td>Le 10/10/2020</td>
-                        <td>#234423</td>
-                        <td class="end_ticket"><a href="" class="primary_btn_success">Répondu</a></td>
-                        <tr style="height: 10px; background-color: transparent;"></tr>
-                    </tr>
-                    <tr class="ticket_night">
-                        <td class="start_ticket"><img src="images/user.jpg" alt="" class="ticket_img"><p>Lucas <br> Le 10/10/2020</p></td>
-                        <td>Impossible d'accéder à mon espace client</td>
-                        <td>Le 10/10/2020</td>
-                        <td>#234423</td>
-                        <td class="end_ticket"><a href="" class="primary_btn_success">Répondu</a></td>
-                        <tr style="height: 10px; background-color: transparent;"></tr>
-                    </tr>
-                    <tr class="ticket_night">
-                        <td class="start_ticket"><img src="images/user.jpg" alt="" class="ticket_img"><p>Lucas <br> Le 10/10/2020</p></td>
-                        <td>Impossible d'accéder à mon espace client</td>
-                        <td>Le 10/10/2020</td>
-                        <td>#234423</td>
-                        <td class="end_ticket"><a href="" class="primary_btn_success">Répondu</a></td>
-                        <tr style="height: 10px; background-color: transparent;"></tr>
-                    </tr>
-                    <tr class="ticket_night">
-                        <td class="start_ticket"><img src="images/user.jpg" alt="" class="ticket_img"><p>Lucas <br> Le 10/10/2020</p></td>
-                        <td>Impossible d'accéder à mon espace client</td>
-                        <td>Le 10/10/2020</td>
-                        <td>#234423</td>
-                        <td class="end_ticket"><a href="" class="primary_btn_success">Répondu</a></td>
-                        <tr style="height: 10px; background-color: transparent;"></tr>
-                    </tr>
-                    <tr class="ticket_night">
-                        <td class="start_ticket"><img src="images/user.jpg" alt="" class="ticket_img"><p>Lucas <br> Le 10/10/2020</p></td>
-                        <td>Impossible d'accéder à mon espace client</td>
-                        <td>Le 10/10/2020</td>
-                        <td>#234423</td>
-                        <td class="end_ticket"><a href="" class="primary_btn_success">Répondu</a></td>
-                        <tr style="height: 10px; background-color: transparent;"></tr>
-                    </tr>
-                    <tr class="ticket_night">
-                        <td class="start_ticket"><img src="images/user.jpg" alt="" class="ticket_img"><p>Lucas <br> Le 10/10/2020</p></td>
-                        <td>Impossible d'accéder à mon espace client</td>
-                        <td>Le 10/10/2020</td>
-                        <td>#234423</td>
-                        <td class="end_ticket"><a href="" class="primary_btn_success">Répondu</a></td>
-                        <tr style="height: 10px; background-color: transparent;"></tr>
-                    </tr>
+                    {# Affichage des tickets répondus #}
+                    {% if ticketsAnsweredClient is empty %}
+                        <p>Aucun ticket à afficher</p>
+                    {% else %}
+                        {% for ticketAC in ticketsAnsweredClient %}
+                            <tr class="ticket_night">
+                                <td class="start_ticket"><img src="{{ asset('images/user.jpg') }}" alt="" class="ticket_img"><p>{{ ticketAC.owner.lastname|capitalize }} {{ ticketAC.owner.firstname|capitalize }}<br>{{ ticketAC.updateTime|date('d/m/Y à H\\hi') }}</p></td>
+                                <td>{{ticketAC.title}}</td>
+                                <td>{{ ticketAC.creationDate|date('d/m/Y à H\\hi') }}</td>
+                                <td>{{ ticketAC.id }}</td>
+                                <td class="end_ticket"><a href="" class="primary_btn_success">{{ ticketAC.statement|capitalize }}</a></td>
+                                <tr style="height: 10px; background-color: transparent;"></tr>
+                            </tr>
+                        {% endfor %}
+                    {% endif %}
+
+                    {# Affichage des tickets en attente #}
+                    {% if ticketsPendingClient is empty %}
+                        <p>Aucun ticket à afficher</p>
+                    {% else %}
+                        {% for ticketPC in ticketsPendingClient %}
+                            <tr class="ticket_night">
+                                <td class="start_ticket"><img src="{{ asset('images/user.jpg') }}" alt="" class="ticket_img"><p>{{ ticketPC.owner.lastname }} {{ ticketPC.owner.firstname }}<br>{{ ticketPC.updateTime|date('d/m/Y à H\\hi') }}</p></td>
+                                <td>{{ticketPC.title}}</td>
+                                <td>{{ ticketPC.creationDate|date('d/m/Y à H\\hi') }}</td>
+                                <td>{{ ticketPC.id }}</td>
+                                <td class="end_ticket"><a href="" class="primary_btn_success">{{ ticketPC.statement|capitalize }}</a></td>
+                                <tr style="height: 10px; background-color: transparent;"></tr>
+                            </tr>
+                        {% endfor %}
+                    {% endif %}
+
                 </tbody>
             </table>
         </div>
-        <!-- boite blanche avec la liste des tickets -->
 
         <!-- boite blanche avec la liste des tickets (version mobile)-->
         <div class="opened_mobile">
             <h1>Tickets ouverts</h1>
-            <div class="ticket_night">
-                <p>Je n'arrive pas à me connecter à mon compte client</p>
-                <p>Dernière réponse le 07/10/2020</p>
-                <a href="" class="primary_btn_success">Répondu</a>
-            </div>
-            <div class="ticket_night">
-                <p>Je n'arrive pas à me connecter à mon compte client</p>
-                <p>Dernière réponse le 07/10/2020</p>
-                <a href="" class="primary_btn_success">Répondu</a>
-            </div>
-            <div class="ticket_night">
-                <p>Je n'arrive pas à me connecter à mon compte client</p>
-                <p>Dernière réponse le 07/10/2020</p>
-                <a href="" class="primary_btn_success">Répondu</a>
-            </div>
-            <div class="ticket_night">
-                <p>Je n'arrive pas à me connecter à mon compte client</p>
-                <p>Dernière réponse le 07/10/2020</p>
-                <a href="" class="primary_btn_success">Répondu</a>
-            </div>
-            <div class="ticket_night">
-                <p>Je n'arrive pas à me connecter à mon compte client</p>
-                <p>Dernière réponse le 07/10/2020</p>
-                <a href="" class="primary_btn_success">Répondu</a>
-            </div>
-            <div class="ticket_night">
-                <p>Je n'arrive pas à me connecter à mon compte client</p>
-                <p>Dernière réponse le 07/10/2020</p>
-                <a href="" class="primary_btn_success">Répondu</a>
-            </div>
-        </div>
-        <!-- boite blanche avec la liste des tickets -->
+            {# Affichage des tickets répondus du client #}
+            {% if ticketsAnsweredClient is empty %}
+                <p>Aucun ticket à afficher</p>
+            {% else %}
+                    {% for ticketAC in ticketsAnsweredClient %}
+                        <div class="ticket_box">
+                            <p>{{ ticketAC.title }}</p>
+                            <p>Dernière réponse le {{ ticketAC.updateTime|date('d/m/Y à H\\hi') }}</p>
+                            <a href="" class="primary_btn_success">{{ ticketAC.statement|capitalize }}</a>
+                        </div>
+                    {% endfor %}
+            {% endif %}
 
-        <!-- boite blanche avec la liste des tickets (Version pc)-->
+            {# Affichage des tickets en attente #}
+            {% if ticketsPendingClient is empty %}
+                <p>Aucun ticket à afficher</p>
+            {% else %}
+                    {% for ticketPC in ticketsPendingClient %}
+                        <div class="ticket_box">
+                            <p>{{ ticketPC.title }}</p>
+                            <p>Dernière réponse le {{ ticketPC.updateTime|date('d/m/Y à H\\hi') }}</p>
+                            <a href="" class="primary_btn_success">{{ ticketPC.statement|capitalize }}</a>
+                        </div>
+                    {% endfor %}
+            {% endif %}
+        </div>
+
+        <!-- boite blanche avec la liste des tickets fermés (version mobile)-->
+        <div class="opened_mobile">
+            <h1>Tickets fermés</h1>
+            {# Affichage des tickets fermés #}
+            {% if ticketsClosedClient is empty %}
+            <p>Aucun ticket à afficher</p>
+        {% else %}
+                {% for ticketCC in ticketsClosedClient %}
+                    <div class="ticket_box">
+                        <p>{{ ticketCC.title }}</p>
+                        <p>Dernière réponse le {{ ticketCC.updateTime|date('d/m/Y à H\\hi') }}</p>
+                        <a href="" class="primary_btn_success">{{ ticketCC.statement|capitalize }}</a>
+                    </div>
+                {% endfor %}
+        {% endif %}
+        </div>
+
+
+        <!-- boite blanche avec la liste des tickets fermés (Version pc)-->
         <div class="opened">
             <h1>Tickets fermé</h1>
 
@@ -174,58 +169,23 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="ticket_night">
-                        <td class="start_ticket"><img src="images/user.jpg" alt="" class="ticket_img"><p>Lucas <br> Le 10/10/2020</p></td>
-                        <td>Impossible d'accéder à mon espace client</td>
-                        <td>Le 10/10/2020</td>
-                        <td>#234423</td>
-                        <td class="end_ticket"><a href="" class="primary_btn_close">Fermé</a></td>
-                        <tr style="height: 10px; background-color: transparent;"></tr>
-                    </tr>
-                    <tr class="ticket_night">
-                        <td class="start_ticket"><img src="images/user.jpg" alt="" class="ticket_img"><p>Lucas <br> Le 10/10/2020</p></td>
-                        <td>Impossible d'accéder à mon espace client</td>
-                        <td>Le 10/10/2020</td>
-                        <td>#234423</td>
-                        <td class="end_ticket"><a href="" class="primary_btn_close">Fermé</a></td>
-                        <tr style="height: 10px; background-color: transparent;"></tr>
-                    </tr>
-                    <tr class="ticket_night">
-                        <td class="start_ticket"><img src="images/user.jpg" alt="" class="ticket_img"><p>Lucas <br> Le 10/10/2020</p></td>
-                        <td>Impossible d'accéder à mon espace client</td>
-                        <td>Le 10/10/2020</td>
-                        <td>#234423</td>
-                        <td class="end_ticket"><a href="" class="primary_btn_close">Fermé</a></td>
-                        <tr style="height: 10px; background-color: transparent;"></tr>
-                    </tr>
-                    <tr class="ticket_night">
-                        <td class="start_ticket"><img src="images/user.jpg" alt="" class="ticket_img"><p>Lucas <br> Le 10/10/2020</p></td>
-                        <td>Impossible d'accéder à mon espace client</td>
-                        <td>Le 10/10/2020</td>
-                        <td>#234423</td>
-                        <td class="end_ticket"><a href="" class="primary_btn_close">Fermé</a></td>
-                        <tr style="height: 10px; background-color: transparent;"></tr>
-                    </tr>
-                    <tr class="ticket_night">
-                        <td class="start_ticket"><img src="images/user.jpg" alt="" class="ticket_img"><p>Lucas <br> Le 10/10/2020</p></td>
-                        <td>Impossible d'accéder à mon espace client</td>
-                        <td>Le 10/10/2020</td>
-                        <td>#234423</td>
-                        <td class="end_ticket"><a href="" class="primary_btn_close">Fermé</a></td>
-                        <tr style="height: 10px; background-color: transparent;"></tr>
-                    </tr>
-                    <tr class="ticket_night">
-                        <td class="start_ticket"><img src="images/user.jpg" alt="" class="ticket_img"><p>Lucas <br> Le 10/10/2020</p></td>
-                        <td>Impossible d'accéder à mon espace client</td>
-                        <td>Le 10/10/2020</td>
-                        <td>#234423</td>
-                        <td class="end_ticket"><a href="" class="primary_btn_close">Fermé</a></td>
-                        <tr style="height: 10px; background-color: transparent;"></tr>
-                    </tr>
+                    {# Affichage des tickets fermés #}
+                    {% if ticketsClosedClient is empty %}
+                        <p>Aucun ticket à afficher</p>
+                    {% else %}
+                        {% for ticketCC in ticketsClosedClient %}
+                            <tr class="ticket_night">
+                                <td class="start_ticket"><img src="{{ asset('images/user.jpg') }}" alt="" class="ticket_img"><p>{{ ticketCC.owner.lastname }} {{ ticketCC.owner.firstname }} <br> {{ ticketCC.updateTime|date('d/m/Y à H\\hi') }} </p></td>
+                                <td>{{ ticketCC.title }}</td>
+                                <td>{{ ticketCC.creationDate|date('d/m/Y à H\\hi') }}</td>
+                                <td>{{ ticketCC.id }}</td>
+                                <td class="end_ticket"><a href="" class="primary_btn_close">{{ ticketCC.statement|capitalize }}</a></td>
+                                <tr style="height: 10px; background-color: transparent;"></tr>
+                            </tr>
+                        {% endfor %}
+                    {% endif %}
                 </tbody>
             </table>
         </div>
-        <!-- boite blanche avec la liste des tickets -->
-        
     </section>
 {% endblock %}
