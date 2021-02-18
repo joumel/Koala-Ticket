@@ -121,7 +121,7 @@ class __TwigTemplate_0fedc8a9202f624273f54554745ce75c4b8484f9915ff1db75848ad6bd1
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Administration";
+        echo "Dashboard";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -143,7 +143,7 @@ class __TwigTemplate_0fedc8a9202f624273f54554745ce75c4b8484f9915ff1db75848ad6bd1
         // line 44
         echo "
     <section class=\"statut_top\">
-        <div class=\"statut\">
+        <div class=\"statut\" id=\"statut\">
             <div class=\"statut_text\">
                 <p>Vous avez actuellement</p>
                 <p>7 tickets ouverts</p>
@@ -173,7 +173,7 @@ class __TwigTemplate_0fedc8a9202f624273f54554745ce75c4b8484f9915ff1db75848ad6bd1
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr class=\"ticket_night\">
                         <td class=\"start_ticket\"><img src=\"images/user.jpg\" alt=\"\" class=\"ticket_img\"><p>Lucas <br> Le 10/10/2020</p></td>
                         <td>Impossible d'accéder à mon espace client</td>
                         <td>Le 10/10/2020</td>
@@ -181,7 +181,7 @@ class __TwigTemplate_0fedc8a9202f624273f54554745ce75c4b8484f9915ff1db75848ad6bd1
                         <td class=\"end_ticket\"><a href=\"\" class=\"primary_btn_success\">Répondu</a></td>
                         <tr style=\"height: 10px; background-color: transparent;\"></tr>
                     </tr>
-                    <tr>
+                    <tr class=\"ticket_night\">
                         <td class=\"start_ticket\"><img src=\"images/user.jpg\" alt=\"\" class=\"ticket_img\"><p>Lucas <br> Le 10/10/2020</p></td>
                         <td>Impossible d'accéder à mon espace client</td>
                         <td>Le 10/10/2020</td>
@@ -189,7 +189,7 @@ class __TwigTemplate_0fedc8a9202f624273f54554745ce75c4b8484f9915ff1db75848ad6bd1
                         <td class=\"end_ticket\"><a href=\"\" class=\"primary_btn_success\">Répondu</a></td>
                         <tr style=\"height: 10px; background-color: transparent;\"></tr>
                     </tr>
-                    <tr>
+                    <tr class=\"ticket_night\">
                         <td class=\"start_ticket\"><img src=\"images/user.jpg\" alt=\"\" class=\"ticket_img\"><p>Lucas <br> Le 10/10/2020</p></td>
                         <td>Impossible d'accéder à mon espace client</td>
                         <td>Le 10/10/2020</td>
@@ -197,7 +197,7 @@ class __TwigTemplate_0fedc8a9202f624273f54554745ce75c4b8484f9915ff1db75848ad6bd1
                         <td class=\"end_ticket\"><a href=\"\" class=\"primary_btn_success\">Répondu</a></td>
                         <tr style=\"height: 10px; background-color: transparent;\"></tr>
                     </tr>
-                    <tr>
+                    <tr class=\"ticket_night\">
                         <td class=\"start_ticket\"><img src=\"images/user.jpg\" alt=\"\" class=\"ticket_img\"><p>Lucas <br> Le 10/10/2020</p></td>
                         <td>Impossible d'accéder à mon espace client</td>
                         <td>Le 10/10/2020</td>
@@ -205,7 +205,7 @@ class __TwigTemplate_0fedc8a9202f624273f54554745ce75c4b8484f9915ff1db75848ad6bd1
                         <td class=\"end_ticket\"><a href=\"\" class=\"primary_btn_success\">Répondu</a></td>
                         <tr style=\"height: 10px; background-color: transparent;\"></tr>
                     </tr>
-                    <tr>
+                    <tr class=\"ticket_night\">
                         <td class=\"start_ticket\"><img src=\"images/user.jpg\" alt=\"\" class=\"ticket_img\"><p>Lucas <br> Le 10/10/2020</p></td>
                         <td>Impossible d'accéder à mon espace client</td>
                         <td>Le 10/10/2020</td>
@@ -213,7 +213,7 @@ class __TwigTemplate_0fedc8a9202f624273f54554745ce75c4b8484f9915ff1db75848ad6bd1
                         <td class=\"end_ticket\"><a href=\"\" class=\"primary_btn_success\">Répondu</a></td>
                         <tr style=\"height: 10px; background-color: transparent;\"></tr>
                     </tr>
-                    <tr>
+                    <tr class=\"ticket_night\">
                         <td class=\"start_ticket\"><img src=\"images/user.jpg\" alt=\"\" class=\"ticket_img\"><p>Lucas <br> Le 10/10/2020</p></td>
                         <td>Impossible d'accéder à mon espace client</td>
                         <td>Le 10/10/2020</td>
@@ -229,32 +229,32 @@ class __TwigTemplate_0fedc8a9202f624273f54554745ce75c4b8484f9915ff1db75848ad6bd1
         <!-- boite blanche avec la liste des tickets (version mobile)-->
         <div class=\"opened_mobile\">
             <h1>Tickets ouverts</h1>
-            <div class=\"ticket_box\">
+            <div class=\"ticket_night\">
                 <p>Je n'arrive pas à me connecter à mon compte client</p>
                 <p>Dernière réponse le 07/10/2020</p>
                 <a href=\"\" class=\"primary_btn_success\">Répondu</a>
             </div>
-            <div class=\"ticket_box\">
+            <div class=\"ticket_night\">
                 <p>Je n'arrive pas à me connecter à mon compte client</p>
                 <p>Dernière réponse le 07/10/2020</p>
                 <a href=\"\" class=\"primary_btn_success\">Répondu</a>
             </div>
-            <div class=\"ticket_box\">
+            <div class=\"ticket_night\">
                 <p>Je n'arrive pas à me connecter à mon compte client</p>
                 <p>Dernière réponse le 07/10/2020</p>
                 <a href=\"\" class=\"primary_btn_success\">Répondu</a>
             </div>
-            <div class=\"ticket_box\">
+            <div class=\"ticket_night\">
                 <p>Je n'arrive pas à me connecter à mon compte client</p>
                 <p>Dernière réponse le 07/10/2020</p>
                 <a href=\"\" class=\"primary_btn_success\">Répondu</a>
             </div>
-            <div class=\"ticket_box\">
+            <div class=\"ticket_night\">
                 <p>Je n'arrive pas à me connecter à mon compte client</p>
                 <p>Dernière réponse le 07/10/2020</p>
                 <a href=\"\" class=\"primary_btn_success\">Répondu</a>
             </div>
-            <div class=\"ticket_box\">
+            <div class=\"ticket_night\">
                 <p>Je n'arrive pas à me connecter à mon compte client</p>
                 <p>Dernière réponse le 07/10/2020</p>
                 <a href=\"\" class=\"primary_btn_success\">Répondu</a>
@@ -277,7 +277,7 @@ class __TwigTemplate_0fedc8a9202f624273f54554745ce75c4b8484f9915ff1db75848ad6bd1
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr class=\"ticket_night\">
                         <td class=\"start_ticket\"><img src=\"images/user.jpg\" alt=\"\" class=\"ticket_img\"><p>Lucas <br> Le 10/10/2020</p></td>
                         <td>Impossible d'accéder à mon espace client</td>
                         <td>Le 10/10/2020</td>
@@ -285,7 +285,7 @@ class __TwigTemplate_0fedc8a9202f624273f54554745ce75c4b8484f9915ff1db75848ad6bd1
                         <td class=\"end_ticket\"><a href=\"\" class=\"primary_btn_close\">Fermé</a></td>
                         <tr style=\"height: 10px; background-color: transparent;\"></tr>
                     </tr>
-                    <tr>
+                    <tr class=\"ticket_night\">
                         <td class=\"start_ticket\"><img src=\"images/user.jpg\" alt=\"\" class=\"ticket_img\"><p>Lucas <br> Le 10/10/2020</p></td>
                         <td>Impossible d'accéder à mon espace client</td>
                         <td>Le 10/10/2020</td>
@@ -293,7 +293,7 @@ class __TwigTemplate_0fedc8a9202f624273f54554745ce75c4b8484f9915ff1db75848ad6bd1
                         <td class=\"end_ticket\"><a href=\"\" class=\"primary_btn_close\">Fermé</a></td>
                         <tr style=\"height: 10px; background-color: transparent;\"></tr>
                     </tr>
-                    <tr>
+                    <tr class=\"ticket_night\">
                         <td class=\"start_ticket\"><img src=\"images/user.jpg\" alt=\"\" class=\"ticket_img\"><p>Lucas <br> Le 10/10/2020</p></td>
                         <td>Impossible d'accéder à mon espace client</td>
                         <td>Le 10/10/2020</td>
@@ -301,7 +301,7 @@ class __TwigTemplate_0fedc8a9202f624273f54554745ce75c4b8484f9915ff1db75848ad6bd1
                         <td class=\"end_ticket\"><a href=\"\" class=\"primary_btn_close\">Fermé</a></td>
                         <tr style=\"height: 10px; background-color: transparent;\"></tr>
                     </tr>
-                    <tr>
+                    <tr class=\"ticket_night\">
                         <td class=\"start_ticket\"><img src=\"images/user.jpg\" alt=\"\" class=\"ticket_img\"><p>Lucas <br> Le 10/10/2020</p></td>
                         <td>Impossible d'accéder à mon espace client</td>
                         <td>Le 10/10/2020</td>
@@ -309,7 +309,7 @@ class __TwigTemplate_0fedc8a9202f624273f54554745ce75c4b8484f9915ff1db75848ad6bd1
                         <td class=\"end_ticket\"><a href=\"\" class=\"primary_btn_close\">Fermé</a></td>
                         <tr style=\"height: 10px; background-color: transparent;\"></tr>
                     </tr>
-                    <tr>
+                    <tr class=\"ticket_night\">
                         <td class=\"start_ticket\"><img src=\"images/user.jpg\" alt=\"\" class=\"ticket_img\"><p>Lucas <br> Le 10/10/2020</p></td>
                         <td>Impossible d'accéder à mon espace client</td>
                         <td>Le 10/10/2020</td>
@@ -317,7 +317,7 @@ class __TwigTemplate_0fedc8a9202f624273f54554745ce75c4b8484f9915ff1db75848ad6bd1
                         <td class=\"end_ticket\"><a href=\"\" class=\"primary_btn_close\">Fermé</a></td>
                         <tr style=\"height: 10px; background-color: transparent;\"></tr>
                     </tr>
-                    <tr>
+                    <tr class=\"ticket_night\">
                         <td class=\"start_ticket\"><img src=\"images/user.jpg\" alt=\"\" class=\"ticket_img\"><p>Lucas <br> Le 10/10/2020</p></td>
                         <td>Impossible d'accéder à mon espace client</td>
                         <td>Le 10/10/2020</td>
@@ -397,12 +397,12 @@ class __TwigTemplate_0fedc8a9202f624273f54554745ce75c4b8484f9915ff1db75848ad6bd1
     </header>
 {% endblock %}
 
-{% block title %}Administration{% endblock %}
+{% block title %}Dashboard{% endblock %}
 
 {% block body %}
 
     <section class=\"statut_top\">
-        <div class=\"statut\">
+        <div class=\"statut\" id=\"statut\">
             <div class=\"statut_text\">
                 <p>Vous avez actuellement</p>
                 <p>7 tickets ouverts</p>
@@ -429,7 +429,7 @@ class __TwigTemplate_0fedc8a9202f624273f54554745ce75c4b8484f9915ff1db75848ad6bd1
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr class=\"ticket_night\">
                         <td class=\"start_ticket\"><img src=\"images/user.jpg\" alt=\"\" class=\"ticket_img\"><p>Lucas <br> Le 10/10/2020</p></td>
                         <td>Impossible d'accéder à mon espace client</td>
                         <td>Le 10/10/2020</td>
@@ -437,7 +437,7 @@ class __TwigTemplate_0fedc8a9202f624273f54554745ce75c4b8484f9915ff1db75848ad6bd1
                         <td class=\"end_ticket\"><a href=\"\" class=\"primary_btn_success\">Répondu</a></td>
                         <tr style=\"height: 10px; background-color: transparent;\"></tr>
                     </tr>
-                    <tr>
+                    <tr class=\"ticket_night\">
                         <td class=\"start_ticket\"><img src=\"images/user.jpg\" alt=\"\" class=\"ticket_img\"><p>Lucas <br> Le 10/10/2020</p></td>
                         <td>Impossible d'accéder à mon espace client</td>
                         <td>Le 10/10/2020</td>
@@ -445,7 +445,7 @@ class __TwigTemplate_0fedc8a9202f624273f54554745ce75c4b8484f9915ff1db75848ad6bd1
                         <td class=\"end_ticket\"><a href=\"\" class=\"primary_btn_success\">Répondu</a></td>
                         <tr style=\"height: 10px; background-color: transparent;\"></tr>
                     </tr>
-                    <tr>
+                    <tr class=\"ticket_night\">
                         <td class=\"start_ticket\"><img src=\"images/user.jpg\" alt=\"\" class=\"ticket_img\"><p>Lucas <br> Le 10/10/2020</p></td>
                         <td>Impossible d'accéder à mon espace client</td>
                         <td>Le 10/10/2020</td>
@@ -453,7 +453,7 @@ class __TwigTemplate_0fedc8a9202f624273f54554745ce75c4b8484f9915ff1db75848ad6bd1
                         <td class=\"end_ticket\"><a href=\"\" class=\"primary_btn_success\">Répondu</a></td>
                         <tr style=\"height: 10px; background-color: transparent;\"></tr>
                     </tr>
-                    <tr>
+                    <tr class=\"ticket_night\">
                         <td class=\"start_ticket\"><img src=\"images/user.jpg\" alt=\"\" class=\"ticket_img\"><p>Lucas <br> Le 10/10/2020</p></td>
                         <td>Impossible d'accéder à mon espace client</td>
                         <td>Le 10/10/2020</td>
@@ -461,7 +461,7 @@ class __TwigTemplate_0fedc8a9202f624273f54554745ce75c4b8484f9915ff1db75848ad6bd1
                         <td class=\"end_ticket\"><a href=\"\" class=\"primary_btn_success\">Répondu</a></td>
                         <tr style=\"height: 10px; background-color: transparent;\"></tr>
                     </tr>
-                    <tr>
+                    <tr class=\"ticket_night\">
                         <td class=\"start_ticket\"><img src=\"images/user.jpg\" alt=\"\" class=\"ticket_img\"><p>Lucas <br> Le 10/10/2020</p></td>
                         <td>Impossible d'accéder à mon espace client</td>
                         <td>Le 10/10/2020</td>
@@ -469,7 +469,7 @@ class __TwigTemplate_0fedc8a9202f624273f54554745ce75c4b8484f9915ff1db75848ad6bd1
                         <td class=\"end_ticket\"><a href=\"\" class=\"primary_btn_success\">Répondu</a></td>
                         <tr style=\"height: 10px; background-color: transparent;\"></tr>
                     </tr>
-                    <tr>
+                    <tr class=\"ticket_night\">
                         <td class=\"start_ticket\"><img src=\"images/user.jpg\" alt=\"\" class=\"ticket_img\"><p>Lucas <br> Le 10/10/2020</p></td>
                         <td>Impossible d'accéder à mon espace client</td>
                         <td>Le 10/10/2020</td>
@@ -485,32 +485,32 @@ class __TwigTemplate_0fedc8a9202f624273f54554745ce75c4b8484f9915ff1db75848ad6bd1
         <!-- boite blanche avec la liste des tickets (version mobile)-->
         <div class=\"opened_mobile\">
             <h1>Tickets ouverts</h1>
-            <div class=\"ticket_box\">
+            <div class=\"ticket_night\">
                 <p>Je n'arrive pas à me connecter à mon compte client</p>
                 <p>Dernière réponse le 07/10/2020</p>
                 <a href=\"\" class=\"primary_btn_success\">Répondu</a>
             </div>
-            <div class=\"ticket_box\">
+            <div class=\"ticket_night\">
                 <p>Je n'arrive pas à me connecter à mon compte client</p>
                 <p>Dernière réponse le 07/10/2020</p>
                 <a href=\"\" class=\"primary_btn_success\">Répondu</a>
             </div>
-            <div class=\"ticket_box\">
+            <div class=\"ticket_night\">
                 <p>Je n'arrive pas à me connecter à mon compte client</p>
                 <p>Dernière réponse le 07/10/2020</p>
                 <a href=\"\" class=\"primary_btn_success\">Répondu</a>
             </div>
-            <div class=\"ticket_box\">
+            <div class=\"ticket_night\">
                 <p>Je n'arrive pas à me connecter à mon compte client</p>
                 <p>Dernière réponse le 07/10/2020</p>
                 <a href=\"\" class=\"primary_btn_success\">Répondu</a>
             </div>
-            <div class=\"ticket_box\">
+            <div class=\"ticket_night\">
                 <p>Je n'arrive pas à me connecter à mon compte client</p>
                 <p>Dernière réponse le 07/10/2020</p>
                 <a href=\"\" class=\"primary_btn_success\">Répondu</a>
             </div>
-            <div class=\"ticket_box\">
+            <div class=\"ticket_night\">
                 <p>Je n'arrive pas à me connecter à mon compte client</p>
                 <p>Dernière réponse le 07/10/2020</p>
                 <a href=\"\" class=\"primary_btn_success\">Répondu</a>
@@ -533,7 +533,7 @@ class __TwigTemplate_0fedc8a9202f624273f54554745ce75c4b8484f9915ff1db75848ad6bd1
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr class=\"ticket_night\">
                         <td class=\"start_ticket\"><img src=\"images/user.jpg\" alt=\"\" class=\"ticket_img\"><p>Lucas <br> Le 10/10/2020</p></td>
                         <td>Impossible d'accéder à mon espace client</td>
                         <td>Le 10/10/2020</td>
@@ -541,7 +541,7 @@ class __TwigTemplate_0fedc8a9202f624273f54554745ce75c4b8484f9915ff1db75848ad6bd1
                         <td class=\"end_ticket\"><a href=\"\" class=\"primary_btn_close\">Fermé</a></td>
                         <tr style=\"height: 10px; background-color: transparent;\"></tr>
                     </tr>
-                    <tr>
+                    <tr class=\"ticket_night\">
                         <td class=\"start_ticket\"><img src=\"images/user.jpg\" alt=\"\" class=\"ticket_img\"><p>Lucas <br> Le 10/10/2020</p></td>
                         <td>Impossible d'accéder à mon espace client</td>
                         <td>Le 10/10/2020</td>
@@ -549,7 +549,7 @@ class __TwigTemplate_0fedc8a9202f624273f54554745ce75c4b8484f9915ff1db75848ad6bd1
                         <td class=\"end_ticket\"><a href=\"\" class=\"primary_btn_close\">Fermé</a></td>
                         <tr style=\"height: 10px; background-color: transparent;\"></tr>
                     </tr>
-                    <tr>
+                    <tr class=\"ticket_night\">
                         <td class=\"start_ticket\"><img src=\"images/user.jpg\" alt=\"\" class=\"ticket_img\"><p>Lucas <br> Le 10/10/2020</p></td>
                         <td>Impossible d'accéder à mon espace client</td>
                         <td>Le 10/10/2020</td>
@@ -557,7 +557,7 @@ class __TwigTemplate_0fedc8a9202f624273f54554745ce75c4b8484f9915ff1db75848ad6bd1
                         <td class=\"end_ticket\"><a href=\"\" class=\"primary_btn_close\">Fermé</a></td>
                         <tr style=\"height: 10px; background-color: transparent;\"></tr>
                     </tr>
-                    <tr>
+                    <tr class=\"ticket_night\">
                         <td class=\"start_ticket\"><img src=\"images/user.jpg\" alt=\"\" class=\"ticket_img\"><p>Lucas <br> Le 10/10/2020</p></td>
                         <td>Impossible d'accéder à mon espace client</td>
                         <td>Le 10/10/2020</td>
@@ -565,7 +565,7 @@ class __TwigTemplate_0fedc8a9202f624273f54554745ce75c4b8484f9915ff1db75848ad6bd1
                         <td class=\"end_ticket\"><a href=\"\" class=\"primary_btn_close\">Fermé</a></td>
                         <tr style=\"height: 10px; background-color: transparent;\"></tr>
                     </tr>
-                    <tr>
+                    <tr class=\"ticket_night\">
                         <td class=\"start_ticket\"><img src=\"images/user.jpg\" alt=\"\" class=\"ticket_img\"><p>Lucas <br> Le 10/10/2020</p></td>
                         <td>Impossible d'accéder à mon espace client</td>
                         <td>Le 10/10/2020</td>
@@ -573,7 +573,7 @@ class __TwigTemplate_0fedc8a9202f624273f54554745ce75c4b8484f9915ff1db75848ad6bd1
                         <td class=\"end_ticket\"><a href=\"\" class=\"primary_btn_close\">Fermé</a></td>
                         <tr style=\"height: 10px; background-color: transparent;\"></tr>
                     </tr>
-                    <tr>
+                    <tr class=\"ticket_night\">
                         <td class=\"start_ticket\"><img src=\"images/user.jpg\" alt=\"\" class=\"ticket_img\"><p>Lucas <br> Le 10/10/2020</p></td>
                         <td>Impossible d'accéder à mon espace client</td>
                         <td>Le 10/10/2020</td>

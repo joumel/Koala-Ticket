@@ -63,19 +63,31 @@ class __TwigTemplate_143f7bf0387c6ca1929eb569a00d85cbf62512a3cd9c8295239d87f2997
         // line 11
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/master.css"), "html", null, true);
         echo "\">
+    <link rel=\"stylesheet\" href=\"";
+        // line 12
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/animation.css"), "html", null, true);
+        echo "\">
+    <link rel=\"stylesheet\" href=\"";
+        // line 13
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/magic.min.css"), "html", null, true);
+        echo "\">
+    <link rel=\"icon\" type=\"image/x-icon\" href=\"";
+        // line 14
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/favicon.png"), "html", null, true);
+        echo "\" />
 
     ";
-        // line 14
+        // line 17
         echo "    ";
         $this->displayBlock('css', $context, $blocks);
-        // line 15
+        // line 18
         echo "</head>
 <body id=\"body\">
     <header class=\"header\" id=\"header\">
         <div class=\"menu\">
             <div class=\"logo\">
                 <img src=\"";
-        // line 20
+        // line 23
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/koala.png"), "html", null, true);
         echo "\" alt=\"Logo du site\">
                 <div class=\"line_vertical\"></div>
@@ -85,62 +97,67 @@ class __TwigTemplate_143f7bf0387c6ca1929eb569a00d85cbf62512a3cd9c8295239d87f2997
                 <div class=\"user_box\">
                     <div class=\"user_picture\">
                         <img src=\"";
-        // line 27
+        // line 30
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/user.jpg"), "html", null, true);
         echo "\" alt=\"\">
                     </div>
                     <div class=\"user_info\">
                         ";
-        // line 30
+        // line 33
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_USER")) {
-            // line 31
+            // line 34
             echo "                        <p class=\"user_name\">";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 31, $this->source); })()), "user", [], "any", false, false, false, 31), "firstname", [], "any", false, false, false, 31), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 34, $this->source); })()), "user", [], "any", false, false, false, 34), "firstname", [], "any", false, false, false, 34), "html", null, true);
             echo "</p>
                         <p class=\"user_account\">Compte client</p>
                         ";
         }
-        // line 34
+        // line 37
         echo "                    </div>
                 </div>
-                <div class=\"user_menu hidden\" id=\"dropmenu\">
+                <div class=\"user_menu hidden boingInUp\" id=\"dropmenu\">
                     <a href=\"\"><i class=\"fas fa-cog\"></i> Configuration</a>
                     <a href=\"\"><i class=\"fas fa-user\"></i> Votre profil</a>
+                    <a id=\"night\"><i class=\"fas fa-moon\"></i> Mode nuit</a>
                     <a href=\"";
-        // line 39
+        // line 43
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("logout"), "html", null, true);
         echo "\" class=\"logout_link\"><i class=\"fas fa-sign-out-alt\"></i> Déconnexion</a>
                 </div>
             </div>
         </div>
         ";
-        // line 43
+        // line 47
         $this->displayBlock('articles', $context, $blocks);
-        // line 44
+        // line 48
         echo "    </header>
 
 
 
     ";
-        // line 49
+        // line 53
         echo "    ";
         $this->displayBlock('body', $context, $blocks);
-        // line 50
+        // line 54
         echo "
     <script src=\"";
-        // line 51
+        // line 55
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/jquery-3.5.1.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 52
+        // line 56
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/dropdown_menu.js"), "html", null, true);
+        echo "\"></script>
+    <script src=\"";
+        // line 57
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/nightmode.js"), "html", null, true);
         echo "\"></script>
 
     ";
-        // line 55
+        // line 60
         echo "    ";
         $this->displayBlock('js', $context, $blocks);
-        // line 56
+        // line 61
         echo "</body>
 </html>";
         
@@ -169,7 +186,7 @@ class __TwigTemplate_143f7bf0387c6ca1929eb569a00d85cbf62512a3cd9c8295239d87f2997
 
     }
 
-    // line 14
+    // line 17
     public function block_css($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -187,7 +204,7 @@ class __TwigTemplate_143f7bf0387c6ca1929eb569a00d85cbf62512a3cd9c8295239d87f2997
 
     }
 
-    // line 43
+    // line 47
     public function block_articles($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -205,7 +222,7 @@ class __TwigTemplate_143f7bf0387c6ca1929eb569a00d85cbf62512a3cd9c8295239d87f2997
 
     }
 
-    // line 49
+    // line 53
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -223,7 +240,7 @@ class __TwigTemplate_143f7bf0387c6ca1929eb569a00d85cbf62512a3cd9c8295239d87f2997
 
     }
 
-    // line 55
+    // line 60
     public function block_js($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -253,7 +270,7 @@ class __TwigTemplate_143f7bf0387c6ca1929eb569a00d85cbf62512a3cd9c8295239d87f2997
 
     public function getDebugInfo()
     {
-        return array (  227 => 55,  209 => 49,  191 => 43,  173 => 14,  155 => 8,  144 => 56,  141 => 55,  136 => 52,  132 => 51,  129 => 50,  126 => 49,  120 => 44,  118 => 43,  111 => 39,  104 => 34,  97 => 31,  95 => 30,  89 => 27,  79 => 20,  72 => 15,  69 => 14,  64 => 11,  58 => 8,  50 => 2,  48 => 1,);
+        return array (  244 => 60,  226 => 53,  208 => 47,  190 => 17,  172 => 8,  161 => 61,  158 => 60,  153 => 57,  149 => 56,  145 => 55,  142 => 54,  139 => 53,  133 => 48,  131 => 47,  124 => 43,  116 => 37,  109 => 34,  107 => 33,  101 => 30,  91 => 23,  84 => 18,  81 => 17,  76 => 14,  72 => 13,  68 => 12,  64 => 11,  58 => 8,  50 => 2,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -269,6 +286,9 @@ class __TwigTemplate_143f7bf0387c6ca1929eb569a00d85cbf62512a3cd9c8295239d87f2997
     <link href=\"https://fonts.googleapis.com/css?family=Roboto&amp;display=swap\" rel=\"stylesheet\">
     <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css\">
     <link rel=\"stylesheet\" href=\"{{ asset('css/master.css') }}\">
+    <link rel=\"stylesheet\" href=\"{{ asset('css/animation.css') }}\">
+    <link rel=\"stylesheet\" href=\"{{ asset('css/magic.min.css') }}\">
+    <link rel=\"icon\" type=\"image/x-icon\" href=\"{{ asset('images/favicon.png') }}\" />
 
     {# Inclusion des fichiers CSS individuel de la page #}
     {% block css %}{% endblock %}
@@ -293,9 +313,10 @@ class __TwigTemplate_143f7bf0387c6ca1929eb569a00d85cbf62512a3cd9c8295239d87f2997
                         {% endif %}
                     </div>
                 </div>
-                <div class=\"user_menu hidden\" id=\"dropmenu\">
+                <div class=\"user_menu hidden boingInUp\" id=\"dropmenu\">
                     <a href=\"\"><i class=\"fas fa-cog\"></i> Configuration</a>
                     <a href=\"\"><i class=\"fas fa-user\"></i> Votre profil</a>
+                    <a id=\"night\"><i class=\"fas fa-moon\"></i> Mode nuit</a>
                     <a href=\"{{ asset('logout')}}\" class=\"logout_link\"><i class=\"fas fa-sign-out-alt\"></i> Déconnexion</a>
                 </div>
             </div>
@@ -310,6 +331,7 @@ class __TwigTemplate_143f7bf0387c6ca1929eb569a00d85cbf62512a3cd9c8295239d87f2997
 
     <script src=\"{{ asset('js/jquery-3.5.1.min.js') }}\"></script>
     <script src=\"{{ asset('js/dropdown_menu.js') }}\"></script>
+    <script src=\"{{ asset('js/nightmode.js') }}\"></script>
 
     {# Inclusion des fichiers JS individuel de la page #}
     {% block js %}{% endblock %}

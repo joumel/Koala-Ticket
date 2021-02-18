@@ -22,6 +22,7 @@ class TicketType extends AbstractType
             ->add('title', TextType::class, [
                 'label' => false,
                 'attr' => [
+                    'class' => 'login_input',
                     'placeholder' => 'Sujet',
                 ],
                 'constraints' => [
@@ -41,6 +42,7 @@ class TicketType extends AbstractType
             ->add('content', TextareaType::class, [
                 'label' => false,
                 'attr' => [
+                    'class' => 'login_input',
                     'placeholder' => 'Description',
                 ],
                 'constraints' => [
@@ -59,26 +61,33 @@ class TicketType extends AbstractType
             ->add('level', ChoiceType::class, [
                 'label' =>false,
                 'choices' => [
-                    'Normal' => '1',
-                    'Moyenne' => '2',
-                    'Élevée' => '3',
-                    'Urgent' => '4',
-                    'Critique' => '5',
+                    '❕ Normal' => '1',
+                    '❗️ Moyenne' => '2',
+                    '❗️❗️ Élevée' => '3',
+                    '❗️❗️❗️ Urgent' => '4',
+                    '🆘 Critique' => '5',
+                ],
+                'attr' => [
+                    'class' => 'login_input',
                 ],
             ])
 
             ->add('department', ChoiceType::class, [
                 'label' =>false,
                 'choices' => [
-                    'Service commercial' => 'commercial',
-                    'Service marketing' => 'marketing',
-                    'Support technique' => 'technique',
+                    '👋 Service commercial' => 'commercial',
+                    '🧐 Service marketing' => 'marketing',
+                    '🔨 Support technique' => 'technique',
+                ],
+                'attr' => [
+                    'class' => 'login_input',
                 ],
             ])
 
             ->add('statement', HiddenType::class, [
                 'label' =>false,
                 'attr' => [
+                    'class' => 'login_input',
                     'value' => 'en attente',
                 ],
             ])

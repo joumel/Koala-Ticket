@@ -38,7 +38,7 @@
                         <p>Aucun ticket à afficher</p>
                     {% else %}
                         {% for ticketA in ticketsAnswered %}
-                        <tr>
+                        <tr class="ticket_night">
                             <td class="start_ticket"><img src="{{ asset('images/user.jpg') }}" alt="" class="ticket_img"><p>{{ ticketA.owner.lastname }} {{ ticketA.owner.firstname }}<br>{{ ticketA.updateTime|date('d/m/Y à H\\hi') }}</p></td>
                             <td>{{ticketA.title}}</td>
                             <td>{{ ticketA.creationDate|date('d/m/Y à H\\hi') }}</td>
@@ -54,7 +54,7 @@
                         <p>Aucun ticket à afficher</p>
                     {% else %}
                         {% for ticketP in ticketsPending %}
-                        <tr>
+                        <tr class="ticket_night">
                             <td class="start_ticket"><img src="{{ asset('images/user.jpg') }}" alt="" class="ticket_img"><p>{{ ticketP.owner.lastname }} {{ ticketP.owner.firstname }}<br>{{ ticketP.updateTime|date('d/m/Y à H\\hi') }}</p></td>
                             <td>{{ticketP.title}}</td>
                             <td>{{ ticketP.creationDate|date('d/m/Y à H\\hi') }}</td>
@@ -97,32 +97,32 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="start_ticket"><img src="images/user.jpg" alt="" class="ticket_img"><p>Lucas <br> Le 10/10/2020</p></td>
+                    <tr class="ticket_night">
+                        <td class="start_ticket"><img src="{{ asset('images/user.jpg') }}" alt="" class="ticket_img"><p>Lucas <br> Le 10/10/2020</p></td>
                         <td>Impossible d'accéder à mon espace client</td>
                         <td>Le 10/10/2020</td>
                         <td>#234423</td>
                         <td class="end_ticket"><a href="" class="primary_btn_close">Fermé</a></td>
                         <tr style="height: 10px; background-color: transparent;"></tr>
                     </tr>
-                    <tr>
-                        <td class="start_ticket"><img src="images/user.jpg" alt="" class="ticket_img"><p>Lucas <br> Le 10/10/2020</p></td>
+                    <tr class="ticket_night">
+                        <td class="start_ticket"><img src="{{ asset('images/user.jpg') }}" alt="" class="ticket_img"><p>Lucas <br> Le 10/10/2020</p></td>
                         <td>Impossible d'accéder à mon espace client</td>
                         <td>Le 10/10/2020</td>
                         <td>#234423</td>
                         <td class="end_ticket"><a href="" class="primary_btn_close">Fermé</a></td>
                         <tr style="height: 10px; background-color: transparent;"></tr>
                     </tr>
-                    <tr>
-                        <td class="start_ticket"><img src="images/user.jpg" alt="" class="ticket_img"><p>Lucas <br> Le 10/10/2020</p></td>
+                    <tr class="ticket_night">
+                        <td class="start_ticket"><img src="{{ asset('images/user.jpg') }}" alt="" class="ticket_img"><p>Lucas <br> Le 10/10/2020</p></td>
                         <td>Impossible d'accéder à mon espace client</td>
                         <td>Le 10/10/2020</td>
                         <td>#234423</td>
                         <td class="end_ticket"><a href="" class="primary_btn_close">Fermé</a></td>
                         <tr style="height: 10px; background-color: transparent;"></tr>
                     </tr>
-                    <tr>
-                        <td class="start_ticket"><img src="images/user.jpg" alt="" class="ticket_img"><p>Lucas <br> Le 10/10/2020</p></td>
+                    <tr class="ticket_night">
+                        <td class="start_ticket"><img src="{{ asset('images/user.jpg') }}" alt="" class="ticket_img"><p>Lucas <br> Le 10/10/2020</p></td>
                         <td>Impossible d'accéder à mon espace client</td>
                         <td>Le 10/10/2020</td>
                         <td>#234423</td>

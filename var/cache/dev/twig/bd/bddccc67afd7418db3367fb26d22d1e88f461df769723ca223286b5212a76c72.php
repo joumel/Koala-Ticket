@@ -65,6 +65,7 @@ class __TwigTemplate_11e47964becac5104909d79c9b3d277854a56438c52599ab4d400d0de0e
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
+        echo "Créer un ticket";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -85,11 +86,79 @@ class __TwigTemplate_11e47964becac5104909d79c9b3d277854a56438c52599ab4d400d0de0e
 
         // line 6
         echo "
-<h1>créer un ticket</h1>
-";
+<body>
+    ";
         // line 8
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 8, $this->source); })()), 'form');
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 8, $this->source); })()), "flashes", [0 => "verify_email_error"], "method", false, false, false, 8));
+        foreach ($context['_seq'] as $context["_key"] => $context["flashError"]) {
+            // line 9
+            echo "        <div class=\"login_errors\" role=\"alert\">";
+            echo twig_escape_filter($this->env, $context["flashError"], "html", null, true);
+            echo "</div>
+    ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flashError'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 11
+        echo "    <div class=\"ticket_sizing\">
+        <div class=\"ticket_page\">
+            <form class=\"ticket_form\" name=\"ticket\" method=\"POST\" novalidate=\"novalidate\">
+                <h1>Vous rencontrez un problème ? Dites-nous tout.</h1>
+                <div class=\"login_input_full input_size_ticket\">
+                    ";
+        // line 16
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 16, $this->source); })()), "title", [], "any", false, false, false, 16), 'widget');
         echo "
+                </div>
+                <div class=\"login_input_full input_size_ticket\">
+                    ";
+        // line 19
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 19, $this->source); })()), "content", [], "any", false, false, false, 19), 'widget');
+        echo "
+                </div>
+                <div class=\"level_depart\">
+                    <div class=\"login_input_full input_size_ticket\">
+                        ";
+        // line 23
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 23, $this->source); })()), "level", [], "any", false, false, false, 23), 'widget');
+        echo "
+                    </div>
+                    <div class=\"login_input_full input_size_ticket\">
+                        ";
+        // line 26
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 26, $this->source); })()), "department", [], "any", false, false, false, 26), 'widget');
+        echo "
+                        ";
+        // line 27
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 27, $this->source); })()), "statement", [], "any", false, false, false, 27), 'widget');
+        echo "
+                    </div>
+                </div>
+                <button type=\"submit\" class=\"login_button input_size_ticket\">Ouvrir un ticket</button>
+                ";
+        // line 31
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 31, $this->source); })()), "_token", [], "any", false, false, false, 31), 'row');
+        echo "
+            </form>
+            <div class=\"ticket_information\">
+                <h1>Concernant notre support</h1>
+                <div class=\"ticket_information_box no_top_margin\">
+                    <i class=\"fas fa-clock\"></i>
+                    <p>Notre service est ouvert du lundi au vendredi de 9h à 14h.</p>
+                </div>
+                <div class=\"ticket_information_box\">
+                    <i class=\"fas fa-info-circle\"></i>
+                    <p>Vous aurez une réponse sous 2 jours ouvrés</p>
+                </div>
+                <div class=\"ticket_information_box\">
+                    <i class=\"fas fa-exclamation-triangle\"></i>
+                    <p>N'abusez pas de la priorité, soyez honnête</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
 ";
         
@@ -112,19 +181,60 @@ class __TwigTemplate_11e47964becac5104909d79c9b3d277854a56438c52599ab4d400d0de0e
 
     public function getDebugInfo()
     {
-        return array (  91 => 8,  87 => 6,  77 => 5,  59 => 3,  36 => 1,);
+        return array (  142 => 31,  135 => 27,  131 => 26,  125 => 23,  118 => 19,  112 => 16,  105 => 11,  96 => 9,  92 => 8,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}{% endblock %}
+{% block title %}Créer un ticket{% endblock %}
 
 {% block body %}
 
-<h1>créer un ticket</h1>
-{{ form(form) }}
+<body>
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class=\"login_errors\" role=\"alert\">{{ flashError }}</div>
+    {% endfor %}
+    <div class=\"ticket_sizing\">
+        <div class=\"ticket_page\">
+            <form class=\"ticket_form\" name=\"ticket\" method=\"POST\" novalidate=\"novalidate\">
+                <h1>Vous rencontrez un problème ? Dites-nous tout.</h1>
+                <div class=\"login_input_full input_size_ticket\">
+                    {{ form_widget(form.title) }}
+                </div>
+                <div class=\"login_input_full input_size_ticket\">
+                    {{ form_widget(form.content) }}
+                </div>
+                <div class=\"level_depart\">
+                    <div class=\"login_input_full input_size_ticket\">
+                        {{ form_widget(form.level) }}
+                    </div>
+                    <div class=\"login_input_full input_size_ticket\">
+                        {{ form_widget(form.department) }}
+                        {{ form_widget(form.statement) }}
+                    </div>
+                </div>
+                <button type=\"submit\" class=\"login_button input_size_ticket\">Ouvrir un ticket</button>
+                {{ form_row(form._token) }}
+            </form>
+            <div class=\"ticket_information\">
+                <h1>Concernant notre support</h1>
+                <div class=\"ticket_information_box no_top_margin\">
+                    <i class=\"fas fa-clock\"></i>
+                    <p>Notre service est ouvert du lundi au vendredi de 9h à 14h.</p>
+                </div>
+                <div class=\"ticket_information_box\">
+                    <i class=\"fas fa-info-circle\"></i>
+                    <p>Vous aurez une réponse sous 2 jours ouvrés</p>
+                </div>
+                <div class=\"ticket_information_box\">
+                    <i class=\"fas fa-exclamation-triangle\"></i>
+                    <p>N'abusez pas de la priorité, soyez honnête</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}
 ", "main/ticket.html.twig", "C:\\laragon\\www\\project\\templates\\main\\ticket.html.twig");

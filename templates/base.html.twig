@@ -9,6 +9,9 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/master.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/animation.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/magic.min.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.png') }}" />
 
     {# Inclusion des fichiers CSS individuel de la page #}
     {% block css %}{% endblock %}
@@ -33,9 +36,10 @@
                         {% endif %}
                     </div>
                 </div>
-                <div class="user_menu hidden" id="dropmenu">
+                <div class="user_menu hidden boingInUp" id="dropmenu">
                     <a href=""><i class="fas fa-cog"></i> Configuration</a>
                     <a href=""><i class="fas fa-user"></i> Votre profil</a>
+                    <a id="night"><i class="fas fa-moon"></i> Mode nuit</a>
                     <a href="{{ asset('logout')}}" class="logout_link"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
                 </div>
             </div>
@@ -50,6 +54,7 @@
 
     <script src="{{ asset('js/jquery-3.5.1.min.js') }}"></script>
     <script src="{{ asset('js/dropdown_menu.js') }}"></script>
+    <script src="{{ asset('js/nightmode.js') }}"></script>
 
     {# Inclusion des fichiers JS individuel de la page #}
     {% block js %}{% endblock %}
