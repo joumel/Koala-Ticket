@@ -72,7 +72,6 @@
                 <tbody>
                     {# Affichage des tickets répondus #}
                     {% if ticketsAnsweredClient is empty %}
-                        <p>Aucun ticket à afficher</p>
                     {% else %}
                         {% for ticketAC in ticketsAnsweredClient %}
                             <tr class="ticket_night">
@@ -88,7 +87,6 @@
 
                     {# Affichage des tickets en attente #}
                     {% if ticketsPendingClient is empty %}
-                        <p>Aucun ticket à afficher</p>
                     {% else %}
                         {% for ticketPC in ticketsPendingClient %}
                             <tr class="ticket_night">
@@ -111,7 +109,6 @@
             <h1>Tickets ouverts</h1>
             {# Affichage des tickets répondus du client #}
             {% if ticketsAnsweredClient is empty %}
-                <p>Aucun ticket à afficher</p>
             {% else %}
                     {% for ticketAC in ticketsAnsweredClient %}
                         <div class="ticket_box">
@@ -124,7 +121,6 @@
 
             {# Affichage des tickets en attente #}
             {% if ticketsPendingClient is empty %}
-                <p>Aucun ticket à afficher</p>
             {% else %}
                     {% for ticketPC in ticketsPendingClient %}
                         <div class="ticket_box">
@@ -141,7 +137,6 @@
             <h1>Tickets fermés</h1>
             {# Affichage des tickets fermés #}
             {% if ticketsClosedClient is empty %}
-            <p>Aucun ticket à afficher</p>
         {% else %}
                 {% for ticketCC in ticketsClosedClient %}
                     <div class="ticket_box">
@@ -171,7 +166,6 @@
                 <tbody>
                     {# Affichage des tickets fermés #}
                     {% if ticketsClosedClient is empty %}
-                        <p>Aucun ticket à afficher</p>
                     {% else %}
                         {% for ticketCC in ticketsClosedClient %}
                             <tr class="ticket_night">
