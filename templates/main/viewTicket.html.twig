@@ -37,12 +37,12 @@
                                 <img src="{# TODO : Ajouter picture à la BDD User {{actualTicket.Owner.picture}} #}{{ asset('images/user.jpg') }}" alt="" class="ticket_img">
                             </div>
                             <div class="client_info">
-                                <p>{{actualTicket.Owner.firstname}}</p>
-                                <p>Client lambda</p>
+                                <p>{{actualTicket.Owner.firstname}} {{actualTicket.Owner.lastname}}</p>
+                                <p>Client</p>
                             </div>
                         </div>
                         <div>
-                            <p class="response_date">{# TODO : Corriger la date de création {{actualTicket.CreationDate}} #} Le 17/02/2020 à 17h</p>
+                            <p class="response_date">{{actualTicket.updateTime|date('d/m/Y à H\\hi')}}</p>
                         </div>
                     </div>
                     <div class="ticket_line"></div>
@@ -55,95 +55,40 @@
 
 
 
-        {% for MessageDisplay in messageInfo %}
-            {# Affichage d'une boite de message CLIENT  #}
-                <div class="client_response">
+        {% for MessageDisplay in messageConversation %}
+            {# Affichage d'une boite de message #}
+                <div class="client_response {{ MessageDisplay.author.roles[0]=='ROLE_ADMIN'? 'green' : '' }}">
                     <div class="client_response_header">
                         <div class="client_ticket_info_box">
                             <div>
                                 <img src="{# TODO : Ajouter picture à la BDD User {{actualTicket.Owner.picture}} #}{{ asset('images/user.jpg') }}" alt="" class="ticket_img">
                             </div>
                             <div class="client_info">
-                                <p></p>
-                                <p>Client lambda</p>
+                                <p>{{ MessageDisplay.author.lastname }} {{ MessageDisplay.author.firstname }}</p>
+                                <p>{{ MessageDisplay.author.roles[0]=='ROLE_ADMIN'? 'Support Technique' : 'Client' }}</p>
                             </div>
                         </div>
                         <div>
-                            <p class="response_date">Le 17/07/2020 à 16h45</p>
+                            <p class="response_date {{ MessageDisplay.author.roles[0]=='ROLE_ADMIN'? 'white' : 'green' }}">{{ MessageDisplay.date|date('d/m/Y à H\\hi') }}</p>
                         </div>
                     </div>
                     <div class="ticket_line"></div>
                     <div class="ticket_client_message">
-                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200</p>
+                        <p>{{ MessageDisplay.content }}</p>
                     </div>
                 </div>
+
         {# Affichage d'une boite de message CLIENT  #}
         {% endfor %}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        {# Affichage d'une boite de message CLIENT  #}
-                <div class="client_response">
-                    <div class="client_response_header">
-                        <div class="client_ticket_info_box">
-                            <div>
-                                <img src="{{ asset('images/user.jpg') }}" alt="" class="ticket_img">
-                            </div>
-                            <div class="client_info">
-                                <p>Sébastien J.</p>
-                                <p>Client lambda</p>
-                            </div>
-                        </div>
-                        <div>
-                            <p class="response_date">Le 17/07/2020 à 16h45</p>
-                        </div>
-                    </div>
-                    <div class="ticket_line"></div>
-                    <div class="ticket_client_message">
-                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200</p>
-                    </div>
-                </div>
-        {# Affichage d'une boite de message CLIENT  #}
-
-        {# Affichage d'une boite de message ADMIN #}
-                <div class="client_response green">
-                    <div class="client_response_header">
-                        <div class="client_ticket_info_box">
-                            <div>
-                                <img src="{{ asset('images/user.jpg') }}" alt="" class="ticket_img">
-                            </div>
-                            <div class="client_info">
-                                <p>Sébastien J.</p>
-                                <p>Support technique</p>
-                            </div>
-                        </div>
-                        <div>
-                            <p class="response_date white">Le 17/07/2020 à 17h00</p>
-                        </div>
-                    </div>
-                    <div class="ticket_line"></div>
-                    <div class="ticket_client_message">
-                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200</p>
-                    </div>
-                </div>
         {# Affichage d'une boite de message ADMIN #}
 
                 <div class="client_response">
                     <form name="create_message" method="post">
                         <div id="create_message">
+                            <div class="error_msg">
+                                {{ form_errors(form.content) }}
+                            </div>
                             <div>
                                 {{ form_widget(form.content) }}
                             </div>
@@ -156,7 +101,7 @@
                 </div>
             </div>
             <div class="statut_btn statut_btn_width">
-                <p>{# TODO : Corriger la date de création {{actualTicket.CreationDate}} #} Ouvert le 10/01/2021</p>
+                <p>{{ actualTicket.creationDate|date('d/m/Y à H\\hi') }}</p>
                 <p class="reset_margin">Actuellement {{actualTicket.Statement}}</p>
             </div>
         </div>

@@ -85,7 +85,6 @@ class MainController extends AbstractController
         $ticketsClosedClient = $ticketRepo->findby(['owner' => $userId , 'statement' => 'fermé'],['level' => 'DESC','updateTime' => 'DESC']);
 
 
-        dump($ticketsPendingClient);
 
 
 
@@ -162,7 +161,7 @@ class MainController extends AbstractController
      * @Route("/voir-le-ticket/{slug}", name="view_ticket"))
      */
     public function CreateMessage(Ticket $ticket, Request $request) : response
-    {   
+    {
         $userId = $this->getUser()->getId();
 
         $messageRepo = $this->getDoctrine()->getRepository(Message::class);
@@ -173,13 +172,15 @@ class MainController extends AbstractController
         $actualTicket = $ticketInfo->findOneBy(['id' => $ticket]);
         $authorOfTicket = $userInfo->findby(['id' => $userId]);
 
-        dump($messageInfo);
+        //Récupération de tous les messages concernant un ticket
+        $messageConversation = $messageRepo->findBy(['ticketTarget' => $actualTicket->getId()]);
+
         $newMessage = new Message();
         $form = $this->createForm(CreateMessageType::class, $newMessage);
 
         $form->handleRequest($request);
 
-        if($form->isSubmitted()){
+        if($form->isSubmitted() && $form->isValid()){
 
             $newMessage->setDate(new DateTime());
             $newMessage->setTicketTarget($ticket);
@@ -190,11 +191,13 @@ class MainController extends AbstractController
             $em->flush();
         }
 
+
         return $this->render('main/viewTicket.html.twig', [
             'form' => $form->createView(),
             'actualTicket' => $actualTicket,
             'authorOfTicket' => $authorOfTicket,
             'messageInfo' => $messageInfo,
+            'messageConversation' => $messageConversation,
         ]);
     }
 
