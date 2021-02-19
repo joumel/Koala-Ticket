@@ -33,7 +33,7 @@ body {
     align-items: center;
 }
 
-.logo>img {
+.logo>a>img {
     width: 60px;
 }
 
