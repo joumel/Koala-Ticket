@@ -189,6 +189,8 @@ class MainController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($newMessage);
             $em->flush();
+            //Rechargement de la page pour afficher les nouveaux messages
+            return $this->redirect($request->getUri());
         }
 
 

@@ -42,7 +42,7 @@
                                 <td>{{ticketA.title}}</td>
                                 <td>{{ ticketA.creationDate|date('d/m/Y à H\\hi') }}</td>
                                 <td>{{ ticketA.id }}</td>
-                                <td class="end_ticket"><a href="" class="primary_btn_success">{{ ticketA.statement|capitalize }}</a></td>
+                                <td class="end_ticket"><a href="{{path('view_ticket', {'slug': ticketA.slug} ) }}" class="primary_btn_success">{{ ticketA.statement|capitalize }}</a></td>
                                 <tr style="height: 10px; background-color: transparent;"></tr>
                             </tr>
                         {% endfor %}
@@ -57,7 +57,7 @@
                                 <td>{{ticketP.title}}</td>
                                 <td>{{ ticketP.creationDate|date('d/m/Y à H\\hi') }}</td>
                                 <td>{{ ticketP.id }}</td>
-                                <td class="end_ticket"><a href="" class="primary_btn_wait">{{ ticketP.statement|capitalize }}</a></td>
+                                <td class="end_ticket"><a href="{{path('view_ticket', {'slug': ticketP.slug} ) }}" class="primary_btn_wait">{{ ticketP.statement|capitalize }}</a></td>
                                 <tr style="height: 10px; background-color: transparent;"></tr>
                             </tr>
                         {% endfor %}
@@ -76,7 +76,7 @@
                         <div class="ticket_box">
                             <p>{{ ticketA.title }}</p>
                             <p>Dernière réponse le {{ ticketA.updateTime|date('d/m/Y à H\\hi') }}</p>
-                            <a href="" class="primary_btn_success">{{ ticketA.statement|capitalize }}</a>
+                            <a href="{{path('view_ticket', {'slug': ticketA.slug} ) }}" class="primary_btn_success">{{ ticketA.statement|capitalize }}</a>
                         </div>
                     {% endfor %}
             {% endif %}
@@ -88,7 +88,7 @@
                         <div class="ticket_box">
                             <p>{{ ticketP.title }}</p>
                             <p>Dernière réponse le {{ ticketP.updateTime|date('d/m/Y à H\\hi') }}</p>
-                            <a href="" class="primary_btn_success">{{ ticketP.statement|capitalize }}</a>
+                            <a href="{{path('view_ticket', {'slug': ticketP.slug} ) }}" class="primary_btn_success">{{ ticketP.statement|capitalize }}</a>
                         </div>
                     {% endfor %}
             {% endif %}
@@ -105,7 +105,7 @@
                         <div class="ticket_box">
                             <p>{{ ticketC.title }}</p>
                             <p>Dernière réponse le {{ ticketC.updateTime|date('d/m/Y à H\\hi') }}</p>
-                            <a href="" class="primary_btn_success">{{ ticketC.statement|capitalize }}</a>
+                            <a href="{{path('view_ticket', {'slug': ticketC.slug} ) }}" class="primary_btn_success">{{ ticketC.statement|capitalize }}</a>
                         </div>
                     {% endfor %}
             {% endif %}
@@ -135,7 +135,7 @@
                                 <td>{{ ticketC.title }}</td>
                                 <td>{{ ticketC.creationDate|date('d/m/Y à H\\hi') }}</td>
                                 <td>{{ ticketC.id }}</td>
-                                <td class="end_ticket"><a href="" class="primary_btn_close">{{ ticketC.statement|capitalize }}</a></td>
+                                <td class="end_ticket"><a href="{{path('view_ticket', {'slug': ticketC.slug} ) }}" class="primary_btn_close">{{ ticketC.statement|capitalize }}</a></td>
                                 <tr style="height: 10px; background-color: transparent;"></tr>
                             </tr>
                         {% endfor %}
