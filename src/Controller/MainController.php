@@ -171,6 +171,7 @@ class MainController extends AbstractController
     public function CreateMessage(Ticket $ticket, Request $request) : response
     {
         $userId = $this->getUser()->getId();
+        date_default_timezone_set('Europe/Paris');
 
         $messageRepo = $this->getDoctrine()->getRepository(Message::class);
         $ticketInfo = $this->getDoctrine()->getRepository(Ticket::class);
@@ -181,11 +182,17 @@ class MainController extends AbstractController
         $authorOfTicket = $userInfo->findby(['id' => $userId]);
 
         //Récupération de tous les messages concernant un ticket
-        $messageConversation = $messageRepo->findBy(['ticketTarget' => $actualTicket->getId()]);
+        $messageConversation = $messageRepo->findBy(['ticketTarget' => $actualTicket->getId()]); // 6 array
+        $lastMessageId = $messageRepo->findOneBy(['ticketTarget' => $actualTicket], ['id' => 'desc']); // Dernier message
 
+        // Récupération du statut actuel du ticket
+        $actualStatement = $actualTicket->getStatement();
+
+        // Création du formulaire
         $newMessage = new Message();
         $form = $this->createForm(CreateMessageType::class, $newMessage);
 
+        // Envoi du formulaire
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
@@ -197,8 +204,29 @@ class MainController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($newMessage);
             $em->flush();
+
+            dump($actualStatement);
+
             //Rechargement de la page pour afficher les nouveaux messages
             return $this->redirect($request->getUri());
+            
+        }
+
+        if (!empty($messageConversation)) {
+
+            // Récupération du rôle du dernier autheur du dernier message
+            $lastAuthorRole = $lastMessageId->getAuthor()->getRoles();
+
+            //Changement du statut du ticket en fonction du répondant
+            if ($lastAuthorRole[0] == "ROLE_ADMIN") {
+                $actualTicket->setStatement("répondu");
+            } else {
+                $actualTicket->setStatement("en attente");
+            }
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($actualTicket);
+            $em->flush();
         }
 
 
