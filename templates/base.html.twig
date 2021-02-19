@@ -30,10 +30,8 @@
                         <img src="{{ asset('images/user.jpg') }}" alt="">
                     </div>
                     <div class="user_info">
-                        {% if is_granted('ROLE_USER') %}
                         <p class="user_name">{{ app.user.firstname }}</p>
-                        <p class="user_account">Compte client</p>
-                        {% endif %}
+                        <p class="user_account">{{ is_granted('ROLE_ADMIN')? 'Compte Admin' : 'Compte Client' }}</p>
                     </div>
                 </div>
                 <div class="user_menu hidden boingInUp" id="dropmenu">

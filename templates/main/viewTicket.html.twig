@@ -15,7 +15,7 @@
                 </div>
                  <div class="btn_box">
                     <a class="primary_btn_white" href="{{ path('dash_client')}}">Retour</a>
-                    <a class="primary_btn_red" href="">Fermer le ticket</a>
+                    <a onclick="return confirm('Êtes-vous sûr de vouloir fermer ce ticket ?')" class="primary_btn_red" href="{{ path('close_ticket' , {'slug': actualTicket.slug}) }}">Fermer le ticket</a>
                 </div>
             </div>
         </div>

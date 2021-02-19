@@ -203,4 +203,25 @@ class MainController extends AbstractController
         ]);
     }
 
+    /**
+     * Page permettant de fermer un ticket
+     *
+     * @Route("/fermer/{slug}/", name="close_ticket")
+     */
+    public function closeTicket(Ticket $ticket, Request $request): Response
+    {
+        $ticketInfo = $this->getDoctrine()->getRepository(Ticket::class);
+        $em = $this->getDoctrine()->getManager();
+        $actualTicketToClose = $ticketInfo->findOneBy(['id' => $ticket]);
+        $TicketToClose = $actualTicketToClose->setStatement('fermé');
+        $em->flush();
+
+        dump($actualTicketToClose);
+
+        // Redirection au dashboard
+        return $this->redirectToRoute('dash_client');
+
+
+    }
+
 }
