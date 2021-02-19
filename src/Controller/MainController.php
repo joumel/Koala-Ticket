@@ -7,8 +7,11 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Form\TicketType;
 use App\Entity\Ticket;
+use App\Entity\User;
 use Symfony\Component\HttpFoundation\Request;
 use \DateTime;
+use App\Entity\Message;
+use App\Form\CreateMessageType;
 
 class MainController extends AbstractController
 {
@@ -152,4 +155,47 @@ class MainController extends AbstractController
         ]);
 
     }
+
+    /**
+     * Page affichage ticket et réponses
+     *
+     * @Route("/voir-le-ticket/{slug}", name="view_ticket"))
+     */
+    public function CreateMessage(Ticket $ticket, Request $request) : response
+    {   
+        $userId = $this->getUser()->getId();
+
+        $messageRepo = $this->getDoctrine()->getRepository(Message::class);
+        $ticketInfo = $this->getDoctrine()->getRepository(Ticket::class);
+        $userInfo = $this->getDoctrine()->getRepository(User::class);
+
+        $messageInfo = $messageRepo->FindBy(['id' => $ticket]);
+        $actualTicket = $ticketInfo->findOneBy(['id' => $ticket]);
+        $authorOfTicket = $userInfo->findby(['id' => $userId]);
+
+        dump($messageInfo);
+        $newMessage = new Message();
+        $form = $this->createForm(CreateMessageType::class, $newMessage);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted()){
+
+            $newMessage->setDate(new DateTime());
+            $newMessage->setTicketTarget($ticket);
+            $newMessage->setAuthor($this->getUser());
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($newMessage);
+            $em->flush();
+        }
+
+        return $this->render('main/viewTicket.html.twig', [
+            'form' => $form->createView(),
+            'actualTicket' => $actualTicket,
+            'authorOfTicket' => $authorOfTicket,
+            'messageInfo' => $messageInfo,
+        ]);
+    }
+
 }

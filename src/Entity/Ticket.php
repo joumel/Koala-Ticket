@@ -3,7 +3,10 @@
 namespace App\Entity;
 
 use App\Repository\TicketRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity(repositoryClass=TicketRepository::class)
@@ -34,6 +37,24 @@ class Ticket
     private $content;
 
     /**
+     * @ORM\Column(type="string", length=255, unique=true)
+     * @Gedmo\Slug(fields={"title"})
+     */
+    private $slug;
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
      * @ORM\Column(type="datetime")
      */
     private $creationDate;
@@ -57,6 +78,16 @@ class Ticket
      * @ORM\Column(type="string", length=50)
      */
     private $department;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Message::class, mappedBy="ticketTarget")
+     */
+    private $MessageList;
+
+    public function __construct()
+    {
+        $this->MessageList = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -155,6 +186,36 @@ class Ticket
     public function setDepartment(string $department): self
     {
         $this->department = $department;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Message[]
+     */
+    public function getMessageList(): Collection
+    {
+        return $this->MessageList;
+    }
+
+    public function addMessageList(Message $messageList): self
+    {
+        if (!$this->MessageList->contains($messageList)) {
+            $this->MessageList[] = $messageList;
+            $messageList->setTicketTarget($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMessageList(Message $messageList): self
+    {
+        if ($this->MessageList->removeElement($messageList)) {
+            // set the owning side to null (unless already changed)
+            if ($messageList->getTicketTarget() === $this) {
+                $messageList->setTicketTarget(null);
+            }
+        }
 
         return $this;
     }

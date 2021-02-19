@@ -1,0 +1,164 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Voir mon ticket{% endblock %}
+
+{% block articles %}
+
+<div class="line_horizontal"></div>
+        <div class="head_ticket">
+            <div class="head_ticket_title">
+                <h2>Ticket #{{ actualTicket.id }}</h2>
+            </div>
+            <div class="head_ticket_btn">
+                <div class="ticket_title">
+                    <p>{{ actualTicket.title }}</p>
+                </div>
+                 <div class="btn_box">
+                    <a class="primary_btn_white" href="{{ path('dash_client')}}">Retour</a>
+                    <a class="primary_btn_red" href="">Fermer le ticket</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+{% endblock %}
+
+{% block body %}
+
+<section class="statut_top">
+        <div class="statut statut_reset" id="statut">
+            <div class="statut_text statut_width">
+
+        {# Affichage du contenu du premier ticket #}
+                <div class="client_response">
+                    <div class="client_response_header">
+                        <div class="client_ticket_info_box">
+                            <div>
+                                <img src="{# TODO : Ajouter picture à la BDD User {{actualTicket.Owner.picture}} #}{{ asset('images/user.jpg') }}" alt="" class="ticket_img">
+                            </div>
+                            <div class="client_info">
+                                <p>{{actualTicket.Owner.firstname}}</p>
+                                <p>Client lambda</p>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="response_date">{# TODO : Corriger la date de création {{actualTicket.CreationDate}} #} Le 17/02/2020 à 17h</p>
+                        </div>
+                    </div>
+                    <div class="ticket_line"></div>
+                    <div class="ticket_client_message">
+                        <p>{{actualTicket.content}}</p>
+                    </div>
+                </div>
+        {# Affichage du contenu du premier ticket #}
+
+
+
+
+        {% for MessageDisplay in messageInfo %}
+            {# Affichage d'une boite de message CLIENT  #}
+                <div class="client_response">
+                    <div class="client_response_header">
+                        <div class="client_ticket_info_box">
+                            <div>
+                                <img src="{# TODO : Ajouter picture à la BDD User {{actualTicket.Owner.picture}} #}{{ asset('images/user.jpg') }}" alt="" class="ticket_img">
+                            </div>
+                            <div class="client_info">
+                                <p></p>
+                                <p>Client lambda</p>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="response_date">Le 17/07/2020 à 16h45</p>
+                        </div>
+                    </div>
+                    <div class="ticket_line"></div>
+                    <div class="ticket_client_message">
+                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200</p>
+                    </div>
+                </div>
+        {# Affichage d'une boite de message CLIENT  #}
+        {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        {# Affichage d'une boite de message CLIENT  #}
+                <div class="client_response">
+                    <div class="client_response_header">
+                        <div class="client_ticket_info_box">
+                            <div>
+                                <img src="{{ asset('images/user.jpg') }}" alt="" class="ticket_img">
+                            </div>
+                            <div class="client_info">
+                                <p>Sébastien J.</p>
+                                <p>Client lambda</p>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="response_date">Le 17/07/2020 à 16h45</p>
+                        </div>
+                    </div>
+                    <div class="ticket_line"></div>
+                    <div class="ticket_client_message">
+                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200</p>
+                    </div>
+                </div>
+        {# Affichage d'une boite de message CLIENT  #}
+
+        {# Affichage d'une boite de message ADMIN #}
+                <div class="client_response green">
+                    <div class="client_response_header">
+                        <div class="client_ticket_info_box">
+                            <div>
+                                <img src="{{ asset('images/user.jpg') }}" alt="" class="ticket_img">
+                            </div>
+                            <div class="client_info">
+                                <p>Sébastien J.</p>
+                                <p>Support technique</p>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="response_date white">Le 17/07/2020 à 17h00</p>
+                        </div>
+                    </div>
+                    <div class="ticket_line"></div>
+                    <div class="ticket_client_message">
+                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200</p>
+                    </div>
+                </div>
+        {# Affichage d'une boite de message ADMIN #}
+
+                <div class="client_response">
+                    <form name="create_message" method="post">
+                        <div id="create_message">
+                            <div>
+                                {{ form_widget(form.content) }}
+                            </div>
+                            <div>
+                                <button type="submit" id="create_message_save" name="create_message[save]" class="login_button input_size_ticket submit_top">Répondre</button>
+                            </div>
+                            {{ form_row(form._token) }}
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="statut_btn statut_btn_width">
+                <p>{# TODO : Corriger la date de création {{actualTicket.CreationDate}} #} Ouvert le 10/01/2021</p>
+                <p class="reset_margin">Actuellement {{actualTicket.Statement}}</p>
+            </div>
+        </div>
+    </section>
+{% endblock %}

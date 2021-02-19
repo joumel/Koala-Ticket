@@ -92,8 +92,8 @@ class TicketType extends AbstractType
                 ],
             ])
 
-            ->add('save', SubmitType::class, [ // Ajout d'un champ de type bouton de validation
-                'label' => 'Créer un Ticket'    // Texte du bouton
+            ->add('save', SubmitType::class, [
+                'label' => 'Créer un Ticket'
             ])
 
         ;

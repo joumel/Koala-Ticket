@@ -94,7 +94,7 @@
                                 <td>{{ticketPC.title}}</td>
                                 <td>{{ ticketPC.creationDate|date('d/m/Y à H\\hi') }}</td>
                                 <td>{{ ticketPC.id }}</td>
-                                <td class="end_ticket"><a href="" class="primary_btn_success">{{ ticketPC.statement|capitalize }}</a></td>
+                                <td class="end_ticket"><a href="{{path('view_ticket', {'slug': ticketPC.slug} ) }}" class="primary_btn_success">{{ ticketPC.statement|capitalize }}</a></td>
                                 <tr style="height: 10px; background-color: transparent;"></tr>
                             </tr>
                         {% endfor %}

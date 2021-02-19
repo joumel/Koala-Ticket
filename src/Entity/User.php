@@ -74,11 +74,17 @@ class User implements UserInterface
      */
     private $conv;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Message::class, mappedBy="Author")
+     */
+    private $UserMessageList;
+
     public function __construct()
     {
         $this->tickets = new ArrayCollection();
         $this->chat = new ArrayCollection();
         $this->conv = new ArrayCollection();
+        $this->UserMessageList = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -294,6 +300,36 @@ class User implements UserInterface
             // set the owning side to null (unless already changed)
             if ($conv->getOwner() === $this) {
                 $conv->setOwner(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Message[]
+     */
+    public function getUserMessageList(): Collection
+    {
+        return $this->UserMessageList;
+    }
+
+    public function addUserMessageList(Message $userMessageList): self
+    {
+        if (!$this->UserMessageList->contains($userMessageList)) {
+            $this->UserMessageList[] = $userMessageList;
+            $userMessageList->setAuthor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUserMessageList(Message $userMessageList): self
+    {
+        if ($this->UserMessageList->removeElement($userMessageList)) {
+            // set the owning side to null (unless already changed)
+            if ($userMessageList->getAuthor() === $this) {
+                $userMessageList->setAuthor(null);
             }
         }
 
