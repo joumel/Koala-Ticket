@@ -12,6 +12,8 @@ use Symfony\Component\HttpFoundation\Request;
 use \DateTime;
 use App\Entity\Message;
 use App\Form\CreateMessageType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 class MainController extends AbstractController
 {
@@ -37,6 +39,7 @@ class MainController extends AbstractController
 
     /**
      * @Route("/dashboard/admin", name="dash_admin")
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function dash_admin(): Response
     {
@@ -146,7 +149,12 @@ class MainController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($newTicket);
             $em->flush();
+
+            // Redirection sur le ticket crée
+            return $this->redirectToRoute('view_ticket', array('slug' => $newTicket->getSlug()));
         }
+
+        dump($newTicket->getSlug());
 
 
         return $this->render('main/ticket.html.twig', [
