@@ -174,7 +174,6 @@ class MainController extends AbstractController
     public function CreateMessage(Ticket $ticket, Request $request) : response
     {
         $userId = $this->getUser()->getId();
-        date_default_timezone_set('Europe/Paris');
 
         $messageRepo = $this->getDoctrine()->getRepository(Message::class);
         $ticketInfo = $this->getDoctrine()->getRepository(Ticket::class);
@@ -200,6 +199,8 @@ class MainController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
+
+            date_default_timezone_set('Europe/Paris');
 
             $newMessage->setDate(new DateTime());
             $newMessage->setTicketTarget($ticket);
