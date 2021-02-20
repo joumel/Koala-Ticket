@@ -84,6 +84,11 @@ class User implements UserInterface
      */
     private $picture;
 
+    /**
+     * @ORM\Column(type="string", length=100, nullable=true)
+     */
+    private $nightmode;
+
     public function __construct()
     {
         $this->tickets = new ArrayCollection();
@@ -349,6 +354,18 @@ class User implements UserInterface
     public function setPicture(?string $picture): self
     {
         $this->picture = $picture;
+
+        return $this;
+    }
+
+    public function getNightmode(): ?string
+    {
+        return $this->nightmode;
+    }
+
+    public function setNightmode(?string $nightmode): self
+    {
+        $this->nightmode = $nightmode;
 
         return $this;
     }

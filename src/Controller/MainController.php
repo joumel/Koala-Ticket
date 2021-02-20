@@ -265,4 +265,32 @@ class MainController extends AbstractController
 
     }
 
+    /**
+     * Page permettant de fermer un ticket
+     *
+     * @Route("/nightmode", name="nightmode")
+     */
+    public function nightmode() : Response
+    {
+        
+        $userMode = $this->getUser();
+        $updateUser = $this->getDoctrine()->getRepository(User::class);
+        $userChoiceMode = $userMode->getNightmode();
+
+        if ($userChoiceMode == null) {
+            $userMode->setNightmode('{{asset("css/nightmode.css")}}');
+            $em = $this->getDoctrine()->getManager();
+            $em->flush();
+        } else {
+            $userMode->setNightmode(null);
+            $em = $this->getDoctrine()->getManager();
+            $em->flush();
+        }
+
+        // Redirection au dashboard
+        return $this->redirectToRoute('dash_client');
+
+
+    }
+
 }
