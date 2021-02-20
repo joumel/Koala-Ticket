@@ -39,7 +39,7 @@
                         {% for ticketA in ticketsAnswered %}
                             <tr class="ticket_night">
                                 <td class="start_ticket">
-                                
+
                                 {% if (ticketA.owner.picture == null) %}
                                 <img src="{{ asset('images/default.png') }}" alt="" class="ticket_img">
                                 {% else %}
@@ -62,13 +62,13 @@
                         {% for ticketP in ticketsPending %}
                             <tr class="ticket_night">
                                 <td class="start_ticket">
-                                
+
                                 {% if (ticketP.owner.picture == null) %}
                                 <img src="{{ asset('images/default.png') }}" alt="" class="ticket_img">
                                 {% else %}
                                 <img src="{{ asset(ticketP.owner.picture) }}" alt="" class="ticket_img">
                                 {% endif %}
-                                
+
                                 <p>{{ ticketP.owner.lastname }} {{ ticketP.owner.firstname }}<br>{{ ticketP.creationDate|date('d/m/Y à H\\hi') }}</p></td>
                                 <td>{{ticketP.title}}</td>
                                 <td>{{ ticketP.updateTime|date('d/m/Y à H\\hi') }}</td>

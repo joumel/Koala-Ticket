@@ -56,7 +56,7 @@ class MainController extends AbstractController
         $ticketsPending = $ticketRepo->findBy(['statement' => 'en attente'], ['level' => 'DESC','updateTime' => 'DESC']);
 
         //Récupération des tickets fermés
-        $ticketsClosed = $ticketRepo->findBy(['statement' => 'fermé'], ['level' => 'DESC','updateTime' => 'DESC']);
+        $ticketsClosed = $ticketRepo->findBy(['statement' => 'fermé'], ['updateTime' => 'DESC']);
 
 
         return $this->render('main/dash_admin.html.twig', [
@@ -90,7 +90,7 @@ class MainController extends AbstractController
         $ticketsPendingClient = $ticketRepo->findby(['owner' => $userId , 'statement' => 'en attente'],['level' => 'DESC','updateTime' => 'DESC']);
 
         //Récupération des tickets fermés du client connecté
-        $ticketsClosedClient = $ticketRepo->findby(['owner' => $userId , 'statement' => 'fermé'],['level' => 'DESC','updateTime' => 'DESC']);
+        $ticketsClosedClient = $ticketRepo->findby(['owner' => $userId , 'statement' => 'fermé'],['updateTime' => 'DESC']);
         
         if ($userRoles[0] == 'ROLE_ADMIN') {
             return $this->redirectToRoute('dash_admin');
@@ -158,7 +158,6 @@ class MainController extends AbstractController
             return $this->redirectToRoute('view_ticket', array('slug' => $newTicket->getSlug()));
         }
 
-        dump($newTicket->getSlug());
 
 
         return $this->render('main/ticket.html.twig', [
@@ -218,7 +217,7 @@ class MainController extends AbstractController
 
             //Rechargement de la page pour afficher les nouveaux messages
             return $this->redirect($request->getUri());
-            
+
         }
 
         if ($actualStatement != 'fermé' && isset($lastMessageId)) {
@@ -255,7 +254,7 @@ class MainController extends AbstractController
      * @Route("/fermer/{slug}/", name="close_ticket")
      */
     public function closeTicket(Ticket $ticket, Request $request): Response
-    {   
+    {
         // Récupération du ticket actuellement et changement du statut
         $ticketInfo = $this->getDoctrine()->getRepository(Ticket::class);
         $em = $this->getDoctrine()->getManager();
@@ -263,7 +262,7 @@ class MainController extends AbstractController
         $TicketToClose = $actualTicketToClose->setStatement('fermé');
         $em->flush();
 
-        dump($actualTicketToClose);
+
 
         // Redirection au dashboard
         return $this->redirectToRoute('dash_client');

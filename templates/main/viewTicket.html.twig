@@ -91,29 +91,52 @@
         {# Affichage d'une boite de message CLIENT  #}
         {% endfor %}
 
-        {# Affichage d'une boite de message ADMIN #}
-
-                <div class="client_response">
-                    <form name="create_message" method="post">
-                        <div id="create_message">
-                            <div class="error_msg">
-                                {{ form_errors(form.content) }}
-                            </div>
-                            <div>
-                                {{ form_widget(form.content) }}
-                            </div>
-                            <div>
-                                <button type="submit" id="create_message_save" name="create_message[save]" class="login_button input_size_ticket submit_top">Répondre</button>
-                            </div>
-                            {{ form_row(form._token) }}
+        {# Affichage du formulaire de réponse si le ticket n'est pas fermé #}
+        {% if actualTicket.statement != 'fermé' %}
+            <div class="client_response">
+                <form name="create_message" method="post">
+                    <div id="create_message">
+                        <div class="error_msg">
+                            {{ form_errors(form.content) }}
                         </div>
-                    </form>
-                </div>
+                        <div>
+                            {{ form_widget(form.content) }}
+                        </div>
+                        <div>
+                            <button type="submit" id="create_message_save" name="create_message[save]" class="login_button input_size_ticket submit_top">Répondre</button>
+                        </div>
+                        {{ form_row(form._token) }}
+                    </div>
+                </form>
+            </div>
             </div>
             <div class="statut_btn statut_btn_width">
                 <p>{{ actualTicket.creationDate|date('d/m/Y à H\\hi') }}</p>
                 <p class="reset_margin">Actuellement {{actualTicket.Statement}}</p>
             </div>
+            {# Si le ticket est fermé, réponse d'un bot #}
+            {% else %}
+                <div class="client_response green">
+                    <div class="client_response_header">
+                        <div class="client_ticket_info_box">
+                            <div>
+                                <img src="{{ asset('images/koala-bot.jpg') }}" alt="" class="ticket_img">
+                            </div>
+                            <div class="client_info">
+                                <p style="color:blue">Bot Koala Ticket</p>
+                                <p >De l'équipe Koala Ticket</p>
+                            </div>
+                        </div>
+                        <div>
+                            {# <p class="response_date white">{{ actualTicket.updateTime|date('d/m/Y à H\\hi') }}</p> #}
+                        </div>
+                    </div>
+                    <div class="ticket_line"></div>
+                    <div class="ticket_client_message">
+                        <p style="text-align:center;color:#8B0000">LE TICKET EST CLOS</p>
+                    </div>
+                </div>
+        {% endif %}
         </div>
     </section>
 {% endblock %}
