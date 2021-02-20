@@ -36,7 +36,11 @@
                     <div class="client_response_header">
                         <div class="client_ticket_info_box">
                             <div>
-                                <img src="{# TODO : Ajouter picture à la BDD User {{actualTicket.Owner.picture}} #}{{ asset('images/user.jpg') }}" alt="" class="ticket_img">
+                                {% if (actualTicket.Owner.picture == null) %}
+                                <img src="{{ asset('images/default.png') }}" alt="" class="ticket_img">
+                                {% else %}
+                                <img src="{{ actualTicket.Owner.picture }}" alt="" class="ticket_img">
+                                {% endif %}
                             </div>
                             <div class="client_info">
                                 <p>{{actualTicket.Owner.firstname}} {{actualTicket.Owner.lastname}}</p>
@@ -63,7 +67,11 @@
                     <div class="client_response_header">
                         <div class="client_ticket_info_box">
                             <div>
-                                <img src="{# TODO : Ajouter picture à la BDD User {{actualTicket.Owner.picture}} #}{{ asset('images/user.jpg') }}" alt="" class="ticket_img">
+                                {% if (MessageDisplay.author.picture == null) %}
+                                <img src="{{ asset('images/default.png') }}" alt="" class="ticket_img">
+                                {% else %}
+                                <img src="{{ MessageDisplay.author.picture }}" alt="" class="ticket_img">
+                                {% endif %}
                             </div>
                             <div class="client_info">
                                 <p>{{ MessageDisplay.author.lastname }} {{ MessageDisplay.author.firstname }}</p>

@@ -74,6 +74,7 @@ class MainController extends AbstractController
 
         //Récupération de l'id de l'utilisateur connecté
         $userId = $this->getUser()->getId();
+        $userRoles = $this->getUser()->getRoles();
 
         //Doctrine repository
         $ticketRepo = $this->getDoctrine()->getRepository(Ticket::class);
@@ -86,11 +87,10 @@ class MainController extends AbstractController
 
         //Récupération des tickets fermés du client connecté
         $ticketsClosedClient = $ticketRepo->findby(['owner' => $userId , 'statement' => 'fermé'],['level' => 'DESC','updateTime' => 'DESC']);
-
-
-
-
-
+        
+        if ($userRoles[0] == 'ROLE_ADMIN') {
+            return $this->redirectToRoute('dash_admin');
+        };
 
         return $this->render('main/dash_client.html.twig', [
             'controller_dash_client' => 'Page client',
@@ -158,7 +158,7 @@ class MainController extends AbstractController
 
 
         return $this->render('main/ticket.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
         ]);
 
     }
@@ -190,6 +190,7 @@ class MainController extends AbstractController
 
         // Création du formulaire
         $newMessage = new Message();
+        $newTicket = new Ticket();
         $form = $this->createForm(CreateMessageType::class, $newMessage);
 
         // Envoi du formulaire
@@ -205,7 +206,11 @@ class MainController extends AbstractController
             $em->persist($newMessage);
             $em->flush();
 
-            dump($actualStatement);
+            $actualTicket->setUpdateTime(
+                new DateTime()
+            );
+
+            $em->flush();
 
             //Rechargement de la page pour afficher les nouveaux messages
             return $this->redirect($request->getUri());

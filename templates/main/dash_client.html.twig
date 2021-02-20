@@ -62,9 +62,9 @@
             <table class="test">
                 <thead>
                     <tr class="opened_title">
-                        <td class="start_ticket">Dernière réponse</td>
+                        <td class="start_ticket">Date de création</td>
                         <td>Sujet</td>
-                        <td>Création</td>
+                        <td>Dernier message</td>
                         <td>Numéro</td>
                         <td class="end_ticket">Etat du ticket</td>
                     </tr>
@@ -75,10 +75,18 @@
                     {% else %}
                         {% for ticketAC in ticketsAnsweredClient %}
                             <tr class="ticket_night">
-                                <td class="start_ticket"><img src="{{ asset('images/user.jpg') }}" alt="" class="ticket_img"><p>{{ ticketAC.owner.lastname|capitalize }} {{ ticketAC.owner.firstname|capitalize }}<br>{{ ticketAC.updateTime|date('d/m/Y à H\\hi') }}</p></td>
+                                <td class="start_ticket">
+
+                                    {% if (app.user.picture == null) %}
+                                    <img src="{{ asset('images/default.png') }}" alt="" class="ticket_img">
+                                    {% else %}
+                                    <img src="{{ app.user.picture }}" alt="" class="ticket_img">
+                                    {% endif %}
+                                
+                                <p>{{ ticketAC.owner.lastname|capitalize }} {{ ticketAC.owner.firstname|capitalize }}<br>{{ ticketAC.creationDate|date('d/m/Y à H\\hi') }}</p></td>
                                 <td>{{ticketAC.title}}</td>
-                                <td>{{ ticketAC.creationDate|date('d/m/Y à H\\hi') }}</td>
-                                <td>{{ ticketAC.id }}</td>
+                                <td>{{ ticketAC.updateTime|date('d/m/Y à H\\hi') }}</td>
+                                <td>#{{ ticketAC.id }}</td>
                                 <td class="end_ticket"><a href="{{path('view_ticket', {'slug': ticketAC.slug} ) }}" class="primary_btn_success">{{ ticketAC.statement|capitalize }}</a></td>
                                 <tr style="height: 10px; background-color: transparent;"></tr>
                             </tr>
@@ -90,10 +98,18 @@
                     {% else %}
                         {% for ticketPC in ticketsPendingClient %}
                             <tr class="ticket_night">
-                                <td class="start_ticket"><img src="{{ asset('images/user.jpg') }}" alt="" class="ticket_img"><p>{{ ticketPC.owner.lastname }} {{ ticketPC.owner.firstname }}<br>{{ ticketPC.updateTime|date('d/m/Y à H\\hi') }}</p></td>
+                                <td class="start_ticket">
+                                    
+                                        {% if (ticketPC.owner.picture == null) %}
+                                        <img src="{{ asset('images/default.png') }}" alt="" class="ticket_img">
+                                        {% else %}
+                                        <img src="{{ app.user.picture }}" alt="" class="ticket_img">
+                                        {% endif %}
+                                
+                                <p>{{ ticketPC.owner.lastname }} {{ ticketPC.owner.firstname }}<br>{{ ticketPC.creationDate|date('d/m/Y à H\\hi') }}</p></td>
                                 <td>{{ticketPC.title}}</td>
-                                <td>{{ ticketPC.creationDate|date('d/m/Y à H\\hi') }}</td>
-                                <td>{{ ticketPC.id }}</td>
+                                <td>{{ ticketPC.updateTime|date('d/m/Y à H\\hi') }}</td>
+                                <td>#{{ ticketPC.id }}</td>
                                 <td class="end_ticket"><a href="{{path('view_ticket', {'slug': ticketPC.slug} ) }}" class="primary_btn_wait">{{ ticketPC.statement|capitalize }}</a></td>
                                 <tr style="height: 10px; background-color: transparent;"></tr>
                             </tr>
@@ -156,9 +172,9 @@
             <table class="test">
                 <thead>
                     <tr class="opened_title">
-                        <td class="start_ticket">Dernière réponse</td>
+                        <td class="start_ticket">Créateur</td>
                         <td>Sujet</td>
-                        <td>Création</td>
+                        <td>Dernier message</td>
                         <td>Numéro</td>
                         <td class="end_ticket">Etat du ticket</td>
                     </tr>
@@ -169,10 +185,18 @@
                     {% else %}
                         {% for ticketCC in ticketsClosedClient %}
                             <tr class="ticket_night">
-                                <td class="start_ticket"><img src="{{ asset('images/user.jpg') }}" alt="" class="ticket_img"><p>{{ ticketCC.owner.lastname }} {{ ticketCC.owner.firstname }} <br> {{ ticketCC.updateTime|date('d/m/Y à H\\hi') }} </p></td>
+                                <td class="start_ticket">
+
+                                    {% if (app.user.picture == null) %}
+                                    <img src="{{ asset('images/default.png') }}" alt="" class="ticket_img">
+                                    {% else %}
+                                    <img src="{{ app.user.picture }}" alt="" class="ticket_img">
+                                    {% endif %}
+                                    
+                                <p>{{ ticketCC.owner.lastname }} {{ ticketCC.owner.firstname }} <br> {{ ticketCC.creationDate|date('d/m/Y à H\\hi') }} </p></td>
                                 <td>{{ ticketCC.title }}</td>
-                                <td>{{ ticketCC.creationDate|date('d/m/Y à H\\hi') }}</td>
-                                <td>{{ ticketCC.id }}</td>
+                                <td>{{ ticketCC.updateTime|date('d/m/Y à H\\hi') }}</td>
+                                <td>#{{ ticketCC.id }}</td>
                                 <td class="end_ticket"><a href="{{path('view_ticket', {'slug': ticketCC.slug} ) }}" class="primary_btn_close">{{ ticketCC.statement|capitalize }}</a></td>
                                 <tr style="height: 10px; background-color: transparent;"></tr>
                             </tr>

@@ -22,12 +22,22 @@
             <div class="logo">
                 <a href="{{ path('dash_client') }}"><img src="{{ asset('images/koala.png') }}" alt="Logo du site"></a>
                 <div class="line_vertical"></div>
-                <a href="">Questions fréquentes</a>
+
+                    {% if (app.user.roles[0] == 'ROLE_ADMIN') %}
+                    <a href="">Administration</a>
+                    {% else %}
+                    <a href="">Questions fréquentes</a>
+                    {% endif %}
+                    
             </div>
             <div class="user" id="user">
                 <div class="user_box">
                     <div class="user_picture">
-                        <img src="{{ asset('images/user.jpg') }}" alt="">
+                        {% if (app.user.picture == null) %}
+                        <img src="{{ asset('images/default.png') }}" alt="">
+                        {% else %}
+                        <img src="{{ app.user.picture }}" alt="">
+                        {% endif %}
                     </div>
                     <div class="user_info">
                         <p class="user_name">{{ app.user.firstname }}</p>
