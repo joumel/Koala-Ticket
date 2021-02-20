@@ -78,6 +78,8 @@ class MainController extends AbstractController
         $userId = $this->getUser()->getId();
         $userRoles = $this->getUser()->getRoles();
 
+        dump($userId);
+
         //Doctrine repository
         $ticketRepo = $this->getDoctrine()->getRepository(Ticket::class);
 
@@ -219,7 +221,7 @@ class MainController extends AbstractController
             
         }
 
-        if (!empty($messageConversation)) {
+        if ($actualStatement != 'fermé' && isset($lastMessageId)) {
 
             // Récupération du rôle du dernier autheur du dernier message
             $lastAuthorRole = $lastMessageId->getAuthor()->getRoles();
