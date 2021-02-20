@@ -21,7 +21,7 @@
 
         <!-- boite blanche avec la liste des tickets (version PC)-->
         <div class="opened">
-            <h1>Tickets ouverts</h1>
+            <h1>Tickets en attente...</h1>
             <table class="test">
                 <thead>
                     <tr class="opened_title">
@@ -33,28 +33,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {# Affichage des tickets répondus #}
-                    {% if ticketsAnswered is empty %}
-                    {% else %}
-                        {% for ticketA in ticketsAnswered %}
-                            <tr class="ticket_night">
-                                <td class="start_ticket">
 
-                                {% if (ticketA.owner.picture == null) %}
-                                <img src="{{ asset('images/default.png') }}" alt="" class="ticket_img">
-                                {% else %}
-                                <img src="{{ asset(ticketA.owner.picture) }}" alt="" class="ticket_img">
-                                {% endif %}
-
-                                <p>{{ ticketA.owner.lastname|capitalize }} {{ ticketA.owner.firstname|capitalize }}<br>{{ ticketA.creationDate|date('d/m/Y à H\\hi') }}</p></td>
-                                <td>{{ticketA.title}}</td>
-                                <td>{{ ticketA.updateTime|date('d/m/Y à H\\hi') }}</td>
-                                <td>#{{ ticketA.id }}</td>
-                                <td class="end_ticket"><a href="{{path('view_ticket', {'slug': ticketA.slug} ) }}" class="primary_btn_success">{{ ticketA.statement|capitalize }}</a></td>
-                                <tr style="height: 10px; background-color: transparent;"></tr>
-                            </tr>
-                        {% endfor %}
-                    {% endif %}
 
                     {# Affichage des tickets en attente #}
                     {% if ticketsPending is empty %}
@@ -84,19 +63,7 @@
 
         <!-- boite blanche avec la liste des tickets(version mobile)-->
         <div class="opened_mobile">
-            <h1>Tickets ouverts</h1>
-            {# Affichage des tickets répondus #}
-            {% if ticketsAnswered is empty %}
-            {% else %}
-                    {% for ticketA in ticketsAnswered %}
-                        <div class="ticket_box">
-                            <p>{{ ticketA.title }}</p>
-                            <p>Dernière réponse le {{ ticketA.updateTime|date('d/m/Y à H\\hi') }}</p>
-                            <a href="{{path('view_ticket', {'slug': ticketA.slug} ) }}" class="primary_btn_success">{{ ticketA.statement|capitalize }}</a>
-                        </div>
-                    {% endfor %}
-            {% endif %}
-
+            <h1>Tickets en attente...</h1>
             {# Affichage des tickets en attente #}
             {% if ticketsPending is empty %}
             {% else %}
@@ -113,24 +80,23 @@
 
         <!-- boite blanche avec la liste des tickets fermés (version mobile)-->
             <div class="opened_mobile">
-                <h1>Tickets fermés</h1>
-                {# Affichage des tickets fermés #}
-                {% if ticketsClosed is empty %}
-            {% else %}
-                    {% for ticketC in ticketsClosed %}
-                        <div class="ticket_box">
-                            <p>{{ ticketC.title }}</p>
-                            <p>Dernière réponse le {{ ticketC.updateTime|date('d/m/Y à H\\hi') }}</p>
-                            <a href="{{path('view_ticket', {'slug': ticketC.slug} ) }}" class="primary_btn_success">{{ ticketC.statement|capitalize }}</a>
-                        </div>
-                    {% endfor %}
-            {% endif %}
+                <h1>Tickets répondus</h1>
+                {# Affichage des tickets répondus #}
+                {% if ticketsAnswered is empty %}
+                {% else %}
+                        {% for ticketA in ticketsAnswered %}
+                            <div class="ticket_box">
+                                <p>{{ ticketA.title }}</p>
+                                <p>Dernière réponse le {{ ticketA.updateTime|date('d/m/Y à H\\hi') }}</p>
+                                <a href="{{path('view_ticket', {'slug': ticketA.slug} ) }}" class="primary_btn_success">{{ ticketA.statement|capitalize }}</a>
+                            </div>
+                        {% endfor %}
+                {% endif %}
             </div>
 
         <!-- boite blanche avec la liste des tickets -->
         <div class="opened">
-            <h1>Tickets fermés</h1>
-
+            <h1>Tickets répondus</h1>
             <table class="test">
                 <thead>
                     <tr class="opened_title">
@@ -142,26 +108,25 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {# Affichage des tickets fermés #}
-                    {% if ticketsClosed is empty %}
-                    {% else %}
-                        {% for ticketC in ticketsClosed %}
-                            <tr class="ticket_night">
-                                <td class="start_ticket">
-                                
-                                {% if (ticketC.owner.picture == null) %}
-                                <img src="{{ asset('images/default.png') }}" alt="" class="ticket_img">
-                                {% else %}
-                                <img src="{{ asset(ticketC.owner.picture) }}" alt="" class="ticket_img">
-                                {% endif %}
-                                
-                                <p>{{ ticketC.owner.lastname }} {{ ticketC.owner.firstname }} <br> {{ ticketC.creationDate|date('d/m/Y à H\\hi') }} </p></td>
-                                <td>{{ ticketC.title }}</td>
-                                <td>{{ ticketC.updateTime|date('d/m/Y à H\\hi') }}</td>
-                                <td>#{{ ticketC.id }}</td>
-                                <td class="end_ticket"><a href="{{path('view_ticket', {'slug': ticketC.slug} ) }}" class="primary_btn_close">{{ ticketC.statement|capitalize }}</a></td>
-                                <tr style="height: 10px; background-color: transparent;"></tr>
-                            </tr>
+                    {# Affichage des tickets répondus #}
+                    {% if ticketsAnswered is empty %}
+                        {% else %}
+                            {% for ticketA in ticketsAnswered %}
+                                <tr class="ticket_night">
+                                    <td class="start_ticket">
+                                    {% if (ticketA.owner.picture == null) %}
+                                    <img src="{{ asset('images/default.png') }}" alt="" class="ticket_img">
+                                    {% else %}
+                                    <img src="{{ asset(ticketA.owner.picture) }}" alt="" class="ticket_img">
+                                    {% endif %}
+
+                                    <p>{{ ticketA.owner.lastname|capitalize }} {{ ticketA.owner.firstname|capitalize }}<br>{{ ticketA.creationDate|date('d/m/Y à H\\hi') }}</p></td>
+                                    <td>{{ticketA.title}}</td>
+                                    <td>{{ ticketA.updateTime|date('d/m/Y à H\\hi') }}</td>
+                                    <td>#{{ ticketA.id }}</td>
+                                    <td class="end_ticket"><a href="{{path('view_ticket', {'slug': ticketA.slug} ) }}" class="primary_btn_success">{{ ticketA.statement|capitalize }}</a></td>
+                                    <tr style="height: 10px; background-color: transparent;"></tr>
+                                </tr>
                         {% endfor %}
                     {% endif %}
                 </tbody>
