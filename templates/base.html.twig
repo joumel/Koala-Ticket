@@ -39,7 +39,7 @@
                         {% if (app.user.picture == null) %}
                         <img src="{{ asset('images/default.png') }}" alt="">
                         {% else %}
-                        <img src="{{ app.user.picture }}" alt="">
+                        <img src="{{ asset(app.user.picture) }}" alt="">
                         {% endif %}
                     </div>
                     <div class="user_info">
@@ -48,8 +48,10 @@
                     </div>
                 </div>
                 <div class="user_menu hidden boingInUp" id="dropmenu">
-                    <a href=""><i class="fas fa-cog"></i> Configuration</a>
-                    <a href=""><i class="fas fa-user"></i> Votre profil</a>
+                    {% if (app.user.roles[0] == 'ROLE_ADMIN') %}
+                    <a href=""><i class="fas fa-cog"></i> Panel admin</a>
+                    {% endif %}
+                    <a href="{{ path('update_profile')}}"><i class="fas fa-cog"></i> Paramètres</a>
                     <a href="{{ path('nightmode')}}"><i class="fas fa-moon"></i> Mode nuit</a>
                     <a href="{{ asset('logout')}}" class="logout_link"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
                 </div>

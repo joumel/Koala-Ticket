@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer un ticket{% endblock %}
+
+{% block articles %}
+
+<div class="line_horizontal"></div>
+        <div class="head_ticket">
+            <div class="head_ticket_btn">
+                <div class="ticket_title">
+                    <p>{{ app.user.firstname }} {{ app.user.lastname}}</p>
+                </div>
+                 <div class="btn_box">
+                    <a class="primary_btn_white" href="{{ path('dash_client')}}">Retour</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+{% endblock %}
+
+{% block body %}
+<section class="statut_top">
+        <div class="statut" id="statut">
+            <div class="statut_text">
+                <p>Nous sommes ravis de vous avoir parmis nos client</p>
+                <p>Vous pouvez éditer votre nom, prénom et photo de profil</p>
+            </div>
+        </div>
+    </section>
+    <section class="formPictureFull">
+        <div class="profile_update_box">   
+            <div class="formPicture">
+                    {% if (app.user.picture == null) %}
+                    <img src="{{ asset('images/default.png') }}" alt="" class="profil_picture_profil">
+                    {% else %}
+                    <img src="{{ asset(app.user.picture) }}" alt="" class="profil_picture_profil">
+                    {% endif %}
+                <form name="add_photo" method="post" enctype="multipart/form-data" style="width: 100%;">
+                    <div class="input_file_type">
+                        {{ form_widget(form.photo) }}
+                    </div>
+                    <div>
+                        {{ form_row(form._token) }}
+                    </div>
+                    <button type="submit" class="login_button input_size_ticket">Mettre à jour</button>
+                </form>
+            </div>
+            <div class="formPicture marginPictureBox">
+                    <h3>{{ app.user.Firstname }} {{ app.user.Lastname }}</h3>
+                {# <form name="add_photo" method="post" enctype="multipart/form-data" style="width: 100%;">
+                    <div class="input_file_type">
+                        {{ form_widget(form.Firstname) }}
+                    </div>
+                    <div class="input_file_type">
+                        {{ form_widget(form.Lastname) }}
+                    </div>
+                    <div>
+                        {{ form_row(form._token) }}
+                    </div>
+                    <button type="submit" class="login_button input_size_ticket">Mettre à jour</button>
+                </form> #}
+            </div>
+        </div>
+    </section>
+{% endblock %}

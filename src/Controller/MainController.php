@@ -14,6 +14,8 @@ use App\Entity\Message;
 use App\Form\CreateMessageType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use App\Form\AddPhotoType;
+use App\Form\UpdateNameType;
 
 class MainController extends AbstractController
 {
@@ -229,6 +231,7 @@ class MainController extends AbstractController
                 $actualTicket->setStatement("en attente");
             }
 
+            // Envoi du tout
             $em = $this->getDoctrine()->getManager();
             $em->persist($actualTicket);
             $em->flush();
@@ -250,7 +253,8 @@ class MainController extends AbstractController
      * @Route("/fermer/{slug}/", name="close_ticket")
      */
     public function closeTicket(Ticket $ticket, Request $request): Response
-    {
+    {   
+        // Récupération du ticket actuellement et changement du statut
         $ticketInfo = $this->getDoctrine()->getRepository(Ticket::class);
         $em = $this->getDoctrine()->getManager();
         $actualTicketToClose = $ticketInfo->findOneBy(['id' => $ticket]);
@@ -272,11 +276,12 @@ class MainController extends AbstractController
      */
     public function nightmode() : Response
     {
-        
+        // Récupération du choix de l'utilisateur
         $userMode = $this->getUser();
         $updateUser = $this->getDoctrine()->getRepository(User::class);
         $userChoiceMode = $userMode->getNightmode();
 
+        // Switch mode
         if ($userChoiceMode == null) {
             $userMode->setNightmode('{{asset("css/nightmode.css")}}');
             $em = $this->getDoctrine()->getManager();
@@ -291,6 +296,77 @@ class MainController extends AbstractController
         return $this->redirectToRoute('dash_client');
 
 
+    }
+
+    /**
+     * @Route("profile", name="update_profile")
+     */
+
+    public function addPhoto(Request $request): Response
+    {
+
+        // Création des formulaires
+        $form = $this->createForm(AddPhotoType::class);
+        $form->handleRequest($request);
+
+        // Temporaire, pour finir le form firstname et lastname
+
+        // $formUpdate = $this->createForm(UpdateNameType::class);
+        // $formUpdate->handleRequest($request);
+
+        // Récupération de l'utilisateur
+        $updateUserPicture = $this->getUser();
+
+        $pictureRepo = $this->getDoctrine()->getRepository(User::class);
+        $userPictureActual = $updateUserPicture->getPicture();
+
+
+        // Si le formulaire est envoyé et sans erreur
+        if($form->isSubmitted() && $form->isValid()){
+
+            // Extraction de l'objet de la photo envoyée dans le formulaire
+            $photo = $form->get('photo')->getData();
+
+            // Création d'un nouveau nom aléatoire pour la photo avec son extension (récupérée via la méthode guessExtension() )
+            $newFileName = md5(time() . rand() . uniqid() ) . '.' . $photo->guessExtension();
+
+            // Déplacement de la photo dans le dossier que l'on avait paramétré dans le fichier services.yaml, avec le nouveau nom qu'on lui a généré
+            $photo->move(
+                $this->getParameter('app.photos.directory'),     // Emplacement de sauvegarde du fichier
+                $newFileName    // Nouveau nom du fichier
+            );
+
+            // Modification en BDD du chemin de la photo de profil de l'utilisateur
+            $updateUserPicture->setPicture("images/uploads/" . $newFileName);
+            $em = $this->getDoctrine()->getManager();
+            $em->flush();
+
+            // Petit message de succès
+            $this->addFlash('success', 'Photo envoyée avec succès !');
+
+            // Redirection sur une autre page du site
+            return $this->redirectToRoute('update_profile');
+
+        }
+
+        // // Si le formulaire est envoyé et sans erreur
+        // if($formUpdate->isSubmitted() && $formUpdate->isValid()){
+
+        //     $updateUserPicture->setFirstname();
+        //     $updateUserPicture->setLastname();
+        //     $em = $this->getDoctrine()->getManager();
+        //     $em->flush();
+            
+
+        //     // Redirection sur une autre page du site
+        //     return $this->redirectToRoute('update_profile');
+
+        // }
+
+        // Affichage de la vue en envoyant le formulaire à afficher
+        return $this->render('main/profile.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
 
 }

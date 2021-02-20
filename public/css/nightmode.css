@@ -95,3 +95,12 @@ body {
 .opened_title {
     background-color: var(--dark-black);
 }
+
+.formPicture {
+    background-color: var(--dark-black);
+}
+
+.input_file_type {
+    background-color: var(--dark-black-more);
+    color: white;
+}

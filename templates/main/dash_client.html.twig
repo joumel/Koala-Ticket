@@ -80,7 +80,7 @@
                                     {% if (app.user.picture == null) %}
                                     <img src="{{ asset('images/default.png') }}" alt="" class="ticket_img">
                                     {% else %}
-                                    <img src="{{ app.user.picture }}" alt="" class="ticket_img">
+                                    <img src="{{ asset(app.user.picture) }}" alt="" class="ticket_img">
                                     {% endif %}
                                 
                                 <p>{{ ticketAC.owner.lastname|capitalize }} {{ ticketAC.owner.firstname|capitalize }}<br>{{ ticketAC.creationDate|date('d/m/Y à H\\hi') }}</p></td>
@@ -103,7 +103,7 @@
                                         {% if (ticketPC.owner.picture == null) %}
                                         <img src="{{ asset('images/default.png') }}" alt="" class="ticket_img">
                                         {% else %}
-                                        <img src="{{ app.user.picture }}" alt="" class="ticket_img">
+                                        <img src="{{ asset(app.user.picture) }}" alt="" class="ticket_img">
                                         {% endif %}
                                 
                                 <p>{{ ticketPC.owner.lastname }} {{ ticketPC.owner.firstname }}<br>{{ ticketPC.creationDate|date('d/m/Y à H\\hi') }}</p></td>
@@ -190,7 +190,7 @@
                                     {% if (app.user.picture == null) %}
                                     <img src="{{ asset('images/default.png') }}" alt="" class="ticket_img">
                                     {% else %}
-                                    <img src="{{ app.user.picture }}" alt="" class="ticket_img">
+                                    <img src="{{ asset(app.user.picture) }}" alt="" class="ticket_img">
                                     {% endif %}
                                     
                                 <p>{{ ticketCC.owner.lastname }} {{ ticketCC.owner.firstname }} <br> {{ ticketCC.creationDate|date('d/m/Y à H\\hi') }} </p></td>

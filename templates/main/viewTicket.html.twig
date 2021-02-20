@@ -39,7 +39,7 @@
                                 {% if (actualTicket.Owner.picture == null) %}
                                 <img src="{{ asset('images/default.png') }}" alt="" class="ticket_img">
                                 {% else %}
-                                <img src="{{ actualTicket.Owner.picture }}" alt="" class="ticket_img">
+                                <img src="{{ asset(actualTicket.Owner.picture) }}" alt="" class="ticket_img">
                                 {% endif %}
                             </div>
                             <div class="client_info">
@@ -70,7 +70,7 @@
                                 {% if (MessageDisplay.author.picture == null) %}
                                 <img src="{{ asset('images/default.png') }}" alt="" class="ticket_img">
                                 {% else %}
-                                <img src="{{ MessageDisplay.author.picture }}" alt="" class="ticket_img">
+                                <img src="{{ asset(MessageDisplay.author.picture) }}" alt="" class="ticket_img">
                                 {% endif %}
                             </div>
                             <div class="client_info">

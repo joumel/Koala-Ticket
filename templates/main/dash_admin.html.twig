@@ -25,9 +25,9 @@
             <table class="test">
                 <thead>
                     <tr class="opened_title">
-                        <td class="start_ticket">Assignation</td>
+                        <td class="start_ticket">Créateur</td>
                         <td>Sujet</td>
-                        <td>Création</td>
+                        <td>Dernier message</td>
                         <td>Numéro</td>
                         <td class="end_ticket">Etat du ticket</td>
                     </tr>
@@ -40,15 +40,15 @@
                             <tr class="ticket_night">
                                 <td class="start_ticket">
                                 
-                                {% if (app.user.picture == null) %}
+                                {% if (ticketA.owner.picture == null) %}
                                 <img src="{{ asset('images/default.png') }}" alt="" class="ticket_img">
                                 {% else %}
-                                <img src="{{ app.user.picture }}" alt="" class="ticket_img">
+                                <img src="{{ asset(ticketA.owner.picture) }}" alt="" class="ticket_img">
                                 {% endif %}
 
-                                <p>{{ ticketA.owner.lastname|capitalize }} {{ ticketA.owner.firstname|capitalize }}<br>{{ ticketA.updateTime|date('d/m/Y à H\\hi') }}</p></td>
+                                <p>{{ ticketA.owner.lastname|capitalize }} {{ ticketA.owner.firstname|capitalize }}<br>{{ ticketA.creationDate|date('d/m/Y à H\\hi') }}</p></td>
                                 <td>{{ticketA.title}}</td>
-                                <td>{{ ticketA.creationDate|date('d/m/Y à H\\hi') }}</td>
+                                <td>{{ ticketA.updateTime|date('d/m/Y à H\\hi') }}</td>
                                 <td>#{{ ticketA.id }}</td>
                                 <td class="end_ticket"><a href="{{path('view_ticket', {'slug': ticketA.slug} ) }}" class="primary_btn_success">{{ ticketA.statement|capitalize }}</a></td>
                                 <tr style="height: 10px; background-color: transparent;"></tr>
@@ -63,15 +63,15 @@
                             <tr class="ticket_night">
                                 <td class="start_ticket">
                                 
-                                {% if (app.user.picture == null) %}
+                                {% if (ticketP.owner.picture == null) %}
                                 <img src="{{ asset('images/default.png') }}" alt="" class="ticket_img">
                                 {% else %}
-                                <img src="{{ app.user.picture }}" alt="" class="ticket_img">
+                                <img src="{{ asset(ticketP.owner.picture) }}" alt="" class="ticket_img">
                                 {% endif %}
                                 
-                                <p>{{ ticketP.owner.lastname }} {{ ticketP.owner.firstname }}<br>{{ ticketP.updateTime|date('d/m/Y à H\\hi') }}</p></td>
+                                <p>{{ ticketP.owner.lastname }} {{ ticketP.owner.firstname }}<br>{{ ticketP.creationDate|date('d/m/Y à H\\hi') }}</p></td>
                                 <td>{{ticketP.title}}</td>
-                                <td>{{ ticketP.creationDate|date('d/m/Y à H\\hi') }}</td>
+                                <td>{{ ticketP.updateTime|date('d/m/Y à H\\hi') }}</td>
                                 <td>#{{ ticketP.id }}</td>
                                 <td class="end_ticket"><a href="{{path('view_ticket', {'slug': ticketP.slug} ) }}" class="primary_btn_wait">{{ ticketP.statement|capitalize }}</a></td>
                                 <tr style="height: 10px; background-color: transparent;"></tr>
@@ -134,9 +134,9 @@
             <table class="test">
                 <thead>
                     <tr class="opened_title">
-                        <td class="start_ticket">Dernière réponse</td>
+                        <td class="start_ticket">Créateur</td>
                         <td>Sujet</td>
-                        <td>Création</td>
+                        <td>Dernier message</td>
                         <td>Numéro</td>
                         <td class="end_ticket">Etat du ticket</td>
                     </tr>
@@ -149,15 +149,15 @@
                             <tr class="ticket_night">
                                 <td class="start_ticket">
                                 
-                                {% if (app.user.picture == null) %}
+                                {% if (ticketC.owner.picture == null) %}
                                 <img src="{{ asset('images/default.png') }}" alt="" class="ticket_img">
                                 {% else %}
-                                <img src="{{ app.user.picture }}" alt="" class="ticket_img">
+                                <img src="{{ asset(ticketC.owner.picture) }}" alt="" class="ticket_img">
                                 {% endif %}
                                 
-                                <p>{{ ticketC.owner.lastname }} {{ ticketC.owner.firstname }} <br> {{ ticketC.updateTime|date('d/m/Y à H\\hi') }} </p></td>
+                                <p>{{ ticketC.owner.lastname }} {{ ticketC.owner.firstname }} <br> {{ ticketC.creationDate|date('d/m/Y à H\\hi') }} </p></td>
                                 <td>{{ ticketC.title }}</td>
-                                <td>{{ ticketC.creationDate|date('d/m/Y à H\\hi') }}</td>
+                                <td>{{ ticketC.updateTime|date('d/m/Y à H\\hi') }}</td>
                                 <td>#{{ ticketC.id }}</td>
                                 <td class="end_ticket"><a href="{{path('view_ticket', {'slug': ticketC.slug} ) }}" class="primary_btn_close">{{ ticketC.statement|capitalize }}</a></td>
                                 <tr style="height: 10px; background-color: transparent;"></tr>
