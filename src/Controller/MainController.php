@@ -16,6 +16,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use App\Form\AddPhotoType;
 use App\Form\UpdateNameType;
+use App\Form\ConfigType;
+use App\Entity\Config;
 
 class MainController extends AbstractController
 {
@@ -370,5 +372,22 @@ class MainController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+
+        /**
+     * Page permettant de modifier le logo, le nom et la couleur
+     * @Route("/configuration", name="main_config")
+     */
+    public function config(Request $request): Response
+    {
+
+        $form = $this->createForm(ConfigType::class);
+        $form->handleRequest($request);
+
+
+        
+        return $this->render('main/config.html.twig', [
+            'form' => $form->createView(),
+        ]);
+        }
 
 }
