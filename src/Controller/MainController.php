@@ -93,7 +93,7 @@ class MainController extends AbstractController
 
         //Récupération des tickets fermés du client connecté
         $ticketsClosedClient = $ticketRepo->findby(['owner' => $userId , 'statement' => 'fermé'],['updateTime' => 'DESC']);
-        
+
         if ($userRoles[0] == 'ROLE_ADMIN') {
             return $this->redirectToRoute('dash_admin');
         };
@@ -107,7 +107,7 @@ class MainController extends AbstractController
     }
 
     /**
-     * @Route("/faq", name="faq")
+     * @Route("/faq", name="koala_faq")
      */
     public function faq(): Response
     {
@@ -360,7 +360,7 @@ class MainController extends AbstractController
         //     $updateUserPicture->setLastname();
         //     $em = $this->getDoctrine()->getManager();
         //     $em->flush();
-            
+
 
         //     // Redirection sur une autre page du site
         //     return $this->redirectToRoute('update_profile');
@@ -373,7 +373,7 @@ class MainController extends AbstractController
         ]);
     }
 
-        /**
+    /**
      * Page permettant de modifier le logo, le nom et la couleur
      * @Route("/configuration", name="main_config")
      */
@@ -384,7 +384,7 @@ class MainController extends AbstractController
         $form->handleRequest($request);
 
 
-        
+
         return $this->render('main/config.html.twig', [
             'form' => $form->createView(),
         ]);

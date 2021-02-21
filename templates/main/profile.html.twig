@@ -29,8 +29,9 @@
         </div>
     </section>
     <section class="formPictureFull">
-        <div class="profile_update_box">   
+        <div class="profile_update_box">
             <div class="formPicture">
+                <h2>Photo de Profil :</h2>
                     {% if (app.user.picture == null) %}
                     <img src="{{ asset('images/default.png') }}" alt="" class="profil_picture_profil">
                     {% else %}
@@ -47,7 +48,12 @@
                 </form>
             </div>
             <div class="formPicture marginPictureBox">
-                    <h3>{{ app.user.Firstname }} {{ app.user.Lastname }}</h3>
+                    <p>Adresse email : {{ app.user.email }}</p>
+                    <p>Nom : {{ app.user.Lastname }}</p>
+                    <p>Prénom : {{ app.user.Firstname }}</p>
+                    <p>Adresse :</p>
+                    <p>Date d'inscription : {{ app.user.lastConnexion|date('d/m/Y à H\\hi') }}</p>
+                    <p>Compte : {{ app.user.roles[0]=='ROLE_ADMIN'? 'Administrateur' : 'Membre' }}</p>
                 {# <form name="add_photo" method="post" enctype="multipart/form-data" style="width: 100%;">
                     <div class="input_file_type">
                         {{ form_widget(form.Firstname) }}
