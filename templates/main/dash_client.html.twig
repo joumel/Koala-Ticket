@@ -142,7 +142,7 @@
                         <div class="ticket_box">
                             <p>{{ ticketPC.title }}</p>
                             <p>Dernière réponse le {{ ticketPC.updateTime|date('d/m/Y à H\\hi') }}</p>
-                            <a href="{{path('view_ticket', {'slug': ticketPC.slug} ) }}" class="primary_btn_success">{{ ticketPC.statement|capitalize }}</a>
+                            <a href="{{path('view_ticket', {'slug': ticketPC.slug} ) }}" class="primary_btn_wait">{{ ticketPC.statement|capitalize }}</a>
                         </div>
                     {% endfor %}
             {% endif %}
@@ -158,7 +158,7 @@
                     <div class="ticket_box">
                         <p>{{ ticketCC.title }}</p>
                         <p>Dernière réponse le {{ ticketCC.updateTime|date('d/m/Y à H\\hi') }}</p>
-                        <a href="{{path('view_ticket', {'slug': ticketCC.slug} ) }}" class="primary_btn_success">{{ ticketCC.statement|capitalize }}</a>
+                        <a href="{{path('view_ticket', {'slug': ticketCC.slug} ) }}" class="primary_btn_close">{{ ticketCC.statement|capitalize }}</a>
                     </div>
                 {% endfor %}
         {% endif %}
