@@ -388,6 +388,13 @@ class MainController extends AbstractController
         return $this->render('main/config.html.twig', [
             'form' => $form->createView(),
         ]);
-        }
+    }
 
+    /**
+     * @Route("/cgu", name="main_termsOfService")
+     */
+    public function termsOfService(): Response
+    {
+        return $this->render('main/termsOfService.html.twig');
+    }
 }
