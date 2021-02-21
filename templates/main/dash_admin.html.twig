@@ -71,7 +71,7 @@
                         <div class="ticket_box">
                             <p>{{ ticketP.title }}</p>
                             <p>Dernière réponse le {{ ticketP.updateTime|date('d/m/Y à H\\hi') }}</p>
-                            <a href="{{path('view_ticket', {'slug': ticketP.slug} ) }}" class="primary_btn_success">{{ ticketP.statement|capitalize }}</a>
+                            <a href="{{path('view_ticket', {'slug': ticketP.slug} ) }}" class="primary_btn_wait">{{ ticketP.statement|capitalize }}</a>
                         </div>
                     {% endfor %}
             {% endif %}

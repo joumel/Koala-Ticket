@@ -104,3 +104,30 @@ body {
     background-color: var(--dark-black-more);
     color: white;
 }
+
+
+@media screen and (max-width: 1200px) {
+
+    .opened_mobile {
+        background-color: var(--dark-black-more);
+        color: white;
+    }
+
+    .ticket_box {
+        background-color: var(--dark-black);
+    }
+    
+
+}
+
+@media screen and (max-width: 900px) {
+
+    .opened_mobile {
+        background-color: var(--dark-black-more);
+        color: white;
+    }
+
+    .ticket_box {
+        background-color: var(--dark-black);
+    }
+}
