@@ -23,8 +23,8 @@
 <section class="statut_top">
         <div class="statut" id="statut">
             <div class="statut_text">
-                <p>Nous sommes ravis de vous avoir parmis nos client</p>
-                <p>Vous pouvez éditer votre nom, prénom et photo de profil</p>
+                <p>Personnalisez votre système.</p>
+                <p>Le copyright n'est pas modifiable.</p>
             </div>
         </div>
     </section>
@@ -33,37 +33,38 @@
             <div class="formPicture">
                 <form name="config" method="post" enctype="multipart/form-data" style="width: 100%;">
                     <div class="login_input_full">
-                        {{ form_widget(form.name) }}
+                        <input type="text" id="config_name" name="config[name]" required="required" class="login_input" placeholder="Nom du site" value="{% if config == null %}{% else %}{{config.name}}{% endif %}">
+                    </div>
+                    <div class="login_input_full" style="justify-content: space-between;">
+                        {% if config == null %}{% else %}<img src="{{asset(config.logo)}}" class="configImg">{% endif %}
+                        {% if config == null %}{% else %}<div class="changeLogo" id="configLogo" style="{% if config == null %}{% else %}background-color:{{config.color}};{% endif %}">Changer le logo</div>{% endif %}
+                        <input type="file" id="config_logo" name="config[logo]" class="login_input {% if config == null %}{% else %} hidden {% endif %}" style="{% if config == null %}{% else %} text-align: end; {% endif %}" value="{% if config == null %}{% else %}{{config.logo}}{% endif %}">
                     </div>
                     <div class="login_input_full">
-                        {{ form_widget(form.logo) }}
+                        <input type="text" id="config_color" name="config[color]" required="required" class="login_input" placeholder="Couleur HEXA, laissez vide pour garder l'actuelle" value="{% if config == null %}{% else %}{{config.color}}{% endif %}">
                     </div>
                     <div class="login_input_full">
-                        {{ form_widget(form.color) }}
-                    </div>
-                    <div class="login_input_full">
-                        {{ form_widget(form.staff_name) }}
+                        <input type="text" id="config_staff_name" name="config[staff_name]" required="required" class="login_input" placeholder="Le nom de votre équipe" value="{% if config == null %}{% else %}{{config.staffName}}{% endif %}">
                     </div>
                     <div>
                         {{ form_row(form._token) }}
                     </div>
-                    <button type="submit" class="login_button input_size_ticket">Mettre à jour</button>
+                    <button type="submit" id="config_save" name="config[save]" class="login_button input_size_ticket" style="{% if config == null %}{% else %}background-color:{{config.color}};{% endif %}">Valider</button>
                 </form>
             </div>
             <div class="formPicture marginPictureBox">
-                    <h3>{{ app.user.Firstname }} {{ app.user.Lastname }}</h3>
-                {# <form name="add_photo" method="post" enctype="multipart/form-data" style="width: 100%;">
-                    <div class="input_file_type">
-                        {{ form_widget(form.Firstname) }}
-                    </div>
-                    <div class="input_file_type">
-                        {{ form_widget(form.Lastname) }}
-                    </div>
-                    <div>
-                        {{ form_row(form._token) }}
-                    </div>
-                    <button type="submit" class="login_button input_size_ticket">Mettre à jour</button>
-                </form> #}
+                <div class="ticket_information_box no_top_margin">
+                    <p>Changez le nom de votre site</p>
+                </div>
+                <div class="ticket_information_box">
+                    <p>Changez la couleur secondaire de votre site</p>
+                </div>
+                <div class="ticket_information_box">
+                    <p>Ajoutez votre propre logo</p>
+                </div>
+                <div class="ticket_information_box">
+                    <p>Ajoutez un nom de team</p>
+                </div>
             </div>
         </div>
     </section>

@@ -71,7 +71,7 @@
                         <div class="ticket_box">
                             <p>{{ ticketP.title }}</p>
                             <p>Dernière réponse le {{ ticketP.updateTime|date('d/m/Y à H\\hi') }}</p>
-                            <a href="{{path('view_ticket', {'slug': ticketP.slug} ) }}" class="primary_btn_wait">{{ ticketP.statement|capitalize }}</a>
+                            <a href="{{path('view_ticket', {'slug': ticketP.slug} ) }}" class="primary_btn_wait" style="{% if config == null %}{% else %}background-color:{{config.color}};{% endif %}">{{ ticketP.statement|capitalize }}</a>
                         </div>
                     {% endfor %}
             {% endif %}
@@ -88,7 +88,7 @@
                             <div class="ticket_box">
                                 <p>{{ ticketA.title }}</p>
                                 <p>Dernière réponse le {{ ticketA.updateTime|date('d/m/Y à H\\hi') }}</p>
-                                <a href="{{path('view_ticket', {'slug': ticketA.slug} ) }}" class="primary_btn_success">{{ ticketA.statement|capitalize }}</a>
+                                <a href="{{path('view_ticket', {'slug': ticketA.slug} ) }}" class="primary_btn_success" style="{% if config == null %}{% else %}background-color:{{config.color}};{% endif %}">{{ ticketA.statement|capitalize }}</a>
                             </div>
                         {% endfor %}
                 {% endif %}
@@ -124,7 +124,7 @@
                                     <td>{{ticketA.title}}</td>
                                     <td>{{ ticketA.updateTime|date('d/m/Y à H\\hi') }}</td>
                                     <td>#{{ ticketA.id }}</td>
-                                    <td class="end_ticket"><a href="{{path('view_ticket', {'slug': ticketA.slug} ) }}" class="primary_btn_success">{{ ticketA.statement|capitalize }}</a></td>
+                                    <td class="end_ticket"><a href="{{path('view_ticket', {'slug': ticketA.slug} ) }}" class="primary_btn_success" style="{% if config == null %}{% else %}background-color:{{config.color}};{% endif %}">{{ ticketA.statement|capitalize }}</a></td>
                                     <tr style="height: 10px; background-color: transparent;"></tr>
                                 </tr>
                         {% endfor %}

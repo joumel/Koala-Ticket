@@ -14,9 +14,9 @@
     {% block css %}{% endblock %}
 </head>
 
-<body class="login">
+<body class="login" style="{% if config == null %}{% else %}background-color:{{config.color}};{% endif %}">
 <form method="post" class="login_form">
-    <img src="{{ asset('images/koala.png')}}" class="login_logo">
+    <img src="{% if config == null %}{{ asset('images/koala.png')}}{% else %}{{ asset(config.logo)}}{% endif %}" class="login_logo">
     {% if error %}
         <div class="login_errors">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
@@ -45,7 +45,7 @@
         </div>
     #}
 
-    <button class="login_button" type="submit">
+    <button class="login_button" type="submit" style="{% if config == null %}{% else %}background-color:{{config.color}};{% endif %}">
         Connexion
     </button>
 </form>

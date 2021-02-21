@@ -44,11 +44,11 @@
                             </div>
                             <div class="client_info">
                                 <p>{{actualTicket.Owner.firstname}} {{actualTicket.Owner.lastname}}</p>
-                                <p>Grand fan de Koala Ticket</p>
+                                <p>Client</p>
                             </div>
                         </div>
                         <div>
-                            <p class="response_date">{{actualTicket.updateTime|date('d/m/Y à H\\hi')}}</p>
+                            <p class="response_date" style="{% if config == null %}{% else %}background-color:{{config.color}};{% endif %}">{{actualTicket.updateTime|date('d/m/Y à H\\hi')}}</p>
                         </div>
                     </div>
                     <div class="ticket_line"></div>
@@ -63,7 +63,11 @@
 
         {% for MessageDisplay in messageConversation %}
             {# Affichage d'une boite de message #}
-                <div class="client_response {{ MessageDisplay.author.roles[0]=='ROLE_ADMIN'? 'green' : '' }}">
+            {% if MessageDisplay.author.roles[0] == 'ROLE_ADMIN' %}
+                <div class="client_response" style="{% if config == null %}green{% else %}background-color:{{config.color}};color:white;{% endif %}">
+            {% else %}
+                <div class="client_response">
+            {% endif %}
                     <div class="client_response_header">
                         <div class="client_ticket_info_box">
                             <div>
@@ -75,11 +79,19 @@
                             </div>
                             <div class="client_info">
                                 <p>{{ MessageDisplay.author.lastname }} {{ MessageDisplay.author.firstname }}</p>
-                                <p>{{ MessageDisplay.author.roles[0]=='ROLE_ADMIN'? 'De l\'équipe Koala Ticket' : 'Grand fan de Koala Ticket' }}</p>
+                                {% if MessageDisplay.author.roles[0] == 'ROLE_ADMIN' %}
+                                <p>{% if config == null %}De l'équipe Koala Ticket{% else %}{{config.name}}{% endif %}</p>
+                                {% else %}
+                                <p>Client</p>
+                                {% endif %}
                             </div>
                         </div>
                         <div>
-                            <p class="response_date {{ MessageDisplay.author.roles[0]=='ROLE_ADMIN'? 'white' : 'green' }}">{{ MessageDisplay.date|date('d/m/Y à H\\hi') }}</p>
+                        {% if MessageDisplay.author.roles[0] == 'ROLE_ADMIN' %}
+                            <p class="response_date" style="background-color:white !important;color:black;">{{ MessageDisplay.date|date('d/m/Y à H\\hi') }}</p>
+                        {% else %}
+                            <p class="response_date" style="{% if config == null %}{% else %}background-color:{{config.color}} !important;{% endif %}">{{ MessageDisplay.date|date('d/m/Y à H\\hi') }}</p>
+                        {% endif %}
                         </div>
                     </div>
                     <div class="ticket_line"></div>
@@ -103,7 +115,7 @@
                             {{ form_widget(form.content) }}
                         </div>
                         <div>
-                            <button type="submit" id="create_message_save" name="create_message[save]" class="login_button input_size_ticket submit_top">Répondre</button>
+                            <button type="submit" id="create_message_save" name="create_message[save]" class="login_button input_size_ticket submit_top" style="{% if config == null %}{% else %}background-color:{{config.color}};{% endif %}">Répondre</button>
                         </div>
                         {{ form_row(form._token) }}
                     </div>
@@ -116,24 +128,9 @@
             </div>
             {# Si le ticket est fermé, réponse d'un bot #}
             {% else %}
-                <div class="client_response green">
-                    <div class="client_response_header">
-                        <div class="client_ticket_info_box">
-                            <div>
-                                <img src="{{ asset('images/koala-bot.jpg') }}" alt="" class="ticket_img">
-                            </div>
-                            <div class="client_info">
-                                <p style="color:blue">Bot Koala Ticket</p>
-                                <p >De l'équipe Koala Ticket</p>
-                            </div>
-                        </div>
-                        <div>
-                            {# <p class="response_date white">{{ actualTicket.updateTime|date('d/m/Y à H\\hi') }}</p> #}
-                        </div>
-                    </div>
-                    <div class="ticket_line"></div>
+                <div class="client_response green" style="{% if config == null %}{% else %}background-color:{{config.color}};{% endif %}">
                     <div class="ticket_client_message">
-                        <p style="text-align:center;color:#8B0000">LE TICKET EST CLOS</p>
+                        <p style="text-align:center;font-size:14px">Le ticket est actuellement fermé.<br>Si vous pensez qu'il s'agit d'une erreur, ouvrez un nouveau ticket.<br>Indiquez alors la référence de ce ticket.</p>
                     </div>
                 </div>
         {% endif %}

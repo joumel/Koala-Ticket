@@ -60,22 +60,15 @@ class ConfigType extends AbstractType
                         // Message en cas de fichier trop gros
                         'maxSizeMessage' => 'Fichier trop volumineux ({{ size }} {{ suffix }}). La taille maximum autorisée est {{ limit }}{{ suffix }}',
                     ]),
-                    new NotBlank([
-                        // Message en cas de formulaire envoyé sans fichier
-                        'message' => 'Vous n\'avez pas mis votre image ici !',
-                    ])
                 ]
             ])
             ->add('color', TextType::class, [
                 'label' => false,
                 'attr' => [
                     'class' => 'login_input',
-                    'placeholder' => 'Couleur primaire du site',
+                    'placeholder' => 'Couleur HEXA, laissez vide pour garder l\'actuelle',
                 ],
                 'constraints' => [
-                    new NotBlank([
-                        'message' => 'Merci d\'indiquer une couleur',
-                    ]),
                     new Length([
                         'min' => 2,
                         'minMessage' => 'Le titre du ticket doit avoir au moins {{ limit }} caratères',

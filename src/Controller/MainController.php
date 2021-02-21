@@ -35,9 +35,12 @@ class MainController extends AbstractController
      * @Route("/article", name="article")
      */
     public function article(): Response
-    {
+    {   $repository = $this->getDoctrine()->getRepository(Config::class);
+        $actualConfig = $repository->findOneBy(array(),array('id'=>'ASC'),1,0);
+
         return $this->render('main/article.html.twig', [
             'controller_article' => 'Page article',
+            'config' => $actualConfig,
         ]);
     }
 
@@ -46,7 +49,9 @@ class MainController extends AbstractController
      * @Security("is_granted('ROLE_ADMIN')")
      */
     public function dash_admin(): Response
-    {
+    {   
+        $repository = $this->getDoctrine()->getRepository(Config::class);
+        $actualConfig = $repository->findOneBy(array(),array('id'=>'ASC'),1,0);
 
         $ticketRepo = $this->getDoctrine()->getRepository(Ticket::class);
 
@@ -66,6 +71,7 @@ class MainController extends AbstractController
             'ticketsAnswered' => $ticketsAnswered,
             'ticketsPending' => $ticketsPending,
             'ticketsClosed' => $ticketsClosed,
+            'config' => $actualConfig,
         ]);
     }
 
@@ -75,6 +81,9 @@ class MainController extends AbstractController
     public function dash_client(): Response
     {
 
+        
+        $repository = $this->getDoctrine()->getRepository(Config::class);
+        $actualConfig = $repository->findOneBy(array(),array('id'=>'ASC'),1,0);
 
         //Récupération de l'id de l'utilisateur connecté
         $userId = $this->getUser()->getId();
@@ -103,6 +112,7 @@ class MainController extends AbstractController
             'ticketsAnsweredClient' => $ticketsAnsweredClient,
             'ticketsPendingClient' => $ticketsPendingClient,
             'ticketsClosedClient' => $ticketsClosedClient,
+            'config' => $actualConfig,
         ]);
     }
 
@@ -111,8 +121,12 @@ class MainController extends AbstractController
      */
     public function faq(): Response
     {
+        $repository = $this->getDoctrine()->getRepository(Config::class);
+        $actualConfig = $repository->findOneBy(array(),array('id'=>'ASC'),1,0);
+
         return $this->render('main/faq.html.twig', [
             'controller_faq' => 'Page faq',
+            'config' => $actualConfig,
         ]);
     }
 
@@ -123,6 +137,9 @@ class MainController extends AbstractController
      */
     public function createTicket(Request $request): Response
     {
+
+        $repository = $this->getDoctrine()->getRepository(Config::class);
+        $actualConfig = $repository->findOneBy(array(),array('id'=>'ASC'),1,0);
 
         $user = $this->getUser();
         // Création d'un nouvel objet de la classe Ticket, vide pour le moment
@@ -164,6 +181,7 @@ class MainController extends AbstractController
 
         return $this->render('main/ticket.html.twig', [
             'form' => $form->createView(),
+            'config' => $actualConfig,
         ]);
 
     }
@@ -175,6 +193,9 @@ class MainController extends AbstractController
      */
     public function CreateMessage(Ticket $ticket, Request $request) : response
     {
+        $repository = $this->getDoctrine()->getRepository(Config::class);
+        $actualConfig = $repository->findOneBy(array(),array('id'=>'ASC'),1,0);
+
         $userId = $this->getUser()->getId();
 
         $messageRepo = $this->getDoctrine()->getRepository(Message::class);
@@ -248,6 +269,7 @@ class MainController extends AbstractController
             'authorOfTicket' => $authorOfTicket,
             'messageInfo' => $messageInfo,
             'messageConversation' => $messageConversation,
+            'config' => $actualConfig,
         ]);
     }
 
@@ -308,6 +330,8 @@ class MainController extends AbstractController
 
     public function addPhoto(Request $request): Response
     {
+        $repository = $this->getDoctrine()->getRepository(Config::class);
+        $actualConfig = $repository->findOneBy(array(),array('id'=>'ASC'),1,0);
 
         // Création des formulaires
         $form = $this->createForm(AddPhotoType::class);
@@ -324,6 +348,7 @@ class MainController extends AbstractController
         $pictureRepo = $this->getDoctrine()->getRepository(User::class);
         $userPictureActual = $updateUserPicture->getPicture();
 
+        dump($updateUserPicture);
 
         // Si le formulaire est envoyé et sans erreur
         if($form->isSubmitted() && $form->isValid()){
@@ -369,7 +394,8 @@ class MainController extends AbstractController
 
         // Affichage de la vue en envoyant le formulaire à afficher
         return $this->render('main/profile.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'config' => $actualConfig,
         ]);
     }
 
@@ -378,15 +404,86 @@ class MainController extends AbstractController
      * @Route("/configuration", name="main_config")
      */
     public function config(Request $request): Response
-    {
+    {   
 
-        $form = $this->createForm(ConfigType::class);
+        // Récupération de la config actuelle
+        $repository = $this->getDoctrine()->getRepository(Config::class);
+        $actualConfig = $repository->findOneBy(array(),array('id'=>'ASC'),1,0);
+
+        dump($actualConfig);
+
+        // Création du formulaire
+        $newConfig = new Config();
+        $form = $this->createForm(ConfigType::class, $newConfig);
+
+        if (empty($actualConfig)) {
+            $configSet = false;
+        } else {
+            $configSet = $actualConfig->getIsSet(); 
+        }
+
+        // Envoi du formulaire
         $form->handleRequest($request);
 
+        if($form->isSubmitted() && $form->isValid() && $configSet === false){
 
+            // Extraction de l'upload du logo 
+            $logo = $form->get('logo')->getData();
+
+            // Création d'un nouveau nom aléatoire pour la photo avec son extension (récupérée via la méthode guessExtension() )
+            $newFileName = md5(time() . rand() . uniqid() ) . '.' . $logo->guessExtension();
+
+            // Déplacement de la photo dans le dossier que l'on avait paramétré dans le fichier services.yaml, avec le nouveau nom qu'on lui a généré
+            $logo->move(
+                $this->getParameter('app.photos.directory'),
+                $newFileName
+            );
+            
+            $newConfig->setIsSet(true);
+            $newConfig->setLogo("images/uploads/" . $newFileName);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($newConfig);
+            $em->flush();
+
+            //Rechargement de la page pour afficher les nouveaux messages
+            return $this->redirect($request->getUri());
+        }
+
+        if($form->isSubmitted() && $form->isValid() && $configSet === true){
+
+            // Extraction de l'upload du logo 
+            $logo = $form->get('logo')->getData();
+            $name = $form->get('name')->getData();
+            $color = $form->get('color')->getData();
+            $staff = $form->get('staff_name')->getData();
+
+            if (!empty($logo)) {
+                // Création d'un nouveau nom aléatoire pour la photo avec son extension (récupérée via la méthode guessExtension() )
+                $newFileName = md5(time() . rand() . uniqid() ) . '.' . $logo->guessExtension();
+
+                // Déplacement de la photo dans le dossier que l'on avait paramétré dans le fichier services.yaml, avec le nouveau nom qu'on lui a généré
+                $logo->move(
+                $this->getParameter('app.photos.directory'), $newFileName);
+                $actualConfig->setLogo("images/uploads/" . $newFileName);
+            }
+
+            $actualConfig->setIsSet(true);
+            $actualConfig->setName($name);
+            $actualConfig->setColor($color);
+            $actualConfig->setStaffName($staff);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->flush();
+
+            //Rechargement de la page pour afficher les nouveaux messages
+            return $this->redirect($request->getUri());
+
+        }
 
         return $this->render('main/config.html.twig', [
             'form' => $form->createView(),
+            'config' => $actualConfig,
         ]);
     }
 

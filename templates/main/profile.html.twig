@@ -31,7 +31,7 @@
     <section class="formPictureFull">
         <div class="profile_update_box">
             <div class="formPicture">
-                <h2>Photo de Profil :</h2>
+                <h2>Photo de Profil</h2>
                     {% if (app.user.picture == null) %}
                     <img src="{{ asset('images/default.png') }}" alt="" class="profil_picture_profil">
                     {% else %}
@@ -44,28 +44,16 @@
                     <div>
                         {{ form_row(form._token) }}
                     </div>
-                    <button type="submit" class="login_button input_size_ticket">Mettre à jour</button>
+                    <button type="submit" class="login_button input_size_ticket" style="{% if config == null %}{% else %}background-color:{{config.color}};{% endif %}">Mettre à jour</button>
                 </form>
             </div>
             <div class="formPicture marginPictureBox">
-                    <p>Adresse email : {{ app.user.email }}</p>
-                    <p>Nom : {{ app.user.Lastname }}</p>
-                    <p>Prénom : {{ app.user.Firstname }}</p>
-                    <p>Adresse :</p>
-                    <p>Date d'inscription : {{ app.user.lastConnexion|date('d/m/Y à H\\hi') }}</p>
-                    <p>Compte : {{ app.user.roles[0]=='ROLE_ADMIN'? 'Administrateur' : 'Membre' }}</p>
-                {# <form name="add_photo" method="post" enctype="multipart/form-data" style="width: 100%;">
-                    <div class="input_file_type">
-                        {{ form_widget(form.Firstname) }}
-                    </div>
-                    <div class="input_file_type">
-                        {{ form_widget(form.Lastname) }}
-                    </div>
-                    <div>
-                        {{ form_row(form._token) }}
-                    </div>
-                    <button type="submit" class="login_button input_size_ticket">Mettre à jour</button>
-                </form> #}
+                <div class="ticket_information_box no_top_margin">
+                    <p>Ne donnez jamais votre identifiant</p>
+                </div>
+                <div class="ticket_information_box">
+                    <p>Seul l'équipe peut voir votre profil</p>
+                </div>
             </div>
         </div>
     </section>

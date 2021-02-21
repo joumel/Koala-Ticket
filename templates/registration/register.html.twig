@@ -14,13 +14,13 @@
     {% block css %}{% endblock %}
 </head>
 
-<body class="login">
+<body class="login" style="{% if config == null %}{% else %}background-color:{{config.color}};{% endif %}">
     {% for flashError in app.flashes('verify_email_error') %}
         <div class="login_errors" role="alert">{{ flashError }}</div>
     {% endfor %}
 
     <form class="login_form m_margin_top" name="registration_form" method="POST" novalidate="novalidate">
-        <img src="{{ asset('images/koala.png')}}" class="login_logo">
+        <img src="{% if config == null %}{{ asset('images/koala.png')}}{% else %}{{ asset(config.logo)}}{% endif %}" class="login_logo">
         <div class="error_msg">
             {{ form_errors(registrationForm.firstname) }}
         </div>
@@ -50,7 +50,14 @@
         </div>
         <div class="login_input_full">
             <i class="fas fa-unlock-alt"></i>
-            {{ form_widget(registrationForm.plainPassword) }}
+            <input type="password" id="registration_form_plainPassword_first" name="registration_form[plainPassword][first]" required="required" class="login_input" placeholder="Votre mot de passe">
+        </div>
+        <div class="login_input_full">
+            <i class="fas fa-unlock-alt"></i>
+            <input type="password" id="registration_form_plainPassword_second" name="registration_form[plainPassword][second]" required="required" class="login_input" placeholder="Confirmation du mot de passe">
+        </div>
+        <div class="login_input_full">
+            <div class="checkbox_agree"><label for="registration_form_agreeTerms" class="required">J'accepte <a href="{{ asset('cgu')}}" class="cgu_link" style="{% if config == null %}{% else %}color:{{config.color}};{% endif %}">les conditions générales</a></label><input type="checkbox" id="registration_form_agreeTerms" name="registration_form[agreeTerms]" required="required" value="1"></div>
         </div>
         <div class="error_msg">
             {{ form_errors(registrationForm) }}
@@ -58,8 +65,7 @@
                 <div class="g-recaptcha" data-sitekey="{{ google_recaptcha_site_key }}"></div>
             </div>
         </div>
-        <div class="checkbox_agree"><label for="registration_form_agreeTerms" class="required">J'accepte <a href="{{ asset('cgu')}}" class="cgu_link">les conditions générales</a></label><input type="checkbox" id="registration_form_agreeTerms" name="registration_form[agreeTerms]" required="required" value="1"></div>
-        <button type="submit" class="login_button">Inscription</button>
+        <button type="submit" class="login_button" style="{% if config == null %}{% else %}background-color:{{config.color}};{% endif %}">Inscription</button>
         {{ form_row(registrationForm._token) }}
     </form>
     <div class="login_form m_margin_none">

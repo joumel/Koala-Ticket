@@ -12,6 +12,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use \DateTime;
 use App\Recaptcha\RecaptchaValidator;
 use Symfony\Component\Form\FormError;
+use App\Entity\Config;
 
 class RegistrationController extends AbstractController
 {
@@ -19,7 +20,10 @@ class RegistrationController extends AbstractController
      * @Route("/register", name="app_register")
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, RecaptchaValidator $recaptcha): Response
-    {
+    {   
+        $repository = $this->getDoctrine()->getRepository(Config::class);
+        $actualConfig = $repository->findOneBy(array(),array('id'=>'ASC'),1,0);
+
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
@@ -62,6 +66,7 @@ class RegistrationController extends AbstractController
 
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
+            'config' => $actualConfig,
         ]);
     }
 }

@@ -49,7 +49,7 @@
                 <p>{{ ticketsAnsweredClient|length }} ticket(s) répondu, {{ ticketsPendingClient|length }} ticket(s) en attente et {{ ticketsClosedClient|length }} fermé(s)</p>
             </div>
             <div class="statut_btn">
-                <a href="{{ path('create_ticket') }}" class="primary_btn_success grey">Ouvrir une demande</a>
+                <a href="{{ path('create_ticket') }}" class="primary_btn_success grey" style="{% if config == null %}{% else %}background-color:{{config.color}};{% endif %}">Ouvrir une demande</a>
             </div>
         </div>
     </section>
@@ -87,7 +87,7 @@
                                 <td>{{ticketAC.title}}</td>
                                 <td>{{ ticketAC.updateTime|date('d/m/Y à H\\hi') }}</td>
                                 <td>#{{ ticketAC.id }}</td>
-                                <td class="end_ticket"><a href="{{path('view_ticket', {'slug': ticketAC.slug} ) }}" class="primary_btn_success">{{ ticketAC.statement|capitalize }}</a></td>
+                                <td class="end_ticket"><a href="{{path('view_ticket', {'slug': ticketAC.slug} ) }}" class="primary_btn_success" style="{% if config == null %}{% else %}background-color:{{config.color}};{% endif %}">{{ ticketAC.statement|capitalize }}</a></td>
                                 <tr style="height: 10px; background-color: transparent;"></tr>
                             </tr>
                         {% endfor %}
@@ -130,7 +130,7 @@
                         <div class="ticket_box">
                             <p>{{ ticketAC.title }}</p>
                             <p>Dernière réponse le {{ ticketAC.updateTime|date('d/m/Y à H\\hi') }}</p>
-                            <a href="{{path('view_ticket', {'slug': ticketAC.slug} ) }}" class="primary_btn_success">{{ ticketAC.statement|capitalize }}</a>
+                            <a href="{{path('view_ticket', {'slug': ticketAC.slug} ) }}" class="primary_btn_success" style="{% if config == null %}{% else %}background-color:{{config.color}};{% endif %}">{{ ticketAC.statement|capitalize }}</a>
                         </div>
                     {% endfor %}
             {% endif %}

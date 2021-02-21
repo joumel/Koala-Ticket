@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use App\Entity\Config;
 
 class SecurityController extends AbstractController
 {
@@ -14,6 +15,10 @@ class SecurityController extends AbstractController
      */
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
+
+        $repository = $this->getDoctrine()->getRepository(Config::class);
+        $actualConfig = $repository->findOneBy(array(),array('id'=>'ASC'),1,0);
+
         if ($this->getUser()) {
             return $this->redirectToRoute('dash_client');
         }
@@ -23,7 +28,11 @@ class SecurityController extends AbstractController
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
+        return $this->render('security/login.html.twig', [
+            'last_username' => $lastUsername, 
+            'error' => $error,
+            'config' => $actualConfig,
+        ]);
     }
 
     /**

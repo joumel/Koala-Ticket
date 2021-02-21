@@ -27,7 +27,7 @@
                         {{ form_widget(form.statement) }}
                     </div>
                 </div>
-                <button type="submit" class="login_button input_size_ticket">Ouvrir un ticket</button>
+                <button type="submit" class="login_button input_size_ticket" style="{% if config == null %}{% else %}background-color:{{config.color}};{% endif %}">Ouvrir un ticket</button>
                 {{ form_row(form._token) }}
             </form>
             <div class="ticket_information">

@@ -105,6 +105,10 @@ body {
     color: white;
 }
 
+footer {
+    background-color: var(--dark-black);
+}
+
 
 @media screen and (max-width: 1200px) {
 

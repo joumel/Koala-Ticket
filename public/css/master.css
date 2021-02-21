@@ -153,13 +153,13 @@ body {
 	flex-direction: column;
 	align-items: center;
 	padding: 15px;
-	background-color: #16ac8f;
+	background-color: rgba(0, 0, 0, 0.100);
 	border-radius: 7px;
     transition: ease 0.2s;
 }
 
 .user:hover {
-    background-color: #11997e;
+    background-color: rgba(0, 0, 0, 0.200);
 }
 
 .user_box>i {
@@ -175,7 +175,7 @@ body {
 	border-radius: 7px;
 	margin-right: 0px;
 	position: absolute;
-	background-color: #16AC8F;
+	background-color: #169c81;
 	top: 120px;
 	flex-wrap: nowrap;
 	width: 135px;
@@ -191,7 +191,7 @@ body {
 }
 
 .user_menu>a:hover {
-    background-color: #13977d;
+    background-color: rgba(0, 0, 0, 0.200);
     border-radius: 7px;
 }
 
@@ -331,6 +331,10 @@ tbody:before {
     justify-content: flex-end;
 }
 
+.end_ticket>a:hover {
+    opacity: 0.8;
+}
+
 .end_ticket p, .end_ticket img {
     vertical-align: middle;
     display: inline-block;
@@ -457,7 +461,7 @@ LOGIN PAGE
 .login_logo {
     width: 50px;
     height: 50px;
-    object-fit: cover;
+    object-fit: contain;
     margin-bottom: 30px;
 }
 
@@ -491,6 +495,15 @@ LOGIN PAGE
     font-size: 14px;
     margin-bottom: 15px;
     margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 15px;
+}
+
+.g-recaptcha {
+    margin-top: 20px;
+    margin-bottom: 8px;
 }
 
 .m_margin_top {
@@ -995,8 +1008,16 @@ TICKET VIEW
 PROFILE PAGE
 ========================================*/
 
+
 .formPicture {
     box-sizing: border-box;
+}
+
+.formPicture>h2 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.918);
+    font-weight: 200;
 }
 
 .formPictureFull {
@@ -1049,6 +1070,69 @@ PROFILE PAGE
     margin-bottom: 25px;
 }
 
+.configImg {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-left: 10px;
+}
+
+.changeLogo {
+    padding: 8px 15px;
+    background-color: var(--background-color);
+    border-radius: 7px;
+    font-size: 14px;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    width: 120px !important;
+    margin-right: 15px;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    margin-bottom: 130px;
+}
+
+footer {
+    width: 100%;
+    background: var(--background-color);
+    position: absolute;
+    bottom: 0px; left: 0;
+    display: flex;
+    padding: 15px 0;
+    justify-content: center;
+}
+
+.copyright {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    color: white;
+    text-decoration: none;
+}
+
+.license {
+    display: flex;
+    align-items: center;
+}
+
+.license>a {
+    color: white !important;
+    text-decoration: none;
+}
+
+.license>img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    margin-right: 5px;
+}
+
 /*========================================
 Responsive
 ========================================*/
@@ -1082,6 +1166,10 @@ Responsive
 
     .ticket_page {
         padding: 0 25px;
+    }
+
+    footer {
+        padding: 15px 15px;
     }
 } 
 
@@ -1201,5 +1289,9 @@ Responsive
         height: 60px;
         object-fit: cover;
         margin-bottom: 10px;
+    }
+
+    footer {
+        padding: 15px 15px;
     }
 }
