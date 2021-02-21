@@ -53,7 +53,7 @@
                     </div>
                     <div class="ticket_line"></div>
                     <div class="ticket_client_message">
-                        <p>{{actualTicket.content}}</p>
+                        <p>{{actualTicket.content|nl2br}}</p>
                     </div>
                 </div>
         {# Affichage du contenu du premier ticket #}
@@ -84,7 +84,7 @@
                     </div>
                     <div class="ticket_line"></div>
                     <div class="ticket_client_message">
-                        <p>{{ MessageDisplay.content }}</p>
+                        <p>{{ MessageDisplay.content|nl2br }}</p>
                     </div>
                 </div>
 
