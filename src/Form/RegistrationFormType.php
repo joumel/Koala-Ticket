@@ -24,6 +24,7 @@ class RegistrationFormType extends AbstractType
             ->add('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'mapped' => false,
+                'invalid_message' => 'La confirmation du mot de passe est incorrecte',
                 'attr' => [
                     'class' => 'login_input',
                     'placeholder' => 'Votre mot de passe',

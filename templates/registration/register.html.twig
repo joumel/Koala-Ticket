@@ -43,7 +43,10 @@
             {{ form_widget(registrationForm.email) }}
         </div>
         <div class="error_msg">
-            {{ form_errors(registrationForm.plainPassword) }}
+            {{ form_errors(registrationForm.plainPassword.first) }}
+        </div>
+        <div class="error_msg">
+            {{ form_errors(registrationForm.plainPassword.second) }}
         </div>
         <div class="login_input_full">
             <i class="fas fa-unlock-alt"></i>
