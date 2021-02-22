@@ -20,6 +20,7 @@ class SecurityController extends AbstractController
         $actualConfig = $repository->findOneBy(array(),array('id'=>'ASC'),1,0);
 
         if ($this->getUser()) {
+            $this->addFlash('loginSuccess', 'Vous êtes bien connecté');
             return $this->redirectToRoute('dash_client');
         }
 

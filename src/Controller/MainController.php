@@ -175,6 +175,9 @@ class MainController extends AbstractController
             $em->persist($newTicket);
             $em->flush();
 
+                //Creation du message de succès
+                $this->addFlash('newTicketSuccess', 'Ticket créé avec succès !');
+
             // Redirection sur le ticket crée
             return $this->redirectToRoute('view_ticket', array('slug' => $newTicket->getSlug()));
         }
@@ -290,6 +293,8 @@ class MainController extends AbstractController
         $em->flush();
 
 
+        // message de fermeture du ticket
+        $this->addFlash('closeTicketSuccess', 'ticket fermé avec succès !');
 
         // Redirection au dashboard
         return $this->redirectToRoute('dash_client');
@@ -372,8 +377,8 @@ class MainController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->flush();
 
-            // Petit message de succès
-            $this->addFlash('success', 'Photo envoyée avec succès !');
+            // message de succès
+            $this->addFlash('photoSuccess', 'Photo envoyée avec succès !');
 
             // Redirection sur une autre page du site
             return $this->redirectToRoute('update_profile');

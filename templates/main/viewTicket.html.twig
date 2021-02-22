@@ -4,6 +4,10 @@
 
 {% block articles %}
 
+        {% for message in app.flashes('newTicketSuccess') %}
+        <div class="success-div vanishOut">{{ message }}</div>
+        {% endfor %}
+
 <div class="line_horizontal"></div>
         <div class="head_ticket">
             <div class="head_ticket_title">

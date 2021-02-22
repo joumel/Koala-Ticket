@@ -11,3 +11,8 @@
 .pulse { 
     animation-name: pulse; 
 }
+
+.success-div{
+    animation-duration: 25s;
+    animation-fill-mode: both;
+}

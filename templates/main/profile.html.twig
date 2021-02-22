@@ -4,6 +4,13 @@
 
 {% block articles %}
 
+<!-- Affichage message de succes -->
+            <div class="popupSuccess">
+            {% for message in app.flashes('photoSuccess') %}
+            <div class="success-div vanishOut">{{ message }}</div>
+            {% endfor %}
+            </div>
+
 <div class="line_horizontal"></div>
         <div class="head_ticket">
             <div class="head_ticket_btn">

@@ -11,10 +11,17 @@
     <link rel="stylesheet" href="{{ asset('css/master.css') }}">
 
     {# Inclusion des fichiers CSS individuel de la page #}
-    {% block css %}{% endblock %}
+    {% block css %}
+
+    {% endblock %}
 </head>
 
-<body class="login" style="{% if config == null %}{% else %}background-color:{{config.color}};{% endif %}">
+<body class="login" style="{% if config == null %}{% else %}background-color:{{config.color}};{% endif %}">        
+
+        {% for message in app.flashes('registerSuccess') %}
+        <div class="success-div vanishOut">{{ message }}</div>
+        {% endfor %}
+
 <form method="post" class="login_form">
     <img src="{% if config == null %}{{ asset('images/koala.png')}}{% else %}{{ asset(config.logo)}}{% endif %}" class="login_logo">
     {% if error %}
