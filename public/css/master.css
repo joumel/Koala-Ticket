@@ -7,6 +7,7 @@ POPUP MESSAGE DE CONFIRMATION
     margin-top: 10px;
     position: fixed;
     top: 0;
+    left: 50%;
 }
 
 .success-div {

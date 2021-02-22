@@ -3,13 +3,14 @@
 {% block articles %}
 
 <!-- message de success -->
-
+            <div class="popupSuccess">
             {% for message in app.flashes('closeTicketSuccess') %}
-            <div class="success-div vanishOut">{{ message }}</div>
+            <div class="success-div swashOut">{{ message }}</div>
             {% endfor %}
             {% for message in app.flashes('loginSuccess') %}
-            <div class="success-div vanishOut">{{ message }}</div>
+            <div class="success-div swashOut">{{ message }}</div>
             {% endfor %}
+            </div>
 
 <!-- Affichage des articles -->
 <div class="line_horizontal margin_line "></div>

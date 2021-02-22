@@ -483,6 +483,9 @@ class MainController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->flush();
 
+            //Message de succes
+            $this->addFlash('presetSite', 'Votre site à été mis a jour !');
+
             //Rechargement de la page pour afficher les nouveaux messages
             return $this->redirect($request->getUri());
 

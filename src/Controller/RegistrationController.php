@@ -119,7 +119,8 @@ class RegistrationController extends AbstractController
                 return $this->redirectToRoute('app_login');
             }
         }
-
+        //Message de succes 
+        $this->addFlash('addUserSuccess', 'Nouvel utilisateur enregistré dans l\'équipe');
         return $this->render('main/createUser.html.twig', [
             'form' => $form->createView(),
             'config' => $actualConfig,

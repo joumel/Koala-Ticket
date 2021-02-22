@@ -3,10 +3,12 @@
 {% block title %}Voir mon ticket{% endblock %}
 
 {% block articles %}
-
+    <!-- Message popup success-->
+        <div class="popupSuccess">
         {% for message in app.flashes('newTicketSuccess') %}
-        <div class="success-div vanishOut">{{ message }}</div>
+        <div class="success-div swashOut">{{ message }}</div>
         {% endfor %}
+        </div>
 
 <div class="line_horizontal"></div>
         <div class="head_ticket">

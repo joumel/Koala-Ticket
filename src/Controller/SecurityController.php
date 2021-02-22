@@ -20,8 +20,8 @@ class SecurityController extends AbstractController
         $actualConfig = $repository->findOneBy(array(),array('id'=>'ASC'),1,0);
 
         if ($this->getUser()) {
-            $this->addFlash('loginSuccess', 'Vous êtes bien connecté');
             return $this->redirectToRoute('dash_client');
+            $this->addFlash('loginSuccess', 'Vous êtes bien connecté');
         }
 
         // get the login error if there is one
@@ -41,6 +41,7 @@ class SecurityController extends AbstractController
      */
     public function logout()
     {
+        $this->addFlash('logoutSuccess', 'Vous ètes déconnecté');
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }
 }
