@@ -212,8 +212,8 @@ body {
 }
 
 .formPicture>img {
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     object-fit: contain;
 }
 
@@ -1095,14 +1095,6 @@ PROFILE PAGE
     flex-direction: column;
 }
 
-.profil_picture_profil {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 300px;
-    margin-bottom: 25px;
-}
-
 .configImg {
     width: 45px;
     height: 45px;
@@ -1177,6 +1169,14 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.profil_picture_profil {
+    width: 120px !important;
+    height: 120px !important;
+    object-fit: cover;
+    border-radius: 300px;
+    margin-bottom: 25px;
 }
 
 /*========================================
