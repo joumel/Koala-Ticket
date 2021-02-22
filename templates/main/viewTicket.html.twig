@@ -69,7 +69,7 @@
         {% for MessageDisplay in messageConversation %}
             {# Affichage d'une boite de message #}
             {% if MessageDisplay.author.roles[0] == 'ROLE_ADMIN' %}
-                <div class="client_response" style="{% if config == null %}green{% else %}background-color:{{config.color}};color:white;{% endif %}">
+                <div class="client_response" style="{% if config == null %}{% else %}background-color:{{config.color}};color:white;{% endif %}">
             {% else %}
                 <div class="client_response">
             {% endif %}
