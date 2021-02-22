@@ -12,8 +12,14 @@
         <div class="ticket_page">
             <form class="ticket_form" name="ticket" method="POST" novalidate="novalidate">
                 <h1>Vous rencontrez un problème ? Dites-nous tout.</h1>
+                <div class="error_msg">
+                    {{ form_errors(form.title) }}
+                </div>
                 <div class="login_input_full input_size_ticket">
                     {{ form_widget(form.title) }}
+                </div>
+                <div class="error_msg">
+                    {{ form_errors(form.content) }}
                 </div>
                 <div class="login_input_full input_size_ticket">
                     {{ form_widget(form.content) }}
