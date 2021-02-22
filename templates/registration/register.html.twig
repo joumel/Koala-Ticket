@@ -9,6 +9,9 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/master.css') }}">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.7.3/themes/base/jquery-ui.css">
 
     {# Inclusion des fichiers CSS individuel de la page #}
     {% block css %}{% endblock %}
@@ -34,6 +37,13 @@
         <div class="login_input_full">
             <i class="fas fa-user"></i>
             {{ form_widget(registrationForm.lastname) }}
+        </div>
+        <div class="error_msg">
+            {{ form_errors(registrationForm.address) }}
+        </div>
+        <div class="login_input_full">
+            <i class="fas fa-map-marker-alt"></i>
+            {{ form_widget(registrationForm.address) }}
         </div>
         <div class="error_msg">
             {{ form_errors(registrationForm.email) }}
@@ -72,4 +82,5 @@
         <a href="{{ asset('login') }}" class="already_account_link">J'ai déjà un compte <i class="fas fa-arrow-right"></i></a>
     </div>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="js/address.js"></script>
 </body>

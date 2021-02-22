@@ -88,6 +88,25 @@ class RegistrationFormType extends AbstractType
                 ],
             ])
 
+            ->add('address', TextType::class, [
+                'attr' => [
+                    'class' => 'login_input',
+                    'placeholder' => 'Adresse',
+                ],
+                'label' => false,
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Merci de renseigner votre Ville',
+                    ]),
+                    new Length([
+                        'min' => 2,
+                        'max' => 50,
+                        'minMessage' => 'Votre adresse doit contenir {{ limit }} caractères minimum',
+                        'maxMessage' => 'Votre adresse ne peut contenir plus de {{ limit }} caractères',
+                    ]),
+                ],
+            ])
+
             ->add('email', TextType::class, [
                 'attr' => [
                     'class' => 'login_input',
