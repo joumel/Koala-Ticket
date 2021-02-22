@@ -5,9 +5,10 @@ POPUP MESSAGE DE CONFIRMATION
 
 .popupSuccess {
     margin-top: 10px;
+    margin: 5px auto;
     position: fixed;
     top: 0;
-    left: 41%;
+    
 }
 
 .success-div {
@@ -1205,25 +1206,7 @@ Responsive
 ========================================*/
 
 @media screen and (max-width: 1200px) {
-    
-/*========================================
-POPUP MESSAGE DE CONFIRMATION
-========================================*/
 
-.popupSuccess {
-    margin-top: 10px;
-    position: fixed;
-    top: 0;
-}
-
-.success-div {
-    padding: 20px;
-    background: #fff;
-    border-radius: 7px;
-    text-align: center;
-    width: 100%;
-    position: relative;
-}
     .statut {
         margin: -40px 15px 0 15px;
     }
@@ -1263,25 +1246,6 @@ POPUP MESSAGE DE CONFIRMATION
 } 
 
 @media screen and (max-width: 900px) {
-
-/*========================================
-POPUP MESSAGE DE CONFIRMATION
-========================================*/
-
-.popupSuccess {
-    margin-top: 10px;
-    position: fixed;
-    top: 0;
-}
-
-.success-div {
-    padding: 20px;
-    background: #fff;
-    border-radius: 7px;
-    text-align: center;
-    width: 100%;
-    position: relative;
-}
 
     .all_articles {
         flex-wrap: wrap;
