@@ -30,20 +30,8 @@
                 <button type="submit" class="login_button input_size_ticket" style="{% if config == null %}{% else %}background-color:{{config.color}};{% endif %}">Ouvrir un ticket</button>
                 {{ form_row(form._token) }}
             </form>
-            <div class="ticket_information">
-                <h1>Concernant notre support</h1>
-                <div class="ticket_information_box no_top_margin">
-                    <i class="fas fa-clock"></i>
-                    <p>Notre service est ouvert du lundi au vendredi de 9h à 14h.</p>
-                </div>
-                <div class="ticket_information_box">
-                    <i class="fas fa-info-circle"></i>
-                    <p>Vous aurez une réponse sous 2 jours ouvrés</p>
-                </div>
-                <div class="ticket_information_box">
-                    <i class="fas fa-exclamation-triangle"></i>
-                    <p>N'abusez pas de la priorité, soyez honnête</p>
-                </div>
+            <div class="ticket_information centerImg">
+                <img src="{{asset('images/team.svg')}}">
             </div>
         </div>
     </div>

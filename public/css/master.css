@@ -1166,6 +1166,19 @@ footer {
     margin-right: 5px;
 }
 
+.ticket_information>img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+} 
+
+.centerImg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 /*========================================
 Responsive
 ========================================*/
@@ -1279,7 +1292,7 @@ Responsive
     }
 
     .statut {
-        flex-direction: column-reverse;
+        flex-direction: column;
     }
 
     .statut_btn_width {
