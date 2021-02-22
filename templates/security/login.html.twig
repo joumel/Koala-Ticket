@@ -30,7 +30,7 @@
         </div>
 
 <form method="post" class="login_form">
-    <img src="{% if config == null %}{{ asset('images/koala.png')}}{% else %}{{ asset(config.logo)}}{% endif %}" class="login_logo">
+    <img src="{% if config == null %}{{ asset('images/koala.png')}}{% else %}{{ asset(config.logo)}}{% endif %}" class="login_logo" alt="logo du site">
     {% if error %}
         <div class="login_errors">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
