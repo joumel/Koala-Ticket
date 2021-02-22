@@ -76,7 +76,7 @@ class StaffType extends AbstractType
                         'minMessage' => 'Votre prénom doit contenir {{ limit }} caractères minimum',
                         'maxMessage' => 'Votre prénom ne peut contenir plus de {{ limit }} caractères',
                     ]),
-                    ],
+                ],
             ])
 
             ->add('lastname', TextType::class, [
@@ -109,16 +109,6 @@ class StaffType extends AbstractType
                         'message' => 'Merci de renseigner votre email',
                     ]),
                     ],
-            ])
-
-
-            ->add('agreeTerms', CheckboxType::class, [
-                'mapped' => false,
-                'constraints' => [
-                    new IsTrue([
-                        'message' => 'Vous devez acceptez les conditions générales d\'utilisations',
-                    ]),
-                ],
             ])
 
             ->add('save', SubmitType::class, [ // Ajout d'un champ de type bouton de validation

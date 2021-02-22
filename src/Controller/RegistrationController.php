@@ -22,7 +22,7 @@ class RegistrationController extends AbstractController
      * @Route("/register", name="app_register")
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, RecaptchaValidator $recaptcha): Response
-    {   
+    {
         $repository = $this->getDoctrine()->getRepository(Config::class);
         $actualConfig = $repository->findOneBy(array(),array('id'=>'ASC'),1,0);
 
@@ -79,7 +79,7 @@ class RegistrationController extends AbstractController
      * @Security("is_granted('ROLE_ADMIN')")
      */
     public function addUsers(Request $request, UserPasswordEncoderInterface $passwordEncoder, RecaptchaValidator $recaptcha): Response
-    {   
+    {
         $repository = $this->getDoctrine()->getRepository(Config::class);
         $actualConfig = $repository->findOneBy(array(),array('id'=>'ASC'),1,0);
 
@@ -89,8 +89,12 @@ class RegistrationController extends AbstractController
 
         if ($form->isSubmitted()) {
 
+            dump($form);
+
             if ($form->isValid()){
                 // encode the plain password
+                dump($user);
+
                 $user->setPassword(
                     $passwordEncoder->encodePassword(
                         $user,
