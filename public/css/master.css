@@ -350,7 +350,6 @@ TICKET SECTION (DASHBOARD CLIENT)
 
 .test {
     width: 100%;
-    border-collapse: collapse;
 }
 
 thead>tr {
@@ -1379,4 +1378,6 @@ Responsive
         margin: 0;
         margin-top: 20px;
     }
+
+
 }
