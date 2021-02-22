@@ -47,7 +47,11 @@
                             <p>Logo de votre site</p>
                         </div>
                         <div class="login_input_full">
+                            {% if config == null %}
+                            
+                            {% else %}
                             <img src="{{asset(config.logo)}}" class="configImg">
+                            {% endif %}
                             <input type="file" id="config_logo" name="config[logo]" class="login_input" style="{% if config == null %}{% else %} text-align: end; {% endif %}" value="{% if config == null %}{% else %}{{config.logo}}{% endif %}">
                         </div>
                     </div>
