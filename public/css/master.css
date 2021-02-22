@@ -211,6 +211,38 @@ body {
     display: none;
 }
 
+.formPicture>img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+}
+
+.formPicture {
+    justify-content: center;
+    align-items: center;
+}
+
+.formAll {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.labelInput {
+    background-color: #ececec;
+    border-radius: 7px;
+    padding: 15px;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.829);
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    width: 220px;
+    margin-bottom: 9px;
+    margin-right: 10px;
+}
+
+
 /*========================================
 TICKET SECTION (DASHBOARD CLIENT)
 ========================================*/
@@ -734,12 +766,13 @@ Ticket page
     padding: 25px;
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     border-radius: 7px;
     box-sizing: border-box;
     text-align: center;
     margin: 10px 0;
+    font-size: 14px;
 }
 
 .ticket_information_box>i {
@@ -1071,8 +1104,8 @@ PROFILE PAGE
 }
 
 .configImg {
-    width: 80px;
-    height: 80px;
+    width: 45px;
+    height: 45px;
     object-fit: contain;
     margin-left: 10px;
 }
@@ -1170,6 +1203,10 @@ Responsive
 
     footer {
         padding: 15px 15px;
+    }
+
+    .formPictureFull {
+        padding: 0 15px;
     }
 } 
 
@@ -1293,5 +1330,18 @@ Responsive
 
     footer {
         padding: 15px 15px;
+    }
+
+    .login_input {
+        width: 70%;
+    }
+
+    .profile_update_box {
+        flex-wrap: wrap;
+    }
+
+    .marginPictureBox {
+        margin: 0;
+        margin-top: 20px;
     }
 }

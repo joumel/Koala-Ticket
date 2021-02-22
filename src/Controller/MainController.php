@@ -18,6 +18,8 @@ use App\Form\AddPhotoType;
 use App\Form\UpdateNameType;
 use App\Form\ConfigType;
 use App\Entity\Config;
+use App\Form\StaffType;
+
 
 class MainController extends AbstractController
 {

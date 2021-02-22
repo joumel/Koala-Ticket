@@ -8,7 +8,7 @@
         <div class="head_ticket">
             <div class="head_ticket_btn">
                 <div class="ticket_title">
-                    <p>{{ app.user.firstname }} {{ app.user.lastname}}</p>
+                    <p>Configuration de votre système ticket</p>
                 </div>
                  <div class="btn_box">
                     <a class="primary_btn_white" href="{{ path('dash_client')}}">Retour</a>
@@ -20,7 +20,7 @@
 {% endblock %}
 
 {% block body %}
-<section class="statut_top">
+    <section class="statut_top">
         <div class="statut" id="statut">
             <div class="statut_text">
                 <p>Personnalisez votre système.</p>
@@ -28,23 +28,46 @@
             </div>
         </div>
     </section>
+
     <section class="formPictureFull">
         <div class="profile_update_box">   
             <div class="formPicture">
                 <form name="config" method="post" enctype="multipart/form-data" style="width: 100%;">
-                    <div class="login_input_full">
-                        <input type="text" id="config_name" name="config[name]" required="required" class="login_input" placeholder="Nom du site" value="{% if config == null %}{% else %}{{config.name}}{% endif %}">
+                    <div class="formAll">
+                        <div class="labelInput">
+                            <p>Nom de votre site</p>
+                        </div>
+                        <div class="login_input_full">
+                            <i class="fas fa-bookmark"></i>
+                            <input type="text" id="config_name" name="config[name]" required="required" class="login_input" placeholder="Nom du site" value="{% if config == null %}{% else %}{{config.name}}{% endif %}">
+                        </div>
                     </div>
-                    <div class="login_input_full" style="justify-content: space-between;">
-                        {% if config == null %}{% else %}<img src="{{asset(config.logo)}}" class="configImg">{% endif %}
-                        {% if config == null %}{% else %}<div class="changeLogo" id="configLogo" style="{% if config == null %}{% else %}background-color:{{config.color}};{% endif %}">Changer le logo</div>{% endif %}
-                        <input type="file" id="config_logo" name="config[logo]" class="login_input {% if config == null %}{% else %} hidden {% endif %}" style="{% if config == null %}{% else %} text-align: end; {% endif %}" value="{% if config == null %}{% else %}{{config.logo}}{% endif %}">
+                    <div class="formAll">
+                        <div class="labelInput">
+                            <p>Logo de votre site</p>
+                        </div>
+                        <div class="login_input_full">
+                            <img src="{{asset(config.logo)}}" class="configImg">
+                            <input type="file" id="config_logo" name="config[logo]" class="login_input" style="{% if config == null %}{% else %} text-align: end; {% endif %}" value="{% if config == null %}{% else %}{{config.logo}}{% endif %}">
+                        </div>
                     </div>
-                    <div class="login_input_full">
-                        <input type="text" id="config_color" name="config[color]" required="required" class="login_input" placeholder="Couleur HEXA, laissez vide pour garder l'actuelle" value="{% if config == null %}{% else %}{{config.color}}{% endif %}">
+                    <div class="formAll">
+                        <div class="labelInput">
+                            <p>Couleur secondaire</p>
+                        </div>
+                        <div class="login_input_full">
+                            <i class="fas fa-eye-dropper"></i>
+                            <input type="text" id="config_color" name="config[color]" required="required" class="login_input" placeholder="Couleur HEXA, laissez vide pour garder l'actuelle" value="{% if config == null %}{% else %}{{config.color}}{% endif %}">
+                        </div>
                     </div>
-                    <div class="login_input_full">
-                        <input type="text" id="config_staff_name" name="config[staff_name]" required="required" class="login_input" placeholder="Le nom de votre équipe" value="{% if config == null %}{% else %}{{config.staffName}}{% endif %}">
+                    <div class="formAll">
+                        <div class="labelInput">
+                            <p>Nom du staff</p>
+                        </div>
+                        <div class="login_input_full">
+                            <i class="fas fa-users"></i>
+                            <input type="text" id="config_staff_name" name="config[staff_name]" required="required" class="login_input" placeholder="Le nom de votre équipe" value="{% if config == null %}{% else %}{{config.staffName}}{% endif %}">
+                        </div>
                     </div>
                     <div>
                         {{ form_row(form._token) }}
@@ -54,16 +77,16 @@
             </div>
             <div class="formPicture marginPictureBox">
                 <div class="ticket_information_box no_top_margin">
-                    <p>Changez le nom de votre site</p>
+                    <p>Ajoutez des membres à votre équipe</p>
+                    <a href="{{path('addusers')}}" class="primary_btn_success" style="{% if config == null %}{% else %}background-color:{{config.color}};{% endif %}">Ajouter</a>
                 </div>
                 <div class="ticket_information_box">
-                    <p>Changez la couleur secondaire de votre site</p>
+                    <p>Liste des membres de votre équipe</p>
+                    <a href="{{path('addusers')}}" class="primary_btn_success" style="{% if config == null %}{% else %}background-color:{{config.color}};{% endif %}">Voir la liste</a>
                 </div>
                 <div class="ticket_information_box">
-                    <p>Ajoutez votre propre logo</p>
-                </div>
-                <div class="ticket_information_box">
-                    <p>Ajoutez un nom de team</p>
+                    <p>Activer le mode maintenance</p>
+                    <a href="{{path('addusers')}}" class="primary_btn_success" style="{% if config == null %}{% else %}background-color:{{config.color}};{% endif %}">Maintenance</a>
                 </div>
             </div>
         </div>

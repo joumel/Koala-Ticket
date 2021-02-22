@@ -128,7 +128,7 @@
             </div>
             {# Si le ticket est fermé, réponse d'un bot #}
             {% else %}
-                <div class="client_response green" style="{% if config == null %}{% else %}background-color:{{config.color}};{% endif %}">
+                <div class="client_response green" style="{% if config == null %}{% else %}background-color:{{config.color}} !important;{% endif %}">
                     <div class="ticket_client_message">
                         <p style="text-align:center;font-size:14px">Le ticket est actuellement fermé.<br>Si vous pensez qu'il s'agit d'une erreur, ouvrez un nouveau ticket.<br>Indiquez alors la référence de ce ticket.</p>
                     </div>
