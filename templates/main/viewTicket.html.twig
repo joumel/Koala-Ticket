@@ -86,7 +86,7 @@
                             <div class="client_info">
                                 <p>{{ MessageDisplay.author.lastname }} {{ MessageDisplay.author.firstname }}</p>
                                 {% if MessageDisplay.author.roles[0] == 'ROLE_ADMIN' %}
-                                <p>{% if config == null %}De l'équipe Koala Ticket{% else %}{{config.name}}{% endif %}</p>
+                                <p>{% if config == null %}De l'équipe Koala Ticket{% else %}{{config.staffName}}{% endif %}</p>
                                 {% else %}
                                 <p>Client</p>
                                 {% endif %}

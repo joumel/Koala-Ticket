@@ -59,10 +59,10 @@ class MainController extends AbstractController
 
 
         //Récupération des tickets répondus
-        $ticketsAnswered = $ticketRepo->findBy(['statement' => 'répondu'], ['level' => 'DESC','updateTime' => 'DESC']);
+        $ticketsAnswered = $ticketRepo->findBy(['statement' => 'répondu'], ['level' => 'DESC','updateTime' => 'ASC']);
 
         //Récupération des tickets en attente
-        $ticketsPending = $ticketRepo->findBy(['statement' => 'en attente'], ['level' => 'DESC','updateTime' => 'DESC']);
+        $ticketsPending = $ticketRepo->findBy(['statement' => 'en attente'], ['level' => 'DESC','updateTime' => 'ASC']);
 
         //Récupération des tickets fermés
         $ticketsClosed = $ticketRepo->findBy(['statement' => 'fermé'], ['updateTime' => 'DESC']);
