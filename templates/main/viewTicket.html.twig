@@ -52,7 +52,7 @@
                             </div>
                         </div>
                         <div>
-                            <p class="response_date" style="{% if config == null %}{% else %}background-color:{{config.color}};{% endif %}">{{actualTicket.updateTime|date('d/m/Y à H\\hi')}}</p>
+                            <p class="response_date" style="{% if config == null %}{% else %}background-color:{{config.color}};{% endif %}">{{actualTicket.creationDate|date('d/m/Y à H\\hi')}}</p>
                         </div>
                     </div>
                     <div class="ticket_line"></div>
