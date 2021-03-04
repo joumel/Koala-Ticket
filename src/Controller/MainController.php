@@ -28,6 +28,10 @@ class MainController extends AbstractController
      */
     public function index(): Response
     {
+
+        // redirects to the "login" route
+        return $this->redirectToRoute('app_login');
+
         return $this->render('main/index.html.twig', [
             'controller_home' => 'Page d\'acceuil',
         ]);
@@ -105,6 +109,7 @@ class MainController extends AbstractController
         //Récupération des tickets fermés du client connecté
         $ticketsClosedClient = $ticketRepo->findby(['owner' => $userId , 'statement' => 'fermé'],['updateTime' => 'DESC']);
 
+        //Si l'utilisateur à le rôle admin, on le redirige vers le dashboard admin
         if ($userRoles[0] == 'ROLE_ADMIN') {
             return $this->redirectToRoute('dash_admin');
         };
@@ -203,6 +208,7 @@ class MainController extends AbstractController
 
         $userId = $this->getUser()->getId();
 
+        //Récupération des repository
         $messageRepo = $this->getDoctrine()->getRepository(Message::class);
         $ticketInfo = $this->getDoctrine()->getRepository(Ticket::class);
         $userInfo = $this->getDoctrine()->getRepository(User::class);
@@ -226,6 +232,7 @@ class MainController extends AbstractController
         // Envoi du formulaire
         $form->handleRequest($request);
 
+        //Si le formulaire est esnvoyé et valide on hydrate
         if($form->isSubmitted() && $form->isValid()){
 
             date_default_timezone_set('Europe/Paris');

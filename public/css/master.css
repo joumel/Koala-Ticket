@@ -294,7 +294,7 @@ TICKET SECTION (DASHBOARD CLIENT)
 }
 
 .opened_title {
-    border: solid 1px rgba(0, 0, 0, 0.178);
+    background-color: #ececec;
 }
 
 .opened_mobile>h1 {
@@ -350,12 +350,6 @@ TICKET SECTION (DASHBOARD CLIENT)
 
 .test {
     width: 100%;
-    border-collapse: collapse;
-}
-
-thead>tr {
-    border: solid 2px black;
-    border-radius: 7px;
 }
 
 td {
@@ -860,7 +854,6 @@ ERROR PAGE
 ========================================*/
 
 .error_400 {
-    background-color: #3AB397;
     display: flex;
     justify-content: center;
     position: absolute;
@@ -899,7 +892,7 @@ TICKET VIEW
 .primary_btn_return {
     padding: 12px 25px;
     border-radius: 7px;
-    background-color: var(--background-color);
+    background-color: #a3a3a3;
     transition: ease 0.2s;
     color: white;
     display: flex;
@@ -1379,4 +1372,6 @@ Responsive
         margin: 0;
         margin-top: 20px;
     }
+
+
 }

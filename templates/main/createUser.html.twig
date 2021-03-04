@@ -23,7 +23,6 @@
                 </div>
             </div>
         </div>
-    </header>
 
 {% endblock %}
 
@@ -57,7 +56,7 @@
                         </div>
                         <div class="login_input_full">
                              <i class="fas fa-user"></i>
-                        <input type="text" id="staff_lastname" name="staff[lastname]" required="required" class="login_input" placeholder="Nom du nouveau staff">
+                            <input type="text" id="staff_lastname" name="staff[lastname]" required="required" class="login_input" placeholder="Nom du nouveau staff">
                         </div>
                     </div>
                     <div class="formAll">
@@ -87,13 +86,12 @@
                             <input type="password" id="staff_plainPassword_second" name="staff[plainPassword][second]" required="required" placeholder="Nouveau mot de passe" class="login_input">
                         </div>
                     </div>
-                    <input type="hidden" id="staff_agreeTerms" name="staff[agreeTerms]" required="required" value="1" class="login_input" checked>
                     <button type="submit" id="staff_save" name="staff[save]" class="login_button input_size_ticket" style="{% if config == null %}{% else %}background-color:{{config.color}};{% endif %}">Ajouter un utilisateur</button>
-                    <input type="hidden" id="staff__token" name="staff[_token]" value="ft55jPSt8987kx7TXQwyRTEI7y26-IzuPDunmqDNah8">
+                    {{ form_row(form._token) }}
                 </form>
             </div>
             <div class="formPicture marginPictureBox">
-                <img src="{{asset('images/team.svg')}}">
+                <img src="{{asset('images/team.svg')}}" alt="imgTeam">
             </div>
         </div>
     </section>

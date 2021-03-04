@@ -44,7 +44,6 @@
                 </div>
             </div>
         </div>
-    </header>
 {% endblock %}
 
 {% block title %}Dashboard{% endblock %}
@@ -97,7 +96,6 @@
                                 <td>{{ ticketAC.updateTime|date('d/m/Y à H\\hi') }}</td>
                                 <td>#{{ ticketAC.id }}</td>
                                 <td class="end_ticket"><a href="{{path('view_ticket', {'slug': ticketAC.slug} ) }}" class="primary_btn_success" style="{% if config == null %}{% else %}background-color:{{config.color}};{% endif %}">{{ ticketAC.statement|capitalize }}</a></td>
-                                <tr style="height: 10px; background-color: transparent;"></tr>
                             </tr>
                         {% endfor %}
                     {% endif %}
@@ -120,7 +118,6 @@
                                 <td>{{ ticketPC.updateTime|date('d/m/Y à H\\hi') }}</td>
                                 <td>#{{ ticketPC.id }}</td>
                                 <td class="end_ticket"><a href="{{path('view_ticket', {'slug': ticketPC.slug} ) }}" class="primary_btn_wait">{{ ticketPC.statement|capitalize }}</a></td>
-                                <tr style="height: 10px; background-color: transparent;"></tr>
                             </tr>
                         {% endfor %}
                     {% endif %}
@@ -207,7 +204,6 @@
                                 <td>{{ ticketCC.updateTime|date('d/m/Y à H\\hi') }}</td>
                                 <td>#{{ ticketCC.id }}</td>
                                 <td class="end_ticket"><a href="{{path('view_ticket', {'slug': ticketCC.slug} ) }}" class="primary_btn_close">{{ ticketCC.statement|capitalize }}</a></td>
-                                <tr style="height: 10px; background-color: transparent;"></tr>
                             </tr>
                         {% endfor %}
                     {% endif %}

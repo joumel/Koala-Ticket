@@ -35,7 +35,6 @@ class RegistrationFormType extends AbstractType
                 ],
                 'second_options' => [
                     'label' => 'Confirmation du mot de passe',
-
                 ],
                 'label' => false,
                 'constraints' => [

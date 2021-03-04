@@ -51,7 +51,7 @@
                     <a href="{{ path('main_config')}}"><i class="fas fa-cog"></i> Configuration</a>
                     {% endif %}
                     <a href="{{ path('update_profile')}}"><i class="fas fa-user"></i> Profil</a>
-                    <a href="{{ path('nightmode')}}"><i class="fas fa-moon"></i> Mode nuit</a>
+                    <a href="{{ path('nightmode')}}">{{ app.user.nightmode == '{{asset("css/nightmode.css")}}'? '<i class="fas fa-sun"></i> Mode jour' : '<i class="fas fa-moon"></i> Mode nuit' }}</a>
                     <a href="{{ asset('logout')}}" class="logout_link"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
                 </div>
             </div>
@@ -68,7 +68,7 @@
         <div class="copyright">
             <p>Copyright 2021-2022</p>
             <div class="license">
-                <img src="{{ asset('images/koala.png') }}">
+                <img src="{{ asset('images/koala.png') }}" alt="Logo du site">
                 <a href="https://github.com/joumel/Koala-Ticket">Koala Ticket System</a>
             </div>
         </div>
